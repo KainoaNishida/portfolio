@@ -12,9 +12,9 @@ const Projects = () => {
       longDescription: "Developed a comprehensive dashboard system for Collete's Children Home that streamlines the process of matching clients with managers and tracking treatment progress. The system helps the non-profit organization efficiently manage and monitor the care provided to disadvantaged mothers, improving their ability to deliver essential services and support.",
       tech: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Express', 'Chakra UI', 'Firebase', 'AWS SDK'],
       github: 'https://github.com/ctc-uci/cch',
-      demo: '/colletes-demo.mp4',
+      demo: 'colletes-demo.mp4',
       image: 'https://placehold.co/800x600/2563EB/FFFFFF?text=Colletes+Dashboard&font=inter',
-      video: '/colletes-demo.mp4',
+      video: 'colletes-demo.mp4',
       status: 'Live',
       featured: true,
       year: '2024'
@@ -39,9 +39,9 @@ const Projects = () => {
       longDescription: 'Created a search engine that helps users find clothing products from eco-friendly companies. Implemented a deep learning model that generates eco-friendliness scores based on multiple data inputs, trained and validated against publicly traded companies\' ESG scores.',
       tech: ['TypeScript', 'Python', 'PyTorch', 'FastAPI', 'React', 'PostgreSQL', 'AWS'],
       github: 'https://github.com/KainoaNishida/calhacks',
-      demo: '/sustainably_demo.mov',
+      demo: 'sustainably_demo.mov',
       image: 'https://placehold.co/800x600/7C3AED/FFFFFF?text=Sustainably&font=inter',
-      video: '/sustainably_demo.mov',
+      video: 'sustainably_demo.mov',
       status: 'Completed',
       featured: true,
       year: '2024'
