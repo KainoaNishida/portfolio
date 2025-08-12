@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState(null);
+  const [photoIndices, setPhotoIndices] = useState({});
 
-  const projects = [
+  const projects = useMemo(() => [
     {
       id: 1,
       title: "Collete's Children Home Dashboard",
@@ -12,9 +13,8 @@ const Projects = () => {
       longDescription: "Developed a comprehensive dashboard system for Collete's Children Home that streamlines the process of matching clients with managers and tracking treatment progress. The system helps the non-profit organization efficiently manage and monitor the care provided to disadvantaged mothers, improving their ability to deliver essential services and support.",
       tech: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Express', 'Chakra UI', 'Firebase', 'AWS SDK'],
       github: 'https://github.com/ctc-uci/cch',
-      demo: 'colletes-demo.mp4',
       image: 'https://placehold.co/800x600/2563EB/FFFFFF?text=Colletes+Dashboard&font=inter',
-      video: 'colletes-demo.mp4',
+      video: 'https://www.youtube.com/embed/5TsfGhw38d4?autoplay=1&mute=1&loop=1&playlist=5TsfGhw38d4',
       status: 'Live',
       featured: true,
       year: '2024'
@@ -26,10 +26,8 @@ const Projects = () => {
       longDescription: 'Collaborated with Max Fukuhara to develop a sophisticated ELO ranking platform for UCLA. Currently expanding the project with a growing team to implement additional features including an alumni network and enhanced statistical analysis tools.',
       tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Chakra UI', 'AWS'],
       github: 'https://github.com/maxfukuh4ra/uclaranked',
-      demo: 'https://ucla-ranked.vercel.app',
-      image: 'https://placehold.co/800x600/059669/FFFFFF?text=UCLA+Ranked&font=inter',
       status: 'Live',
-      featured: true,
+      featured: false,
       year: '2024'
     },
     {
@@ -39,9 +37,8 @@ const Projects = () => {
       longDescription: 'Created a search engine that helps users find clothing products from eco-friendly companies. Implemented a deep learning model that generates eco-friendliness scores based on multiple data inputs, trained and validated against publicly traded companies\' ESG scores.',
       tech: ['TypeScript', 'Python', 'PyTorch', 'FastAPI', 'React', 'PostgreSQL', 'AWS'],
       github: 'https://github.com/KainoaNishida/calhacks',
-      demo: 'sustainably_demo.mov',
       image: 'https://placehold.co/800x600/7C3AED/FFFFFF?text=Sustainably&font=inter',
-      video: 'sustainably_demo.mov',
+      video: 'https://www.youtube.com/embed/eRWfTVFnekc?autoplay=1&mute=1&loop=1&playlist=eRWfTVFnekc',
       status: 'Completed',
       featured: true,
       year: '2024'
@@ -53,6 +50,7 @@ const Projects = () => {
       longDescription: 'Built a complete movie database web application from scratch, featuring secure login, full-text search with auto-complete, cart checkout, and extensive performance optimizations including MySQL connection pooling and load balancing.',
       tech: ['Java', 'MySQL', 'Tomcat', 'AWS', 'jQuery', 'Android SDK'],
       // github: 'https://github.com/kainoa-nishida/fabflix',
+      demo: 'https://youtu.be/vBxpvysVO_Y',
       image: 'https://placehold.co/800x600/059669/FFFFFF?text=Fabflix&font=inter',
       status: 'Completed',
       featured: false,
@@ -68,7 +66,19 @@ const Projects = () => {
       image: 'https://placehold.co/800x600/2563EB/FFFFFF?text=FPOTH&font=inter',
       status: 'Live',
       featured: false,
-      year: '2023'
+      year: '2023',
+      hasPhotos: true,
+      photoFolder: 'fph',
+      photos: [
+        '/src/assets/project_photos/fph/admin-dashboard.png',
+        '/src/assets/project_photos/fph/donation-form.png',
+        '/src/assets/project_photos/fph/onboarding.png'
+      ],
+      captions: [
+        'Dashboard',
+        'Donation Form',
+        'Onboarding Entry'
+      ]
     },
     {
       id: 6,
@@ -80,9 +90,28 @@ const Projects = () => {
       image: 'https://placehold.co/800x600/DC2626/FFFFFF?text=Valnotes&font=inter',
       status: 'Live',
       featured: false,
-      year: '2023'
+      year: '2023',
+      hasPhotos: true,
+      photoFolder: 'valnotes',
+      photos: [
+        '/src/assets/project_photos/valnotes/photo1.png',
+        '/src/assets/project_photos/valnotes/photo2.png',
+        '/src/assets/project_photos/valnotes/photo3.png',
+        '/src/assets/project_photos/valnotes/photo4.png',
+        '/src/assets/project_photos/valnotes/photo5.png',
+        '/src/assets/project_photos/valnotes/photo6.png',
+        '/src/assets/project_photos/valnotes/photo7.png'
+      ],
+      captions: [
+        'Video Upload Interface',
+        'Annotation Tools',
+        'Game Data Display',
+        'Player Statistics',
+        'Match Analysis',
+        'Note Management',
+        'Settings Panel'
+      ]
     },
-    
     {
       id: 7,
       title: 'Pokéscape',
@@ -93,21 +122,97 @@ const Projects = () => {
       image: 'https://placehold.co/800x600/059669/FFFFFF?text=Pokescape&font=inter',
       status: 'Completed',
       featured: false,
-      year: '2023'
+      year: '2023',
+      demo: 'https://youtu.be/VISm_A_FCxw',
+      hasPhotos: true,
+      photoFolder: 'pokescape',
+      photos: [
+        '/src/assets/project_photos/pokescape/start.png',
+        '/src/assets/project_photos/pokescape/2.png',
+        '/src/assets/project_photos/pokescape/3.png',
+        '/src/assets/project_photos/pokescape/4.png',
+        '/src/assets/project_photos/pokescape/5.png',
+        '/src/assets/project_photos/pokescape/6.png',
+        '/src/assets/project_photos/pokescape/7.png'
+      ],
+      captions: [
+        'Start Screen',
+        'Dialogue 1',
+        'Dialogue 2',
+        'Dialogue 3',
+        'World Exploration 1',
+        'World Exploration 2',
+        'Puzzle'
+      ]
     },
     {
       id: 8,
-      title: 'Minecraft RI Agent',
-      description: 'Custom reinforcement learning agent for automated diamond mining in Minecraft.',
-      longDescription: 'Implemented a deep Q-learning algorithm to train an agent in a custom Minecraft environment, focusing on efficient resource gathering and navigation.',
-      tech: ['Python', 'PyTorch', 'Malmo', 'NumPy'],
-      image: 'https://placehold.co/800x600/059669/FFFFFF?text=Minecraft+RL&font=inter',
+      title: 'Get Inspired',
+      description: 'Web application and database for storing and displaying Pismo clam survey information with automated statistics.',
+      longDescription: 'A web application and database that stores and displays information about Pismo clams—including color, location, survey date/time, and other key characteristics. The interface enables GSP to easily input, view, and query data, while the dashboard automatically calculates survey statistics to support efforts in restoring the clam population.',
+      tech: ['React', 'Node.js', 'PostgreSQL', 'Express'],
+      github: 'https://github.com/ctc-uci/get-inspired-frontend',
+      image: 'https://placehold.co/800x600/7C3AED/FFFFFF?text=GSP&font=inter',
+      status: 'Completed',
+      featured: false,
+      year: '2024',
+      hasPhotos: true,
+      photoFolder: 'gsp',
+      photos: [
+        '/src/assets/project_photos/gsp/1.png',
+        '/src/assets/project_photos/gsp/2.png',
+        '/src/assets/project_photos/gsp/3.png',
+        '/src/assets/project_photos/gsp/4.png',
+        '/src/assets/project_photos/gsp/5.png'
+      ],
+      captions: [
+        'Survey Dashboard',
+        'Data Entry Form',
+        'Statistics Overview',
+        'Survey Results',
+        'Data Export'
+      ]
+    },
+    {
+      id: 9,
+      title: 'Agape',
+      description: 'Web application for community building and social connection.',
+      longDescription: 'A platform designed to foster meaningful connections and community engagement through innovative social features and intuitive user experience.',
+      tech: ['React', 'Node.js', 'MongoDB', 'Express'],
+      github: 'https://github.com/KainoaNishida/agape',
+      demo: 'https://youtu.be/lDC4x5Eh4fE',
+      image: 'https://placehold.co/800x600/DC2626/FFFFFF?text=Agape&font=inter',
+      status: 'Live',
+      featured: false,
+      year: '2024'
+    },
+    {
+      id: 10,
+      title: 'Maze Runner',
+      description: 'Interactive maze generation and solving algorithm visualization.',
+      longDescription: 'An educational tool that demonstrates various maze generation algorithms and pathfinding solutions, providing visual insights into computational problem-solving approaches.',
+      tech: ['Python', 'Pygame', 'NumPy'],
+      github: 'https://github.com/KainoaNishida/maze-runner',
+      demo: 'https://youtu.be/mmP9CtKYGtM',
+      image: 'https://placehold.co/800x600/059669/FFFFFF?text=Maze+Runner&font=inter',
       status: 'Completed',
       featured: false,
       year: '2023'
     },
     {
-      id: 9,
+      id: 11,
+      title: 'Minecraft RI Agent',
+      description: 'Custom reinforcement learning agent for automated diamond mining in Minecraft.',
+      longDescription: 'Implemented a deep Q-learning algorithm to train an agent in a custom Minecraft environment, focusing on efficient resource gathering and navigation.',
+      tech: ['Python', 'PyTorch', 'Malmo', 'NumPy'],
+      image: 'https://placehold.co/800x600/059669/FFFFFF?text=Minecraft+RL&font=inter',
+      demo: 'https://youtu.be/kgeDFwxfVCM',
+      status: 'Completed',
+      featured: false,
+      year: '2023'
+    },
+    {
+      id: 12,
       title: "Rubik's Cube Solver",
       description: "Python script that visually mixes and solves the Rubik's Cube using group theory and permutation puzzles.",
       longDescription: "Implemented a Rubik's Cube solver based on MIT's 'The Mathematics of the Rubik's Cube' paper, utilizing group theory and permutation algorithms. The program provides a visual representation of cube manipulation and solution steps, demonstrating the mathematical principles behind puzzle solving.",
@@ -117,7 +222,7 @@ const Projects = () => {
       featured: false,
       year: '2023'
     }
-  ];
+  ], []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -141,8 +246,39 @@ const Projects = () => {
     }
   };
 
-  const featuredProjects = projects.filter(p => p.featured);
-  const otherProjects = projects.filter(p => !p.featured);
+  const nextPhoto = useCallback((projectId) => {
+    const project = projects.find(p => p.id === projectId);
+    const maxSteps = Math.max(0, project.photos.length - 1);
+    setPhotoIndices(prev => ({
+      ...prev,
+      [projectId]: Math.min((prev[projectId] || 0) + 1, maxSteps)
+    }));
+  }, [projects]);
+
+  const prevPhoto = useCallback((projectId) => {
+    setPhotoIndices(prev => ({
+      ...prev,
+      [projectId]: Math.max((prev[projectId] || 0) - 1, 0)
+    }));
+  }, []);
+
+  const getCurrentPhotoIndex = useCallback((projectId) => {
+    return photoIndices[projectId] || 0;
+  }, [photoIndices]);
+
+  const featuredProjects = useMemo(() => projects.filter(p => p.featured), [projects]);
+  const otherProjects = useMemo(() => {
+    const nonFeatured = projects.filter(p => !p.featured);
+    // Sort so projects with photos appear first
+    return nonFeatured.sort((a, b) => {
+      const aHasPhotos = a.hasPhotos && a.photos && a.photos.length > 0;
+      const bHasPhotos = b.hasPhotos && b.photos && b.photos.length > 0;
+      
+      if (aHasPhotos && !bHasPhotos) return -1;
+      if (!aHasPhotos && bHasPhotos) return 1;
+      return 0;
+    });
+  }, [projects]);
 
   return (
     <section
@@ -193,17 +329,13 @@ const Projects = () => {
                   <div className="relative group">
                     <div className="relative overflow-hidden rounded-md shadow-strong bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-700/90">
                       {project.video ? (
-                        <video
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          className="w-full aspect-[16/10] object-cover transition-transform duration-300 group-hover:scale-105"
+                        <iframe
+                          src={project.video}
+                          className="w-full aspect-[16/10] transition-transform duration-300 group-hover:scale-105"
+                          frameBorder="0"
+                          allowFullScreen
                           aria-hidden="true"
-                        >
-                          <source src={project.video} type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
+                        />
                       ) : (
                         <img
                           src={project.image}
@@ -226,18 +358,20 @@ const Projects = () => {
                           </svg>
                           Code
                         </a>
-                        {/* <a
-                          href={project.demo}
-                          className="btn bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-500 text-white hover:from-orange-600 hover:via-orange-500 hover:to-yellow-600"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`View ${project.title} live demo`}
-                        >
-                          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                          </svg>
-                          Live Demo
-                        </a> */}
+                        {project.demo && (
+                          <a
+                            href={project.demo}
+                            className="btn bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-500 text-white hover:from-orange-600 hover:via-orange-500 hover:to-yellow-600"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`View ${project.title} live demo`}
+                          >
+                            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                            Live Demo
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -290,6 +424,19 @@ const Projects = () => {
                         View Code
                       </a>
                     )}
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        className="btn bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-500 text-white hover:from-orange-600 hover:via-orange-500 hover:to-yellow-600"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        Live Demo
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -310,7 +457,7 @@ const Projects = () => {
             </h3>
 
             <div className="max-w-4xl mx-auto">
-              <ul className="space-y-6 text-slate-600 dark:text-slate-400">
+              <ul className="space-y-12 text-slate-600 dark:text-slate-400">
                 {otherProjects.map((project, index) => (
                   <li key={project.id}>
                     <div className="mb-2">
@@ -345,7 +492,7 @@ const Projects = () => {
                       )}
                     </div>
                     <p className="mb-2">{project.longDescription}</p>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {project.tech.map((tech, techIndex) => (
                         <span
                           key={techIndex}
@@ -355,6 +502,84 @@ const Projects = () => {
                         </span>
                       ))}
                     </div>
+
+                    {/* Photo Gallery for specific projects */}
+                    {project.hasPhotos && project.photos && (
+                      <div className="mt-6">
+                        <div className="relative w-full">
+                          {/* Container that shows exactly 2 photos */}
+                          <div className="w-full overflow-hidden">
+                            {/* Fixed width container to show exactly 1 photo */}
+                            <div className="mx-auto overflow-hidden" style={{ width: '610px' }}>
+                              <div 
+                                className="flex gap-4 transition-transform duration-300 ease-in-out" 
+                                style={{ 
+                                  transform: `translateX(-${getCurrentPhotoIndex(project.id) * 626}px)`,
+                                  minHeight: '330px'
+                                }}
+                              >
+                                {project.photos.map((photo, photoIndex) => (
+                                  <div 
+                                    key={photoIndex} 
+                                    className="flex-shrink-0 w-80 h-full"
+                                    style={{ 
+                                      width: '610px', 
+                                      height: '380px',
+                                      margin: '0'
+                                    }}
+                                  >
+                                    <div className="flex flex-col h-full">
+                                      <img
+                                        src={photo}
+                                        alt={`${project.title} screenshot ${photoIndex + 1}`}
+                                        className="w-full h-full object-cover rounded-lg shadow-md"
+                                        style={{ 
+                                          width: '100%', 
+                                          height: 'calc(100% - 40px)',
+                                          borderRadius: '8px',
+                                          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                                        }}
+                                      />
+                                      <div className="mt-2 text-center">
+                                        <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">
+                                          {project.captions ? project.captions[photoIndex] : `Screenshot ${photoIndex + 1}`}
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Left Arrow - only show if there are more photos to the left */}
+                          {getCurrentPhotoIndex(project.id) > 0 && (
+                            <button
+                              onClick={() => prevPhoto(project.id)}
+                              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 dark:bg-slate-800/90 rounded-full p-2 shadow-lg hover:bg-white dark:hover:bg-slate-800 transition-colors"
+                              aria-label="Previous photo"
+                            >
+                              <svg className="w-5 h-5 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                              </svg>
+                            </button>
+                          )}
+
+                          {/* Right Arrow - only show if there are more photos to the right */}
+                          {getCurrentPhotoIndex(project.id) < project.photos.length - 1 && (
+                            <button
+                              onClick={() => nextPhoto(project.id)}
+                              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 dark:bg-slate-800/90 rounded-full p-2 shadow-lg hover:bg-white dark:hover:bg-slate-800 transition-colors"
+                              aria-label="Next photo"
+                            >
+                              <svg className="w-5 h-5 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                              </svg>
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </li>
                 ))}
               </ul>

@@ -4,14 +4,17 @@ import { motion } from 'framer-motion';
 const Experience = () => {
   const experiences = [
     {
-      title: "Incoming SDE Intern",
+      title: "SDE Intern",
       company: "Amazon",
       location: "Bellevue, WA",
-      period: "June 2025 - Sept 2025",
+      period: "July 2025 - Present",
       companyLink: "https://amazon.com",
-      logo: "/amazon-logo.png",
+      logo: "amazon-logo.png",
       description: [
-        "Incoming Summer 2025"
+        "Enhanced an internal code merge process for an internal tool, reducing completion time from days to hours",
+        "Developed the solution using AWS Lambda, Bedrock, S3, and other supporting cloud services",
+        "Followed professional SDLC practices including continuous deployment, code reviews, and daily stand-ups",
+        "Presented the project to stakeholders and led beta testing to gather feedback and refine features"
       ],
       technologies: ["AWS", "Cloud Infrastructure", "Distributed Systems"]
     },
@@ -21,13 +24,12 @@ const Experience = () => {
       location: "Irvine, CA",
       period: "Nov 2022 - Present",
       companyLink: "https://ctc-uci.com",
-      logo: "/commit-the-change-logo.svg",
+      logo: "commit-the-change-logo.svg",
       description: [
-        "Led development teams of 5-7 engineers to deliver impactful software solutions for non-profits",
-        "Spearheaded the implementation of AGILE methodologies, increasing team velocity by 50%",
-        "Designed and launched an automated onboarding system, reducing training time by 60%",
-        "Optimized database queries and implemented caching, improving response times by 75%",
-        "Mentored 10+ junior developers in modern web development practices and technologies"
+        "Developed software for three different non-profits, each with distinct goals and requirements",
+        "Engaged continuously with customers during sprint cycles to incorporate feedback and improve outcomes",
+        "Built applications featuring robust database management and user-focused interaction design",
+        "Practiced iterative development with thorough bug testing to ensure high reliability and quality"
       ],
       technologies: ["TypeScript", "React", "Node.js", "MongoDB", "AWS", "Firebase"]
     },
@@ -38,11 +40,10 @@ const Experience = () => {
       period: "June 2024 - Present",
       companyLink: "https://www.ics.uci.edu/~jingz31/",
       description: [
-        "Involved in two research projects at the intersection of deep learning and genomics",
-        "Developing novel generative models for RNA velocity prediction",
-        "Implementing knowledge distillation techniques to compress DNA foundation models by 70% while maintaining 95% performance",
-        "Collaborating with PhD students on research papers for submission to top ML conferences",
-        "Working under Prof. Jing Zhang (ICS), PHD Junhao Liu, PHD Pengcheng Xu"
+        "Conducting deep learning research in genomics across two projects",
+        "Designing generative models for RNA velocity prediction",
+        "Applying knowledge distillation to shrink DNA foundation models by 70% while maintaining 95% performance",
+        "Collaborating with PhD students on research papers for submission to top ML conferences"
       ],
       technologies: ["PyTorch", "TensorFlow", "CUDA", "NumPy", "Scikit-learn", "HuggingFace"]
     },
@@ -52,11 +53,12 @@ const Experience = () => {
       location: "Irvine, CA",
       period: "June 2024 - May 2025",
       description: [
-        "Contributed to the development of a custom scheduling system serving 50+ researchers"
+        "Developed a custom scheduling system used by over 50 researchers to coordinate experiments and resources"
       ],
       technologies: ["React", "Node.js", "PostgreSQL", "ChakraUI", "JWT", "Docker"]
     }
   ];
+  
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -143,9 +145,9 @@ const Experience = () => {
                             </div>
                           )}
                           <div className="flex flex-col">
-                            <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                              {experience.title}
-                            </h3>
+                          <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                            {experience.title}
+                          </h3>
                             <a 
                               href={experience.companyLink}
                               target="_blank"
@@ -155,11 +157,11 @@ const Experience = () => {
                               {experience.company}
                             </a>
                             <div className="flex items-center gap-2 mt-1">
-                              {experience.location && (
+                          {experience.location && (
                                 <>
                                   <span className="text-sm text-slate-500 dark:text-slate-400">{experience.location}</span>
                                 </>
-                              )}
+                          )}
                             </div>
                           </div>
                         </div>

@@ -22,29 +22,23 @@ const Skills = () => {
     { iconClass: 'devicon-java-plain colored', name: 'Java', category: 'Languages' },
     { iconClass: 'devicon-javascript-plain colored', name: 'JavaScript', category: 'Languages' },
     { iconClass: 'devicon-typescript-plain colored', name: 'TypeScript', category: 'Languages' },
-    { iconClass: 'devicon-rust-plain', name: 'Rust', category: 'Languages' },
     
     // Web & Database
     { iconClass: 'devicon-postgresql-plain colored', name: 'PostgreSQL', category: 'Web & Database' },
     { iconClass: 'devicon-html5-plain colored', name: 'HTML5', category: 'Web & Database' },
     { iconClass: 'devicon-css3-plain colored', name: 'CSS3', category: 'Web & Database' },
     { iconClass: 'devicon-mongodb-plain colored', name: 'MongoDB', category: 'Web & Database' },
-    { iconClass: 'devicon-firebase-plain colored', name: 'Firebase', category: 'Web & Database' },
     { iconClass: 'devicon-mysql-plain colored', name: 'MySQL', category: 'Web & Database' },
     
     // Frameworks
     { iconClass: 'devicon-react-original colored', name: 'React', category: 'Frameworks' },
     { iconClass: 'devicon-tailwindcss-plain colored', name: 'Tailwind', category: 'Frameworks' },
     { iconClass: 'devicon-nextjs-original-wordmark', name: 'Next.js', category: 'Frameworks' },
-    { iconClass: 'devicon-vuejs-plain colored', name: 'Vue.js', category: 'Frameworks' },
-    { iconClass: 'devicon-django-plain', name: 'Django', category: 'Frameworks' },
     
     // Technologies
     { iconClass: 'devicon-git-plain colored', name: 'Git', category: 'Technologies' },
     { iconClass: 'devicon-npm-original-wordmark colored', name: 'npm', category: 'Technologies' },
     { iconClass: 'devicon-nodejs-plain colored', name: 'Node.js', category: 'Technologies' },
-    { iconClass: 'devicon-express-original', name: 'Express', category: 'Technologies' },
-    { iconClass: 'devicon-figma-plain colored', name: 'Figma', category: 'Technologies' },
     
     // ML & Data
     { iconClass: 'devicon-numpy-plain colored', name: 'NumPy', category: 'ML & Data' },
@@ -55,7 +49,10 @@ const Skills = () => {
     
     // DevOps
     { iconClass: 'devicon-amazonwebservices-plain-wordmark colored', name: 'AWS', category: 'DevOps' },
-    { iconClass: 'devicon-azure-plain colored', name: 'Azure', category: 'DevOps' },
+    // { iconClass: 'devicon-amazonwebservices-plain colored', name: 'S3', category: 'DevOps', customStyle: 'text-blue-600' },
+    // { iconClass: 'devicon-amazonwebservices-plain colored', name: 'EC2', category: 'DevOps', customStyle: 'text-orange-600' },
+    // { iconClass: 'devicon-amazonwebservices-plain colored', name: 'Bedrock', category: 'DevOps', customStyle: 'text-purple-600' },
+    // { iconClass: 'devicon-amazonwebservices-plain colored', name: 'Lambda', category: 'DevOps', customStyle: 'text-green-600' },
     { iconClass: 'devicon-docker-plain colored', name: 'Docker', category: 'DevOps' },
     { iconClass: 'devicon-kubernetes-plain colored', name: 'Kubernetes', category: 'DevOps' },
     { iconClass: 'devicon-github-original', name: 'GitHub', category: 'DevOps' }
@@ -126,7 +123,7 @@ const Skills = () => {
                   }
                 }}
               >
-                <i className={`${skill.iconClass} text-4xl`}></i>
+                <i className={`${skill.iconClass} text-4xl ${skill.customStyle || ''}`}></i>
                 <span className="text-xs font-medium text-slate-600 dark:text-slate-400">{skill.name}</span>
               </motion.div>
             );

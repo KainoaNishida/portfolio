@@ -25,7 +25,7 @@ const Header = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-900 dark:text-white">
-              Hi, I'm <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-500">Kai Nishida</span>
+              Hi, I'm <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-500">Kainoa Nishida</span>
             </h1>
             <div className="text-2xl md:text-3xl mb-6">
               <span className="text-slate-600 dark:text-slate-300">Developer & </span>
@@ -44,7 +44,7 @@ const Header = () => {
                     <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd"/>
                     <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"/>
                   </svg>
-                  <span className="text-sm">Incoming SDE Intern at Amazon</span>
+                  <span className="text-sm">SDE Intern at Amazon</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -62,12 +62,7 @@ const Header = () => {
                   </svg>
                   <span className="text-sm">UC Irvine '26</span>
                 </div>
-                <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
-                  </svg>
-                  <span className="text-sm">20 Years Old</span>
-                </div>
+                
               </div>
               
               
@@ -98,7 +93,7 @@ const Header = () => {
           >
             <div className="w-full h-full rounded-full overflow-hidden border-4 border-orange-500 shadow-xl bg-white dark:bg-slate-800">
               <img
-                src="avatar.png"
+                src="/pfp.jpg"
                 alt="Kai Nishida"
                 className="w-full h-full object-cover object-center scale-110 translate-y-2"
               />
