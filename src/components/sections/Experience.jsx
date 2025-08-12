@@ -9,7 +9,7 @@ const Experience = () => {
       location: "Bellevue, WA",
       period: "July 2025 - Present",
       companyLink: "https://amazon.com",
-      logo: "amazon-logo.png",
+      logo: "/amazon-logo.png",
       description: [
         "Enhanced an internal code merge process for an internal tool, reducing completion time from days to hours",
         "Developed the solution using AWS Lambda, Bedrock, S3, and other supporting cloud services",

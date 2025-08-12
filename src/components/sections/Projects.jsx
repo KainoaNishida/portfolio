@@ -70,9 +70,9 @@ const Projects = () => {
       hasPhotos: true,
       photoFolder: 'fph',
       photos: [
-        '/src/assets/project_photos/fph/admin-dashboard.png',
-        '/src/assets/project_photos/fph/donation-form.png',
-        '/src/assets/project_photos/fph/onboarding.png'
+        '/project_photos/fph/admin-dashboard.png',
+        '/project_photos/fph/donation-form.png',
+        '/project_photos/fph/onboarding.png'
       ],
       captions: [
         'Dashboard',
@@ -94,13 +94,13 @@ const Projects = () => {
       hasPhotos: true,
       photoFolder: 'valnotes',
       photos: [
-        '/src/assets/project_photos/valnotes/photo1.png',
-        '/src/assets/project_photos/valnotes/photo2.png',
-        '/src/assets/project_photos/valnotes/photo3.png',
-        '/src/assets/project_photos/valnotes/photo4.png',
-        '/src/assets/project_photos/valnotes/photo5.png',
-        '/src/assets/project_photos/valnotes/photo6.png',
-        '/src/assets/project_photos/valnotes/photo7.png'
+        '/project_photos/valnotes/photo1.png',
+        '/project_photos/valnotes/photo2.png',
+        '/project_photos/valnotes/photo3.png',
+        '/project_photos/valnotes/photo4.png',
+        '/project_photos/valnotes/photo5.png',
+        '/project_photos/valnotes/photo6.png',
+        '/project_photos/valnotes/photo7.png'
       ],
       captions: [
         'Video Upload Interface',
@@ -127,13 +127,13 @@ const Projects = () => {
       hasPhotos: true,
       photoFolder: 'pokescape',
       photos: [
-        '/src/assets/project_photos/pokescape/start.png',
-        '/src/assets/project_photos/pokescape/2.png',
-        '/src/assets/project_photos/pokescape/3.png',
-        '/src/assets/project_photos/pokescape/4.png',
-        '/src/assets/project_photos/pokescape/5.png',
-        '/src/assets/project_photos/pokescape/6.png',
-        '/src/assets/project_photos/pokescape/7.png'
+        '/project_photos/pokescape/start.png',
+        '/project_photos/pokescape/2.png',
+        '/project_photos/pokescape/3.png',
+        '/project_photos/pokescape/4.png',
+        '/project_photos/pokescape/5.png',
+        '/project_photos/pokescape/6.png',
+        '/project_photos/pokescape/7.png'
       ],
       captions: [
         'Start Screen',
@@ -159,11 +159,11 @@ const Projects = () => {
       hasPhotos: true,
       photoFolder: 'gsp',
       photos: [
-        '/src/assets/project_photos/gsp/1.png',
-        '/src/assets/project_photos/gsp/2.png',
-        '/src/assets/project_photos/gsp/3.png',
-        '/src/assets/project_photos/gsp/4.png',
-        '/src/assets/project_photos/gsp/5.png'
+        '/project_photos/gsp/1.png',
+        '/project_photos/gsp/2.png',
+        '/project_photos/gsp/3.png',
+        '/project_photos/gsp/4.png',
+        '/project_photos/gsp/5.png'
       ],
       captions: [
         'Survey Dashboard',
