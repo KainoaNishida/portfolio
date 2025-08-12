@@ -10,7 +10,7 @@ const Research = () => {
       period: 'January 2024 - Present',
       description: 'Developing continuous normalizing flow (CNF) models to predict cell fate transitions from single-cell RNA-seq data. Inspired by VeloVAE, this approach replaces kinetic equations with a learned CNF generative model to flexibly capture population-level dynamics through smooth, data-driven transformations.',
       technologies: ['Deep Generative Models', 'RNA Velocity', 'Normalizing Flows', 'Variational Autoencoders'],
-      image: 'rna-flux-logo.png'
+      image: '/rna-flux-logo.png'
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ const Research = () => {
       period: 'March 2024 - Present',
       description: 'Making large-scale DNA foundation models more computationally accessible through knowledge distillation. This project develops lightweight student models that maintain high performance on genomic tasks while significantly reducing compute and memory requirements.',
       technologies: ['Knowledge Distillation', 'Genomics', 'DNA Foundation Models'],
-      image: 'kd-logo.png'
+      image: '/kd-logo.png'
     }
   ];
 
