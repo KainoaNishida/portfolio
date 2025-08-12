@@ -9,7 +9,7 @@ const Education = () => {
       degree: 'Bachelor of Science, Computer Science | Minor in Mathematics',
       period: '2022 - 2026 (Expected)',
       gpa: '3.96/4.0',
-      logo: '/uci-logo.png',
+      logo: '/portfolio/uci-logo.png',
       details: [
         'Dean\'s List',
         'Phi Beta Kappa Member',
@@ -23,7 +23,7 @@ const Education = () => {
       degree: 'High School Diploma',
       period: '2018 - 2022', 
       gpa: '4.0/4.0', 
-      logo: '/arnold-beckman-logo.png', 
+      logo: '/portfolio/arnold-beckman-logo.png', 
       details: [
         'National Merit Finalist',
         'Student of the Month',

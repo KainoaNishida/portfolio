@@ -9,7 +9,7 @@ const Experience = () => {
       location: "Bellevue, WA",
       period: "July 2025 - Present",
       companyLink: "https://amazon.com",
-      logo: "/amazon-logo.png",
+      logo: "/portfolio/amazon-logo.png",
       description: [
         "Enhanced an internal code merge process for an internal tool, reducing completion time from days to hours",
         "Developed the solution using AWS Lambda, Bedrock, S3, and other supporting cloud services",
@@ -24,7 +24,7 @@ const Experience = () => {
       location: "Irvine, CA",
       period: "Nov 2022 - Present",
       companyLink: "https://ctc-uci.com",
-      logo: "commit-the-change-logo.svg",
+      logo: "/portfolio/commit-the-change-logo.svg",
       description: [
         "Developed software for three different non-profits, each with distinct goals and requirements",
         "Engaged continuously with customers during sprint cycles to incorporate feedback and improve outcomes",

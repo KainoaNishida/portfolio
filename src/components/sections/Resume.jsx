@@ -17,9 +17,9 @@ const Resume = () => {
           <div className="w-full md:w-2/3 aspect-[8.5/11] bg-slate-100 dark:bg-slate-700 rounded-lg shadow-inner overflow-hidden">
             {/* Replace with your actual resume preview image */}
             <img 
-              src="/resume-preview.png" 
-              alt="Resume preview" 
-              className="w-full h-full object-cover"
+              src="/portfolio/resume-preview.png" 
+              alt="Resume Preview"
+              className="w-full h-auto rounded-lg shadow-lg"
             />
           </div>
 

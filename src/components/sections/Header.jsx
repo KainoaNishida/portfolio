@@ -93,7 +93,7 @@ const Header = () => {
           >
             <div className="w-full h-full rounded-full overflow-hidden border-4 border-orange-500 shadow-xl bg-white dark:bg-slate-800">
               <img
-                src="/pfp.jpg"
+                src="/portfolio/pfp.jpg"
                 alt="Kai Nishida"
                 className="w-full h-full object-cover object-center scale-110 translate-y-2"
               />
