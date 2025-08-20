@@ -240,7 +240,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-24">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+      <div className="container-content">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           {/* Contact Form */}
           <motion.div

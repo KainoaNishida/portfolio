@@ -43,33 +43,35 @@ const Hobbies = () => {
 
   return (
     <section id="hobbies" className="py-20">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
-          Hobbies & Interests
-        </h2>
-        <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-          When I'm not coding, you can find me enjoying these activities. I believe maintaining a
-          balanced life helps fuel creativity and problem-solving abilities.
-        </p>
-      </div>
+      <div className="container-content">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
+            Hobbies & Interests
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            When I'm not coding, you can find me enjoying these activities. I believe maintaining a
+            balanced life helps fuel creativity and problem-solving abilities.
+          </p>
+        </div>
 
-      <div className="max-w-4xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {hobbies.map((hobby, index) => (
-            <motion.div
-              key={hobby.id}
-              className="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="text-4xl mb-4">{hobby.icon}</div>
-              <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-slate-200">{hobby.name}</h3>
-              <p className="text-slate-600 dark:text-slate-400">{hobby.description}</p>
-            </motion.div>
-          ))}
+        <div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {hobbies.map((hobby, index) => (
+              <motion.div
+                key={hobby.id}
+                className="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="text-4xl mb-4">{hobby.icon}</div>
+                <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-slate-200">{hobby.name}</h3>
+                <p className="text-slate-600 dark:text-slate-400">{hobby.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -52,7 +52,7 @@ const Quotes = () => {
       className="min-h-[50vh] py-20 pl-20 flex items-center justify-center transition-colors duration-300 bg-gray-50 dark:bg-gray-900"
       aria-labelledby="quotes-heading"
     >
-      <div className="max-w-6xl mx-auto px-4 w-full">
+      <div className="container-content w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

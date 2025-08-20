@@ -47,52 +47,54 @@ const Courses = () => {
 
   return (
     <section id="courses" className="py-20">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
-          Relevant Coursework
-        </h2>
-        <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-          Key courses that have shaped my technical foundation and expertise.
-        </p>
-      </div>
+      <div className="container-content">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
+            Relevant Coursework
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            Key courses that have shaped my technical foundation and expertise.
+          </p>
+        </div>
 
-      <div className="max-w-4xl mx-auto">
-        <div className="grid gap-6">
-          {courses.map((course, index) => (
-            <motion.div
-              key={course.id}
-              className="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <div className="p-6">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
-                      {course.code} - {course.name}
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm mb-2">
-                      {course.description}
-                    </p>
-                  </div>
-                  <div className="flex flex-col items-end">
-                    <span className="text-sm font-medium text-primary-600 dark:text-primary-400">
-                      {course.quarter}
-                    </span>
-                    <span className={`text-sm font-medium mt-1 ${
-                      course.grade === 'In Progress' 
-                        ? 'text-secondary-500 dark:text-secondary-400'
-                        : 'text-accent-500 dark:text-accent-400'
-                    }`}>
-                      {course.grade}
-                    </span>
+        <div>
+          <div className="grid gap-6">
+            {courses.map((course, index) => (
+              <motion.div
+                key={course.id}
+                className="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <div className="p-6">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
+                        {course.code} - {course.name}
+                      </h3>
+                      <p className="text-slate-600 dark:text-slate-400 text-sm mb-2">
+                        {course.description}
+                      </p>
+                    </div>
+                    <div className="flex flex-col items-end">
+                      <span className="text-sm font-medium text-primary-600 dark:text-primary-400">
+                        {course.quarter}
+                      </span>
+                      <span className={`text-sm font-medium mt-1 ${
+                        course.grade === 'In Progress' 
+                          ? 'text-secondary-500 dark:text-secondary-400'
+                          : 'text-accent-500 dark:text-accent-400'
+                      }`}>
+                        {course.grade}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

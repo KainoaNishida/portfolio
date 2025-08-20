@@ -10,7 +10,7 @@ const Projects = () => {
       id: 1,
       title: "Collete's Children Home Dashboard",
       description: "Internal management system for a non-profit organization helping disadvantaged mothers, featuring client-manager matching and treatment tracking capabilities.",
-      longDescription: "Developed a comprehensive dashboard system for Collete's Children Home that streamlines the process of matching clients with managers and tracking treatment progress. The system helps the non-profit organization efficiently manage and monitor the care provided to disadvantaged mothers, improving their ability to deliver essential services and support.",
+      longDescription: <>Developed a comprehensive dashboard system for <a href="https://www.coletteschildrenshome.com/" target="_blank" rel="noopener noreferrer" className="text-orange-600 dark:text-orange-400 hover:underline">Colette's Children's Home</a> that streamlines the process of matching clients with managers and tracking treatment progress. The system helps the non-profit organization efficiently manage and monitor the care provided to disadvantaged mothers, improving their ability to deliver essential services and support.</>,
       tech: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Express', 'Chakra UI', 'Firebase', 'AWS SDK'],
       github: 'https://github.com/ctc-uci/cch',
       image: 'https://placehold.co/800x600/2563EB/FFFFFF?text=Colletes+Dashboard&font=inter',
@@ -34,7 +34,7 @@ const Projects = () => {
       id: 3,
       title: 'Sustainably',
       description: 'Eco-friendly product search engine using deep learning to score company sustainability, developed at Caltech Hackathon.',
-      longDescription: 'Created a search engine that helps users find clothing products from eco-friendly companies. Implemented a deep learning model that generates eco-friendliness scores based on multiple data inputs, trained and validated against publicly traded companies\' ESG scores.',
+      longDescription: 'A search engine that helps users find clothing products from eco-friendly companies. Implemented a deep learning model that generates eco-friendliness scores based on multiple data inputs, trained and validated against publicly traded companies\' ESG scores.',
       tech: ['TypeScript', 'Python', 'PyTorch', 'FastAPI', 'React', 'PostgreSQL', 'AWS'],
       github: 'https://github.com/KainoaNishida/calhacks',
       image: 'https://placehold.co/800x600/7C3AED/FFFFFF?text=Sustainably&font=inter',
@@ -47,7 +47,7 @@ const Projects = () => {
       id: 4,
       title: 'Fabflix',
       description: 'Full-stack Netflix clone with comprehensive movie database, search functionality, and performance optimizations.',
-      longDescription: 'Built a complete movie database web application from scratch, featuring secure login, full-text search with auto-complete, cart checkout, and extensive performance optimizations including MySQL connection pooling and load balancing.',
+      longDescription: 'A complete movie database web application from scratch, featuring secure login, full-text search with auto-complete, cart checkout, and extensive performance optimizations including MySQL connection pooling and load balancing.',
       tech: ['Java', 'MySQL', 'Tomcat', 'AWS', 'jQuery', 'Android SDK'],
       // github: 'https://github.com/kainoa-nishida/fabflix',
       demo: 'https://youtu.be/vBxpvysVO_Y',
@@ -60,7 +60,7 @@ const Projects = () => {
       id: 5,
       title: 'Feeding Pets of the Homeless',
       description: 'Streamlined platform for managing pet food donations and veterinary care for homeless pet owners.',
-      longDescription: 'Developed a centralized platform to expedite the onboarding and donation reporting processes for donation sites. The system enables efficient tracking of contributions, streamlines communication, and helps monitor the impact of donations on homeless pet guardians.',
+      longDescription: <>A software solution developed for <a href="https://petsofthehomeless.org/" target="_blank" rel="noopener noreferrer" className="text-orange-600 dark:text-orange-400 hover:underline">Feeding Pets of the Homeless</a> that centralizes and accelerates the onboarding and donation reporting processes for partner sites, enabling seamless contribution tracking, streamlined communication, and impact monitoring for homeless pet guardians.</>,
       tech: ['React', 'Firebase', 'Node.js', 'Express'],
       github: 'https://github.com/ctc-uci/fph-frontend',
       image: 'https://placehold.co/800x600/2563EB/FFFFFF?text=FPOTH&font=inter',
@@ -84,7 +84,7 @@ const Projects = () => {
       id: 6,
       title: 'Valnotes',
       description: 'Video note-taking application specialized for gameplay analysis with Riot Games API integration.',
-      longDescription: 'Developed an application that enables users to upload and annotate gameplay videos, featuring automatic data gathering and visualization through Riot Games API integration.',
+      longDescription: 'A project that enables users to upload and annotate gameplay videos, featuring automated data gathering and visualization through integrated Riot Games API functionality.',
       tech: ['React', 'Node.js', 'Riot API', 'MongoDB', 'Express'],
       github: 'https://github.com/KainoaNishida/Valnotes',
       image: 'https://placehold.co/800x600/DC2626/FFFFFF?text=Valnotes&font=inter',
@@ -116,7 +116,7 @@ const Projects = () => {
       id: 7,
       title: 'Pokéscape',
       description: 'Java-based adventure game featuring professional artwork and custom sound design.',
-      longDescription: 'Developed an immersive video game where players explore a forest environment and solve puzzles to rescue an endangered Celebi, featuring custom artwork from a professional artist.',
+      longDescription: 'An immersive video game where players explore a forest environment and solve puzzles to rescue an endangered Celebi, featuring custom artwork from a professional artist.',
       tech: ['Java'],
       github: 'https://github.com/KainoaNishida/pokescape',
       image: 'https://placehold.co/800x600/059669/FFFFFF?text=Pokescape&font=inter',
@@ -149,7 +149,7 @@ const Projects = () => {
       id: 8,
       title: 'Get Inspired',
       description: 'Web application and database for storing and displaying Pismo clam survey information with automated statistics.',
-      longDescription: 'A web application and database that stores and displays information about Pismo clams—including color, location, survey date/time, and other key characteristics. The interface enables GSP to easily input, view, and query data, while the dashboard automatically calculates survey statistics to support efforts in restoring the clam population.',
+      longDescription: <>A web application and database developed for <a href="https://getinspiredinc.org/" target="_blank" rel="noopener noreferrer" className="text-orange-600 dark:text-orange-400 hover:underline">Get Inspired</a> that stores and displays information about Pismo clams - including color, location, survey date/time, and other key characteristics. The interface enables GSP to easily input, view, and query data, while the dashboard automatically calculates survey statistics to support efforts in restoring the clam population.</>,
       tech: ['React', 'Node.js', 'PostgreSQL', 'Express'],
       github: 'https://github.com/ctc-uci/get-inspired-frontend',
       image: 'https://placehold.co/800x600/7C3AED/FFFFFF?text=GSP&font=inter',
@@ -192,7 +192,7 @@ const Projects = () => {
       description: 'Interactive maze generation and solving algorithm visualization.',
       longDescription: 'An educational tool that demonstrates various maze generation algorithms and pathfinding solutions, providing visual insights into computational problem-solving approaches.',
       tech: ['Python', 'Pygame', 'NumPy'],
-      github: 'https://github.com/KainoaNishida/maze-runner',
+      github: 'https://github.com/KainoaNishida/maze-solver',
       demo: 'https://youtu.be/mmP9CtKYGtM',
       image: 'https://placehold.co/800x600/059669/FFFFFF?text=Maze+Runner&font=inter',
       status: 'Completed',
@@ -203,7 +203,7 @@ const Projects = () => {
       id: 11,
       title: 'Minecraft RI Agent',
       description: 'Custom reinforcement learning agent for automated diamond mining in Minecraft.',
-      longDescription: 'Implemented a deep Q-learning algorithm to train an agent in a custom Minecraft environment, focusing on efficient resource gathering and navigation.',
+      longDescription: 'A project implementing a deep Q-learning algorithm to train an agent in a custom Minecraft environment, with a focus on efficient resource gathering and navigation.',
       tech: ['Python', 'PyTorch', 'Malmo', 'NumPy'],
       image: 'https://placehold.co/800x600/059669/FFFFFF?text=Minecraft+RL&font=inter',
       demo: 'https://youtu.be/kgeDFwxfVCM',
@@ -215,7 +215,7 @@ const Projects = () => {
       id: 12,
       title: "Rubik's Cube Solver",
       description: "Python script that visually mixes and solves the Rubik's Cube using group theory and permutation puzzles.",
-      longDescription: "Implemented a Rubik's Cube solver based on MIT's 'The Mathematics of the Rubik's Cube' paper, utilizing group theory and permutation algorithms. The program provides a visual representation of cube manipulation and solution steps, demonstrating the mathematical principles behind puzzle solving.",
+      longDescription: "A Rubik's Cube solver based on MIT's 'The Mathematics of the Rubik's Cube' paper, utilizing group theory and permutation algorithms. The program provides a visual representation of cube manipulation and solution steps, demonstrating the mathematical principles behind puzzle solving.",
       tech: ['Python', 'NumPy', 'Matplotlib'],
       image: 'https://placehold.co/800x600/7C3AED/FFFFFF?text=Rubiks+Solver&font=inter',
       status: 'Completed',
@@ -323,8 +323,6 @@ const Projects = () => {
                 {/* Project Image/Video */}
                 <div
                   className="lg:w-1/2"
-                  onMouseEnter={() => setHoveredProject(project.id)}
-                  onMouseLeave={() => setHoveredProject(null)}
                 >
                   <div className="relative group">
                     <div className="relative overflow-hidden rounded-md shadow-strong bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-700/90">
@@ -343,36 +341,6 @@ const Projects = () => {
                           className="w-full aspect-[16/10] object-cover transition-transform duration-300 group-hover:scale-105"
                         />
                       )}
-
-                      {/* Overlay with links */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 to-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                        <a
-                          href={project.github}
-                          className="btn btn-outline text-white border-white/80 hover:bg-white hover:text-slate-900 backdrop-blur-sm"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`View ${project.title} source code`}
-                        >
-                          <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                          </svg>
-                          Code
-                        </a>
-                        {project.demo && (
-                          <a
-                            href={project.demo}
-                            className="btn bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-500 text-white hover:from-orange-600 hover:via-orange-500 hover:to-yellow-600"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`View ${project.title} live demo`}
-                          >
-                            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                            Live Demo
-                          </a>
-                        )}
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -507,23 +475,23 @@ const Projects = () => {
                     {project.hasPhotos && project.photos && (
                       <div className="mt-6">
                         <div className="relative w-full">
-                          {/* Container that shows exactly 2 photos */}
+                          {/* Container that shows exactly 1 photo with proper spacing for arrows */}
                           <div className="w-full overflow-hidden">
-                            {/* Fixed width container to show exactly 1 photo */}
-                            <div className="mx-auto overflow-hidden" style={{ width: '610px' }}>
+                            {/* Fixed width container that accounts for arrow space */}
+                            <div className="mx-auto overflow-hidden" style={{ width: '500px' }}>
                               <div 
                                 className="flex gap-4 transition-transform duration-300 ease-in-out" 
                                 style={{ 
-                                  transform: `translateX(-${getCurrentPhotoIndex(project.id) * 626}px)`,
+                                  transform: `translateX(-${getCurrentPhotoIndex(project.id) * 516}px)`,
                                   minHeight: '330px'
                                 }}
                               >
                                 {project.photos.map((photo, photoIndex) => (
                                   <div 
                                     key={photoIndex} 
-                                    className="flex-shrink-0 w-80 h-full"
+                                    className="flex-shrink-0 h-full"
                                     style={{ 
-                                      width: '610px', 
+                                      width: '600px', 
                                       height: '380px',
                                       margin: '0'
                                     }}
@@ -552,11 +520,11 @@ const Projects = () => {
                             </div>
                           </div>
 
-                          {/* Left Arrow - only show if there are more photos to the left */}
+                          {/* Left Arrow - positioned outside the photo container */}
                           {getCurrentPhotoIndex(project.id) > 0 && (
                             <button
                               onClick={() => prevPhoto(project.id)}
-                              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 dark:bg-slate-800/90 rounded-full p-2 shadow-lg hover:bg-white dark:hover:bg-slate-800 transition-colors"
+                              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 dark:bg-slate-800/90 rounded-full p-2 shadow-lg hover:bg-white dark:hover:bg-slate-800 transition-colors"
                               aria-label="Previous photo"
                             >
                               <svg className="w-5 h-5 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -565,11 +533,11 @@ const Projects = () => {
                             </button>
                           )}
 
-                          {/* Right Arrow - only show if there are more photos to the right */}
+                          {/* Right Arrow - positioned outside the photo container */}
                           {getCurrentPhotoIndex(project.id) < project.photos.length - 1 && (
                             <button
                               onClick={() => nextPhoto(project.id)}
-                              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 dark:bg-slate-800/90 rounded-full p-2 shadow-lg hover:bg-white dark:hover:bg-slate-800 transition-colors"
+                              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 dark:bg-slate-800/90 rounded-full p-2 shadow-lg hover:bg-white dark:hover:bg-slate-800 transition-colors"
                               aria-label="Next photo"
                             >
                               <svg className="w-5 h-5 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

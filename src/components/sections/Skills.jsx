@@ -1,9 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { motion } from 'framer-motion';
 import 'devicon/devicon.min.css';
+import { ThemeContext } from '../../context/ThemeContext.tsx';
 
 const Skills = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const themeContext = useContext(ThemeContext);
+  const theme = themeContext?.theme || 'light';
+
+  // Map display names to skillicons.dev IDs
+  const skilliconIdByName = {
+    Python: 'python',
+    'C++': 'cpp',
+    Java: 'java',
+    JavaScript: 'js',
+    TypeScript: 'ts',
+
+    PostgreSQL: 'postgres',
+    HTML5: 'html',
+    CSS3: 'css',
+    MongoDB: 'mongodb',
+    MySQL: 'mysql',
+
+    React: 'react',
+    Tailwind: 'tailwind',
+    'Next.js': 'nextjs',
+
+    Git: 'git',
+    npm: 'npm',
+    'Node.js': 'nodejs',
+    Postman: 'postman',
+
+    PyTorch: 'pytorch',
+    TensorFlow: 'tensorflow',
+    
+    AWS: 'aws',
+    Docker: 'docker',
+    Kubernetes: 'kubernetes',
+    GitHub: 'github'
+  };
 
   const categories = [
     'All',
@@ -39,20 +74,15 @@ const Skills = () => {
     { iconClass: 'devicon-git-plain colored', name: 'Git', category: 'Technologies' },
     { iconClass: 'devicon-npm-original-wordmark colored', name: 'npm', category: 'Technologies' },
     { iconClass: 'devicon-nodejs-plain colored', name: 'Node.js', category: 'Technologies' },
+    { iconClass: 'devicon-postman-plain colored', name: 'Postman', category: 'Technologies' },
     
     // ML & Data
     { iconClass: 'devicon-numpy-plain colored', name: 'NumPy', category: 'ML & Data' },
     { iconClass: 'devicon-pytorch-original colored', name: 'PyTorch', category: 'ML & Data' },
     { iconClass: 'devicon-tensorflow-original colored', name: 'TensorFlow', category: 'ML & Data' },
-    { iconClass: 'devicon-jupyter-plain colored', name: 'Jupyter', category: 'ML & Data' },
-    { iconClass: 'devicon-pandas-plain', name: 'Pandas', category: 'ML & Data' },
     
     // DevOps
     { iconClass: 'devicon-amazonwebservices-plain-wordmark colored', name: 'AWS', category: 'DevOps' },
-    // { iconClass: 'devicon-amazonwebservices-plain colored', name: 'S3', category: 'DevOps', customStyle: 'text-blue-600' },
-    // { iconClass: 'devicon-amazonwebservices-plain colored', name: 'EC2', category: 'DevOps', customStyle: 'text-orange-600' },
-    // { iconClass: 'devicon-amazonwebservices-plain colored', name: 'Bedrock', category: 'DevOps', customStyle: 'text-purple-600' },
-    // { iconClass: 'devicon-amazonwebservices-plain colored', name: 'Lambda', category: 'DevOps', customStyle: 'text-green-600' },
     { iconClass: 'devicon-docker-plain colored', name: 'Docker', category: 'DevOps' },
     { iconClass: 'devicon-kubernetes-plain colored', name: 'Kubernetes', category: 'DevOps' },
     { iconClass: 'devicon-github-original', name: 'GitHub', category: 'DevOps' }
@@ -64,7 +94,7 @@ const Skills = () => {
 
   return (
     <section id="skills" className="py-20">
-      <div className="container-skills">
+      <div className="container-content">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
             Technical Skills
@@ -107,6 +137,11 @@ const Skills = () => {
           }}
         >
           {filteredSkills.map((skill, index) => {
+            const id = skilliconIdByName[skill.name];
+            const iconUrl = id
+              ? `https://skillicons.dev/icons?i=${id}${theme === 'dark' ? '&theme=dark' : ''}`
+              : null;
+
             return (
               <motion.div
                 key={index}
@@ -118,12 +153,24 @@ const Skills = () => {
                     y: 0,
                     transition: {
                       duration: 0.3,
-                      ease: "easeOut"
+                      ease: 'easeOut'
                     }
                   }
                 }}
               >
-                <i className={`${skill.iconClass} text-4xl ${skill.customStyle || ''}`}></i>
+                <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shadow-sm border border-slate-200 dark:border-slate-700">
+                  {iconUrl ? (
+                    <img
+                      src={iconUrl}
+                      alt={skill.name}
+                      title={skill.name}
+                      className="w-7 h-7"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <i className={`${skill.iconClass} text-2xl ${skill.customStyle || ''}`}></i>
+                  )}
+                </div>
                 <span className="text-xs font-medium text-slate-600 dark:text-slate-400">{skill.name}</span>
               </motion.div>
             );

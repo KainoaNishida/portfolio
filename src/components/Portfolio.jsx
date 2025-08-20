@@ -33,9 +33,7 @@ const Portfolio = () => {
         <div className="flex-1 flex items-center justify-center">
           <Header />
         </div>
-        
-        {/* <SectionDivider /> */}
-        
+
         {/* Experience Section - Combined work, projects, and research */}
         <div id="experience">
           <Experience />

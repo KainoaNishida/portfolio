@@ -35,6 +35,13 @@ const Header = () => {
               </span>
             </div>
 
+            {/* Subtle intro line */}
+            <p className="text-sm md:text-base text-slate-600 dark:text-slate-400 mb-6 max-w-xl">
+            Hello! I'm a developer who loves building thoughtful software, learning new technologies, and connecting with people. 
+            
+            When I'm not coding, you'll find me gaming with friends, bouldering, playing sports, orspending time outdoors.
+            </p>
+
             {/* Info Badges */}
             <div className="flex flex-col space-y-3 mb-8">
             {/* Second Row - Professional Info */}
