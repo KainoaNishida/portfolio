@@ -1,9 +1,43 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import 'devicon/devicon.min.css';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState(null);
   const [photoIndices, setPhotoIndices] = useState({});
+
+  // Mapping of tech names to devicon classes
+  const techToIcon = {
+    'React': 'devicon-react-original colored',
+    'TypeScript': 'devicon-typescript-plain colored',
+    'Node.js': 'devicon-nodejs-plain colored',
+    'MongoDB': 'devicon-mongodb-plain colored',
+    'Express': 'devicon-express-original',
+    'Next.js': 'devicon-nextjs-original-wordmark',
+    'PostgreSQL': 'devicon-postgresql-plain colored',
+    'Python': 'devicon-python-plain colored',
+    'PyTorch': 'devicon-pytorch-original colored',
+    'Java': 'devicon-java-plain colored',
+    'MySQL': 'devicon-mysql-plain colored',
+    'AWS': 'devicon-amazonwebservices-plain-wordmark colored',
+    'Git': 'devicon-git-plain colored',
+    'GitHub': 'devicon-github-original',
+    'Docker': 'devicon-docker-plain colored',
+    'Kubernetes': 'devicon-kubernetes-plain colored',
+    'npm': 'devicon-npm-original-wordmark colored',
+    'HTML5': 'devicon-html5-plain colored',
+    'CSS3': 'devicon-css3-plain colored',
+    'Tailwind': 'devicon-tailwindcss-plain colored',
+    'NumPy': 'devicon-numpy-plain colored',
+    'TensorFlow': 'devicon-tensorflow-original colored',
+    'Postman': 'devicon-postman-plain colored',
+    'Firebase': 'devicon-firebase-plain colored',
+    'jQuery': 'devicon-jquery-plain colored',
+    'Android SDK': 'devicon-android-plain colored',
+    'Matplotlib': 'devicon-matplotlib-plain colored',
+    'Chakra UI': 'devicon-chakraui-plain colored',
+    'Tomcat': 'devicon-tomcat-line colored'
+  };
 
   const projects = useMemo(() => [
     {
@@ -365,16 +399,21 @@ const Projects = () => {
                     <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3 uppercase tracking-wide">
                       Technologies Used
                     </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map(tech => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 text-orange-800 dark:text-orange-200 rounded-full text-sm font-medium shadow-sm border border-orange-100 dark:border-orange-800/20"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                     <div className="flex flex-wrap gap-3">
+                        {project.tech
+                          .filter(tech => techToIcon[tech]) // Only show technologies with icons
+                          .map(tech => (
+                            <div
+                              key={tech}
+                              className="flex flex-col items-center gap-1"
+                              title={tech}
+                            >
+                              <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition-shadow duration-200">
+                                <i className={`${techToIcon[tech]} text-xl`}></i>
+                              </div>
+                            </div>
+                          ))}
+                      </div>
                   </div>
 
                   {/* Links */}
@@ -460,16 +499,21 @@ const Projects = () => {
                       )}
                     </div>
                     <p className="mb-2">{project.longDescription}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="text-sm text-slate-500 dark:text-slate-400"
-                        >
-                          {tech}{techIndex < project.tech.length - 1 ? ' • ' : ''}
-                        </span>
-                      ))}
-                    </div>
+                                                                                   <div className="flex flex-wrap gap-3 mb-4">
+                        {project.tech
+                          .filter(tech => techToIcon[tech]) // Only show technologies with icons
+                          .map((tech, techIndex) => (
+                            <div
+                              key={techIndex}
+                              className="flex flex-col items-center gap-1"
+                              title={tech}
+                            >
+                              <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition-shadow duration-200">
+                                <i className={`${techToIcon[tech]} text-lg`}></i>
+                              </div>
+                            </div>
+                          ))}
+                      </div>
 
                     {/* Photo Gallery for specific projects */}
                     {project.hasPhotos && project.photos && (
@@ -478,11 +522,11 @@ const Projects = () => {
                           {/* Container that shows exactly 1 photo with proper spacing for arrows */}
                           <div className="w-full overflow-hidden">
                             {/* Fixed width container that accounts for arrow space */}
-                            <div className="mx-auto overflow-hidden" style={{ width: '500px' }}>
+                            <div className="mx-auto overflow-hidden" style={{ width: '600px' }}>
                               <div 
                                 className="flex gap-4 transition-transform duration-300 ease-in-out" 
                                 style={{ 
-                                  transform: `translateX(-${getCurrentPhotoIndex(project.id) * 516}px)`,
+                                  transform: `translateX(-${getCurrentPhotoIndex(project.id) * 616}px)`,
                                   minHeight: '330px'
                                 }}
                               >

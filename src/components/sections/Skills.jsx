@@ -1,44 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import 'devicon/devicon.min.css';
-import { ThemeContext } from '../../context/ThemeContext.tsx';
 
 const Skills = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const themeContext = useContext(ThemeContext);
-  const theme = themeContext?.theme || 'light';
-
-  // Map display names to skillicons.dev IDs
-  const skilliconIdByName = {
-    Python: 'python',
-    'C++': 'cpp',
-    Java: 'java',
-    JavaScript: 'js',
-    TypeScript: 'ts',
-
-    PostgreSQL: 'postgres',
-    HTML5: 'html',
-    CSS3: 'css',
-    MongoDB: 'mongodb',
-    MySQL: 'mysql',
-
-    React: 'react',
-    Tailwind: 'tailwind',
-    'Next.js': 'nextjs',
-
-    Git: 'git',
-    npm: 'npm',
-    'Node.js': 'nodejs',
-    Postman: 'postman',
-
-    PyTorch: 'pytorch',
-    TensorFlow: 'tensorflow',
-    
-    AWS: 'aws',
-    Docker: 'docker',
-    Kubernetes: 'kubernetes',
-    GitHub: 'github'
-  };
 
   const categories = [
     'All',
@@ -69,17 +34,24 @@ const Skills = () => {
     { iconClass: 'devicon-react-original colored', name: 'React', category: 'Frameworks' },
     { iconClass: 'devicon-tailwindcss-plain colored', name: 'Tailwind', category: 'Frameworks' },
     { iconClass: 'devicon-nextjs-original-wordmark', name: 'Next.js', category: 'Frameworks' },
+    { iconClass: 'devicon-express-original colored', name: 'Express', category: 'Frameworks' },
+    { iconClass: 'devicon-firebase-plain colored', name: 'Firebase', category: 'Frameworks' },
+    { iconClass: 'devicon-chakraui-plain colored', name: 'Chakra UI', category: 'Frameworks' },
     
     // Technologies
     { iconClass: 'devicon-git-plain colored', name: 'Git', category: 'Technologies' },
     { iconClass: 'devicon-npm-original-wordmark colored', name: 'npm', category: 'Technologies' },
     { iconClass: 'devicon-nodejs-plain colored', name: 'Node.js', category: 'Technologies' },
     { iconClass: 'devicon-postman-plain colored', name: 'Postman', category: 'Technologies' },
+    { iconClass: 'devicon-jquery-plain colored', name: 'jQuery', category: 'Technologies' },
+    { iconClass: 'devicon-android-plain colored', name: 'Android SDK', category: 'Technologies' },
+    { iconClass: 'devicon-tomcat-line colored', name: 'Tomcat', category: 'Technologies' },
     
     // ML & Data
     { iconClass: 'devicon-numpy-plain colored', name: 'NumPy', category: 'ML & Data' },
     { iconClass: 'devicon-pytorch-original colored', name: 'PyTorch', category: 'ML & Data' },
     { iconClass: 'devicon-tensorflow-original colored', name: 'TensorFlow', category: 'ML & Data' },
+    { iconClass: 'devicon-matplotlib-plain colored', name: 'Matplotlib', category: 'ML & Data' },
     
     // DevOps
     { iconClass: 'devicon-amazonwebservices-plain-wordmark colored', name: 'AWS', category: 'DevOps' },
@@ -105,12 +77,12 @@ const Skills = () => {
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
           {categories.map(category => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
                 selectedCategory === category
                   ? 'bg-orange-500 text-white shadow-lg'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
@@ -136,45 +108,28 @@ const Skills = () => {
             }
           }}
         >
-          {filteredSkills.map((skill, index) => {
-            const id = skilliconIdByName[skill.name];
-            const iconUrl = id
-              ? `https://skillicons.dev/icons?i=${id}${theme === 'dark' ? '&theme=dark' : ''}`
-              : null;
-
-            return (
-              <motion.div
-                key={index}
-                className="flex flex-col items-center justify-center gap-2"
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.3,
-                      ease: 'easeOut'
-                    }
+          {filteredSkills.map((skill, index) => (
+            <motion.div
+              key={index}
+              className="flex flex-col items-center justify-center gap-2"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.3,
+                    ease: 'easeOut'
                   }
-                }}
-              >
-                <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shadow-sm border border-slate-200 dark:border-slate-700">
-                  {iconUrl ? (
-                    <img
-                      src={iconUrl}
-                      alt={skill.name}
-                      title={skill.name}
-                      className="w-7 h-7"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <i className={`${skill.iconClass} text-2xl ${skill.customStyle || ''}`}></i>
-                  )}
-                </div>
-                <span className="text-xs font-medium text-slate-600 dark:text-slate-400">{skill.name}</span>
-              </motion.div>
-            );
-          })}
+                }
+              }}
+            >
+              <div className="w-16 h-16 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition-shadow duration-200">
+                <i className={`${skill.iconClass} text-3xl`} title={skill.name}></i>
+              </div>
+              <span className="text-xs font-medium text-slate-600 dark:text-slate-400 text-center">{skill.name}</span>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>

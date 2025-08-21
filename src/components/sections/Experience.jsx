@@ -10,51 +10,34 @@ const Experience = () => {
       period: "July 2025 - Present",
       companyLink: "https://amazon.com",
       logo: "/portfolio/amazon-logo.png",
-      description: [
-        "Enhanced an internal code merge process for an internal tool, reducing completion time from days to hours",
-        "Developed the solution using AWS Lambda, Bedrock, S3, and other supporting cloud services",
-        "Followed professional SDLC practices including continuous deployment, code reviews, and daily stand-ups",
-        "Presented the project to stakeholders and led beta testing to gather feedback and refine features"
-      ],
+      description: "At Amazon, I'm building a serverless automation system that streamlines a complex change-management workflow using Lambda, Bedrock agents, and S3. I work with stakeholders to define requirements, write design docs, and deliver iteratively while following Amazon's SDLC practices. Through this, I'm learning how to design resilient cloud workflows with retries, logging, and monitoring, and how to balance trade-offs, present progress, and apply leadership principles to ship reliable, production-grade systems.",
       technologies: ["AWS", "Cloud Infrastructure", "Distributed Systems"]
     },
     {
       title: "Software Engineer",
       company: "Commit the Change",
       location: "Irvine, CA",
-      period: "Nov 2022 - Present",
+      period: "November 2022 - June 2025",
       companyLink: "https://ctc-uci.com",
       logo: "/portfolio/commit-the-change-logo.svg",
-      description: [
-        "Developed software for three different non-profits, each with distinct goals and requirements",
-        "Engaged continuously with customers during sprint cycles to incorporate feedback and improve outcomes",
-        "Built applications featuring robust database management and user-focused interaction design",
-        "Practiced iterative development with thorough bug testing to ensure high reliability and quality"
-      ],
+      description: "At Commit the Change, I collaborated with nonprofits to understand their needs and developed software that made their work more efficient. I contributed to projects by designing databases, building user-facing features, and testing for reliability, all of which gave me the chance to work closely with organizations making a difference and to see firsthand how technology can directly support their missions.",
       technologies: ["TypeScript", "React", "Node.js", "MongoDB", "AWS", "Firebase"]
     },
     {
-      title: "ML Research",
+      title: "Machine Learning Research Assistant",
       company: "Irvine Zhang Lab",
       location: "Irvine, CA",
-      period: "June 2024 - Present",
+      period: "January 2025 - Present",
       companyLink: "https://www.ics.uci.edu/~jingz31/",
-      description: [
-        "Conducting deep learning research in genomics across two projects",
-        "Designing generative models for RNA velocity prediction",
-        "Applying knowledge distillation to shrink DNA foundation models by 70% while maintaining 95% performance",
-        "Collaborating with PhD students on research papers for submission to top ML conferences"
-      ],
+      description: "At the Zhang Lab, I'm conducting deep learning research in genomics across two projects. One focuses on designing generative models to improve RNA velocity prediction, and the other applies knowledge distillation to compress large DNA foundation models while maintaining high performance. I'm also collaborating with PhD students on research papers for submission to top machine learning conferences. I pursue this work because I love exploring where the future of computer science is headed and being at the frontier of new discoveries.",
       technologies: ["PyTorch", "TensorFlow", "CUDA", "NumPy", "Scikit-learn", "HuggingFace"]
     },
     {
       title: "Software Engineer",
       company: "Irvine Neuroscience Laboratory",
       location: "Irvine, CA",
-      period: "June 2024 - May 2025",
-      description: [
-        "Developed a custom scheduling system used by over 50 researchers to coordinate experiments and resources"
-      ],
+      period: "June 2024 - June 2025",
+      description: "At the Irvine Neuroscience Laboratory, I contributed to a custom scheduling system that helped over 50 researchers coordinate experiments and resources.",
       technologies: ["React", "Node.js", "PostgreSQL", "ChakraUI", "JWT", "Docker"]
     }
   ];
@@ -167,11 +150,9 @@ const Experience = () => {
                             </div>
                           </div>
                         </div>
-                        <ul className="list-disc text-sm list-inside space-y-2 text-slate-600 dark:text-slate-300 mb-4">
-                          {experience.description.map((item, i) => (
-                            <li key={i} className="leading-relaxed">{item}</li>
-                          ))}
-                        </ul>
+                        <p className="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                          {experience.description}
+                        </p>
                       </div>
                     </div>
                   </div>

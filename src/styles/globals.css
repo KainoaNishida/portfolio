@@ -134,27 +134,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container-content {
-  max-width: 65%;
+  max-width: 60%;
   margin: 0 auto;
   padding: 0 var(--space-lg);
 }
 
 .container-skills {
-  width: 50%;
-  max-width: 50%;
+  width: 45%;
+  max-width: 45%;
   margin: 0 auto;
   padding: 0 var(--space-lg);
 }
 
 .container-experience {
-  max-width: 90%;
+  max-width: 85%;
   margin: 0 auto;
   padding: 0 var(--space-lg);
 }
 
 
 .container-resume {
-  max-width: 70%;
+  max-width: 65%;
   margin: 0 auto;
   padding: 0 var(--space-lg);
 }

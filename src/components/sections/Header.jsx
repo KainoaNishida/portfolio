@@ -4,7 +4,6 @@ import TypewriterText from '../TypewriterText';
 
 const Header = () => {
   const typewriterWords = [
-    "Designer",
     "Adventurer",
     "Researcher",
     "Soccer Player",
@@ -39,7 +38,7 @@ const Header = () => {
             <p className="text-sm md:text-base text-slate-600 dark:text-slate-400 mb-6 max-w-xl">
             Hello! I'm a developer who loves building thoughtful software, learning new technologies, and connecting with people. 
             
-            When I'm not coding, you'll find me gaming with friends, bouldering, playing sports, orspending time outdoors.
+            When I'm not coding, you'll find me gaming with friends, bouldering, playing sports, or spending time outdoors.
             </p>
 
             {/* Info Badges */}
@@ -57,7 +56,7 @@ const Header = () => {
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"/>
                   </svg>
-                  <span className="text-sm">Researcher at Zhang Lab</span>
+                  <span className="text-sm">ML Researcher at Zhang Lab</span>
                 </div>
               </div>
 
