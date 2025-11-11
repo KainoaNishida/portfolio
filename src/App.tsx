@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import Intro from "./assets/pages/load/Intro.jsx";
 import ThemeProvider, { ThemeContext } from "./context/ThemeContext.tsx";
 
