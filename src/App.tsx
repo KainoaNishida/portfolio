@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Intro from "./assets/pages/load/Intro.jsx";
 import ThemeProvider, { ThemeContext } from "./context/ThemeContext.tsx";
 
@@ -13,7 +14,7 @@ function AppContent() {
   
   return (
     <div className={`min-h-screen ${theme === 'dark' ? 'dark' : ''}`}>
-      <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300">
+      <div className="min-h-screen bg-white dark:bg-slate-1000 transition-colors duration-300">
         <main>
           <Intro />
         </main>
@@ -25,7 +26,9 @@ function AppContent() {
 function App() {
   return (
     <ThemeProvider>
-      <AppContent />
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
     </ThemeProvider>
   )
 }

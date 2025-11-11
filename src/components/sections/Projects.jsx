@@ -1,261 +1,530 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import 'devicon/devicon.min.css';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Projects = () => {
-  const [hoveredProject, setHoveredProject] = useState(null);
   const [photoIndices, setPhotoIndices] = useState({});
-
-  // Mapping of tech names to devicon classes
-  const techToIcon = {
-    'React': 'devicon-react-original colored',
-    'TypeScript': 'devicon-typescript-plain colored',
-    'Node.js': 'devicon-nodejs-plain colored',
-    'MongoDB': 'devicon-mongodb-plain colored',
-    'Express': 'devicon-express-original',
-    'Next.js': 'devicon-nextjs-original-wordmark',
-    'PostgreSQL': 'devicon-postgresql-plain colored',
-    'Python': 'devicon-python-plain colored',
-    'PyTorch': 'devicon-pytorch-original colored',
-    'Java': 'devicon-java-plain colored',
-    'MySQL': 'devicon-mysql-plain colored',
-    'AWS': 'devicon-amazonwebservices-plain-wordmark colored',
-    'Git': 'devicon-git-plain colored',
-    'GitHub': 'devicon-github-original',
-    'Docker': 'devicon-docker-plain colored',
-    'Kubernetes': 'devicon-kubernetes-plain colored',
-    'npm': 'devicon-npm-original-wordmark colored',
-    'HTML5': 'devicon-html5-plain colored',
-    'CSS3': 'devicon-css3-plain colored',
-    'Tailwind': 'devicon-tailwindcss-plain colored',
-    'NumPy': 'devicon-numpy-plain colored',
-    'TensorFlow': 'devicon-tensorflow-original colored',
-    'Postman': 'devicon-postman-plain colored',
-    'Firebase': 'devicon-firebase-plain colored',
-    'jQuery': 'devicon-jquery-plain colored',
-    'Android SDK': 'devicon-android-plain colored',
-    'Matplotlib': 'devicon-matplotlib-plain colored',
-    'Chakra UI': 'devicon-chakraui-plain colored',
-    'Tomcat': 'devicon-tomcat-line colored'
-  };
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [expandedProjects, setExpandedProjects] = useState({});
+  const isExpanded = useCallback((id) => !!expandedProjects[id], [expandedProjects]);
+  const toggleExpanded = useCallback((id) => {
+    setExpandedProjects(prev => ({ ...prev, [id]: !prev[id] }));
+  }, []);
 
   const projects = useMemo(() => [
     {
       id: 1,
       title: "Collete's Children Home Dashboard",
-      description: "Internal management system for a non-profit organization helping disadvantaged mothers, featuring client-manager matching and treatment tracking capabilities.",
-      longDescription: <>Developed a comprehensive dashboard system for <a href="https://www.coletteschildrenshome.com/" target="_blank" rel="noopener noreferrer" className="text-orange-600 dark:text-orange-400 hover:underline">Colette's Children's Home</a> that streamlines the process of matching clients with managers and tracking treatment progress. The system helps the non-profit organization efficiently manage and monitor the care provided to disadvantaged mothers, improving their ability to deliver essential services and support.</>,
+      description: "Internal dashboard for client–manager matching, treatment tracking, and operations at a nonprofit serving disadvantaged mothers.",
+      longDescription: (
+        <>
+          Built a production dashboard for{" "}
+          <a
+            href="https://www.coletteschildrenshome.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-0.5"
+          >
+            Colette&apos;s Children&apos;s Home
+            <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+          {" "}that turns scattered spreadsheets into a single, reliable system:
+          <br />
+          <br />
+          • <strong>Client–manager matching:</strong> searchable client table with filters, assignment workflow, and role-based views.<br />
+          • <strong>Treatment tracking:</strong> progress notes, milestones, and status history with audit-friendly timestamps.<br />
+          • <strong>Donations & operations:</strong> a unified ledger for donation intake and disbursement, with quick reports and CSV export.<br />
+          • <strong>Forms & onboarding:</strong> multi-step, paginated forms with autosave, validation, file uploads (Firebase Storage), and admin review.<br />
+          • <strong>Reliability & DX:</strong> input validation, optimistic UI, empty/error states, and basic metrics/logging for easier support.
+          <br />
+          <br />
+          Under the hood it uses React + TypeScript, Node/Express APIs, MongoDB for data modeling, Firebase Auth/Storage for identity and secure uploads, Chakra UI for accessible components, and the AWS SDK for durable document storage integrations.
+        </>
+      ),
       tech: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Express', 'Chakra UI', 'Firebase', 'AWS SDK'],
+      categories: ['software'],
       github: 'https://github.com/ctc-uci/cch',
-      image: 'https://placehold.co/800x600/2563EB/FFFFFF?text=Colletes+Dashboard&font=inter',
-      video: 'https://www.youtube.com/embed/5TsfGhw38d4?autoplay=1&mute=1&loop=1&playlist=5TsfGhw38d4',
+      demo: 'https://www.youtube.com/watch?v=5TsfGhw38d4',
       status: 'Live',
       featured: true,
-      year: '2024'
-    },
-    {
-      id: 2,
-      title: 'UCLA Ranked',
-      description: 'Platform for ELO ranking system at UCLA, featuring alumni network integration and comprehensive player statistics.',
-      longDescription: 'Collaborated with Max Fukuhara to develop a sophisticated ELO ranking platform for UCLA. Currently expanding the project with a growing team to implement additional features including an alumni network and enhanced statistical analysis tools.',
-      tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Chakra UI', 'AWS'],
-      github: 'https://github.com/maxfukuh4ra/uclaranked',
-      status: 'Live',
-      featured: false,
-      year: '2024'
-    },
-    {
-      id: 3,
-      title: 'Sustainably',
-      description: 'Eco-friendly product search engine using deep learning to score company sustainability, developed at Caltech Hackathon.',
-      longDescription: 'A search engine that helps users find clothing products from eco-friendly companies. Implemented a deep learning model that generates eco-friendliness scores based on multiple data inputs, trained and validated against publicly traded companies\' ESG scores.',
-      tech: ['TypeScript', 'Python', 'PyTorch', 'FastAPI', 'React', 'PostgreSQL', 'AWS'],
-      github: 'https://github.com/KainoaNishida/calhacks',
-      image: 'https://placehold.co/800x600/7C3AED/FFFFFF?text=Sustainably&font=inter',
-      video: 'https://www.youtube.com/embed/eRWfTVFnekc?autoplay=1&mute=1&loop=1&playlist=eRWfTVFnekc',
-      status: 'Completed',
-      featured: true,
-      year: '2024'
-    },
-    {
-      id: 4,
-      title: 'Fabflix',
-      description: 'Full-stack Netflix clone with comprehensive movie database, search functionality, and performance optimizations.',
-      longDescription: 'A complete movie database web application from scratch, featuring secure login, full-text search with auto-complete, cart checkout, and extensive performance optimizations including MySQL connection pooling and load balancing.',
-      tech: ['Java', 'MySQL', 'Tomcat', 'AWS', 'jQuery', 'Android SDK'],
-      // github: 'https://github.com/kainoa-nishida/fabflix',
-      demo: 'https://youtu.be/vBxpvysVO_Y',
-      image: 'https://placehold.co/800x600/059669/FFFFFF?text=Fabflix&font=inter',
-      status: 'Completed',
-      featured: false,
-      year: '2023'
-    },
-    {
-      id: 5,
-      title: 'Feeding Pets of the Homeless',
-      description: 'Streamlined platform for managing pet food donations and veterinary care for homeless pet owners.',
-      longDescription: <>A software solution developed for <a href="https://petsofthehomeless.org/" target="_blank" rel="noopener noreferrer" className="text-orange-600 dark:text-orange-400 hover:underline">Feeding Pets of the Homeless</a> that centralizes and accelerates the onboarding and donation reporting processes for partner sites, enabling seamless contribution tracking, streamlined communication, and impact monitoring for homeless pet guardians.</>,
-      tech: ['React', 'Firebase', 'Node.js', 'Express'],
-      github: 'https://github.com/ctc-uci/fph-frontend',
-      image: 'https://placehold.co/800x600/2563EB/FFFFFF?text=FPOTH&font=inter',
-      status: 'Live',
-      featured: false,
-      year: '2023',
-      hasPhotos: true,
-      photoFolder: 'fph',
-      photos: [
-        '/portfolio/project_photos/fph/admin-dashboard.png',
-        '/portfolio/project_photos/fph/donation-form.png',
-        '/portfolio/project_photos/fph/onboarding.png'
-      ],
-      captions: [
-        'Dashboard',
-        'Donation Form',
-        'Onboarding Entry'
-      ]
-    },
-    {
-      id: 6,
-      title: 'Valnotes',
-      description: 'Video note-taking application specialized for gameplay analysis with Riot Games API integration.',
-      longDescription: 'A project that enables users to upload and annotate gameplay videos, featuring automated data gathering and visualization through integrated Riot Games API functionality.',
-      tech: ['React', 'Node.js', 'Riot API', 'MongoDB', 'Express'],
-      github: 'https://github.com/KainoaNishida/Valnotes',
-      image: 'https://placehold.co/800x600/DC2626/FFFFFF?text=Valnotes&font=inter',
-      status: 'Live',
-      featured: false,
-      year: '2023',
-      hasPhotos: true,
-      photoFolder: 'valnotes',
-      photos: [
-        '/portfolio/project_photos/valnotes/photo1.png',
-        '/portfolio/project_photos/valnotes/photo2.png',
-        '/portfolio/project_photos/valnotes/photo3.png',
-        '/portfolio/project_photos/valnotes/photo4.png',
-        '/portfolio/project_photos/valnotes/photo5.png',
-        '/portfolio/project_photos/valnotes/photo6.png',
-        '/portfolio/project_photos/valnotes/photo7.png'
-      ],
-      captions: [
-        'Video Upload Interface',
-        'Annotation Tools',
-        'Game Data Display',
-        'Player Statistics',
-        'Match Analysis',
-        'Note Management',
-        'Settings Panel'
-      ]
-    },
-    {
-      id: 7,
-      title: 'Pokéscape',
-      description: 'Java-based adventure game featuring professional artwork and custom sound design.',
-      longDescription: 'An immersive video game where players explore a forest environment and solve puzzles to rescue an endangered Celebi, featuring custom artwork from a professional artist.',
-      tech: ['Java'],
-      github: 'https://github.com/KainoaNishida/pokescape',
-      image: 'https://placehold.co/800x600/059669/FFFFFF?text=Pokescape&font=inter',
-      status: 'Completed',
-      featured: false,
-      year: '2023',
-      demo: 'https://youtu.be/VISm_A_FCxw',
-      hasPhotos: true,
-      photoFolder: 'pokescape',
-      photos: [
-        '/portfolio/project_photos/pokescape/start.png',
-        '/portfolio/project_photos/pokescape/2.png',
-        '/portfolio/project_photos/pokescape/3.png',
-        '/portfolio/project_photos/pokescape/4.png',
-        '/portfolio/project_photos/pokescape/5.png',
-        '/portfolio/project_photos/pokescape/6.png',
-        '/portfolio/project_photos/pokescape/7.png'
-      ],
-      captions: [
-        'Start Screen',
-        'Dialogue 1',
-        'Dialogue 2',
-        'Dialogue 3',
-        'World Exploration 1',
-        'World Exploration 2',
-        'Puzzle'
-      ]
-    },
-    {
-      id: 8,
-      title: 'Get Inspired',
-      description: 'Web application and database for storing and displaying Pismo clam survey information with automated statistics.',
-      longDescription: <>A web application and database developed for <a href="https://getinspiredinc.org/" target="_blank" rel="noopener noreferrer" className="text-orange-600 dark:text-orange-400 hover:underline">Get Inspired</a> that stores and displays information about Pismo clams - including color, location, survey date/time, and other key characteristics. The interface enables GSP to easily input, view, and query data, while the dashboard automatically calculates survey statistics to support efforts in restoring the clam population.</>,
-      tech: ['React', 'Node.js', 'PostgreSQL', 'Express'],
-      github: 'https://github.com/ctc-uci/get-inspired-frontend',
-      image: 'https://placehold.co/800x600/7C3AED/FFFFFF?text=GSP&font=inter',
-      status: 'Completed',
-      featured: false,
       year: '2024',
       hasPhotos: true,
-      photoFolder: 'gsp',
+      photoFolder: 'cch',
       photos: [
-        '/portfolio/project_photos/gsp/1.png',
-        '/portfolio/project_photos/gsp/2.png',
-        '/portfolio/project_photos/gsp/3.png',
-        '/portfolio/project_photos/gsp/4.png',
-        '/portfolio/project_photos/gsp/5.png'
+        `${import.meta.env.BASE_URL}project_photos/cch/dashboard.png`,
+        `${import.meta.env.BASE_URL}project_photos/cch/client_table.png`,
+        `${import.meta.env.BASE_URL}project_photos/cch/client_tracking.png`,
+        `${import.meta.env.BASE_URL}project_photos/cch/donation_tracking.png`,
+        `${import.meta.env.BASE_URL}project_photos/cch/forms.png`
+      ],
+      captions: ['Dashboard', 'Client Table', 'Client Tracking', 'Donation Tracking', 'Forms']
+    }
+    ,
+    {
+      id: 2,
+      title: "UCLA Ranked",
+      description: "ELO-driven ladder for UCLA with verified match reporting, live leaderboards, alumni profiles, and rich player stats.",
+      longDescription: (
+        <>
+          Co-built with{" "}
+          <a
+            href="https://github.com/maxfukuh4ra/uclaranked"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-0.5"
+          >
+            Max Fukuhara
+            <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+          , UCLA Ranked turns pickup results into a transparent, competitive ladder:
+          <br />
+          <br />
+          • <strong>Match reporting & verification:</strong> players submit results; opponents confirm; admins can resolve disputes with an audit trail.<br />
+          • <strong>Live ELO & leaderboards:</strong> instant rating updates, season filters, and historical snapshots to track progress over time.<br />
+          • <strong>Player analytics:</strong> win/loss, streaks, head-to-head, surface/opponent breakdowns, and per-season summaries with exportable tables.<br />
+          • <strong>Alumni network:</strong> profiles that carry forward after graduation, with graduation-year tagging and opt-in contact links for mentorship and events.<br />
+          • <strong>Reliability & ops:</strong> pagination and rate-limits on API routes, input validation, error/empty states, and scheduled jobs for backups and recomputes.
+          <br />
+          <br />
+        </>
+      ),
+      tech: ["Next.js", "TypeScript", "PostgreSQL", "Chakra UI", "AWS"],
+      categories: ["software"],
+      github: "https://github.com/maxfukuh4ra/uclaranked",
+      status: "Live",
+      featured: false,
+      year: "2024"
+    }
+    ,
+    {
+      id: 3,
+      title: "Sustainably",
+      description: "Product search that ranks brands by an ML-based sustainability score, built at a Caltech hackathon.",
+      longDescription: (
+        <>
+          Sustainably helps shoppers discover clothing from companies with stronger sustainability signals. We built a small
+          ML pipeline that aggregates company attributes (disclosures, impact reports, news signals, and product metadata)
+          and produces a continuous “eco score,” then validated it against publicly traded companies’ ESG benchmarks.
+          <br />
+          <br />
+          • <strong>Search & results:</strong> a React UI for product search with brand badges, score tooltips, and quick filters.<br />
+          • <strong>Company spotlight:</strong> profile pages with an at-a-glance scorecard, rationale snippets, and links to sources.<br />
+          • <strong>Weekly spotlight:</strong> a rotating highlight that surfaces new or improving brands and explains the lift.<br />
+          • <strong>Data & storage:</strong> product/brand metadata and model outputs persisted in PostgreSQL; APIs paginate and cache responses.<br />
+          • <strong>Transparency:</strong> every score shows contributing factors and caveats—this is an assistive signal,
+          not investment advice.
+          <br />
+          <br />
+        </>
+      ),
+      tech: ["TypeScript", "Python", "PyTorch", "FastAPI", "React", "PostgreSQL", "AWS"],
+      categories: ["machine learning", "artificial intelligence", "software"],
+      github: "https://github.com/KainoaNishida/calhacks",
+      demo: "https://www.youtube.com/watch?v=eRWfTVFnekc",
+      status: "Completed",
+      featured: true,
+      year: "2024",
+      hasPhotos: true,
+      photoFolder: "sustainably",
+      photos: [
+        `${import.meta.env.BASE_URL}project_photos/sustainably/search.png`,
+        `${import.meta.env.BASE_URL}project_photos/sustainably/search_result.png`,
+        `${import.meta.env.BASE_URL}project_photos/sustainably/company_spotlight.png`,
+        `${import.meta.env.BASE_URL}project_photos/sustainably/weekly_spotlight.png`,
+        `${import.meta.env.BASE_URL}project_photos/sustainably/mission.png`
+      ],
+      captions: ["Search Interface", "Search Results", "Company Spotlight", "Weekly Spotlight", "Mission"]
+    }
+    ,
+    {
+      id: 4,
+      title: "Fabflix",
+      description: "Full-stack movie e-commerce site built from scratch with secure login, full-text search, and high-performance AWS deployment.",
+      longDescription: (
+        <>
+          Fabflix is a production-grade Netflix-style web app where users can browse, search, and purchase from a catalog of thousands of movies.  
+          Built entirely from scratch, it demonstrates the complete software stack—from backend architecture and database engineering to frontend interaction and performance scaling.
+          <br /><br />
+          • <strong>Architecture:</strong> designed and deployed a full-stack system using Java, Tomcat, MySQL, and Apache on AWS EC2 with HTTPS and RESTful APIs.<br />
+          • <strong>Frontend:</strong> built a rich interface with JavaScript, jQuery, and AJAX for live search, pagination, and responsive UX across the catalog and checkout flows.<br />
+          • <strong>Database:</strong> implemented an ETL pipeline that parses large XML datasets to expand the MySQL movie database with metadata, cast, and genre relationships.<br />
+          • <strong>Security:</strong> added SHA-256 password hashing, reCAPTCHA bot detection, session-based login, and parameterized queries to prevent SQL injection.<br />
+          • <strong>Performance:</strong> optimized throughput via MySQL connection pooling, read replication, query caching, and Apache load balancing, measured with JMeter benchmarking.<br />
+          • <strong>Deployment:</strong> containerized the application and orchestrated it on a Kubernetes cluster spanning multiple AWS instances for scalability and fault tolerance.<br />
+          <br /><br />
+        </>
+      ),
+      tech: ["Java", "MySQL", "Tomcat", "AWS", "jQuery", "Android SDK", "JDBC", "Apache", "Kubernetes", "HTTPS", "RESTful APIs", "reCAPTCHA", "Git", "JMeter"],
+      categories: ["software"],
+      demo: "https://youtu.be/vBxpvysVO_Y",
+      status: "Completed",
+      featured: false,
+      year: "2023"
+    }
+    ,
+    {
+      id: 5,
+      title: "Feeding Pets of the Homeless",
+      description: "Partner-site portal that streamlines onboarding and donation reporting for a nonprofit supporting homeless pet guardians.",
+      longDescription: (
+        <>
+          Built a centralized portal for{" "}
+          <a
+            href="https://petsofthehomeless.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-0.5"
+          >
+            Feeding Pets of the Homeless
+            <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+          {" "}that turns email- and spreadsheet-heavy workflows into a simple, trackable system:
+          <br /><br />
+          • <strong>Admin dashboard:</strong> role-based views for sites vs. HQ, with searchable tables, status filters, and CSV exports for audits and reports.<br />
+          • <strong>Donation reporting:</strong> guided form with validation, autosave, and file uploads (receipts/photos via Firebase Storage); submissions flow into review queues with clear states.<br />
+          • <strong>Partner onboarding:</strong> multi-step, paginated intake that saves progress between steps and captures key documents, contacts, and service capacity.<br />
+          • <strong>Communication:</strong> automatic email confirmations and in-app alerts on approvals, rejections, or missing info to keep partners in sync.<br />
+          <br /><br />
+        </>
+      ),
+      tech: ["React", "Firebase", "Node.js", "Express"],
+      categories: ["software"],
+      github: "https://github.com/ctc-uci/fph-frontend",
+      status: "Live",
+      featured: false,
+      year: "2023",
+      hasPhotos: true,
+      photoFolder: "fph",
+      photos: [
+        `${import.meta.env.BASE_URL}project_photos/fph/admin-dashboard.png`,
+        `${import.meta.env.BASE_URL}project_photos/fph/donation-form.png`,
+        `${import.meta.env.BASE_URL}project_photos/fph/onboarding.png`
+      ],
+      captions: ["Dashboard", "Donation Form", "Onboarding Entry"]
+    }
+    ,
+    {
+      id: 6,
+      title: "Valnotes",
+      description: "Video note-taking for gameplay analysis with timestamped annotations and Riot Games data overlays.",
+      longDescription: (
+        <>
+          Valnotes lets players and coaches upload scrims/VODs, drop timestamped notes, and layer in match data pulled from the{" "}
+          <a
+            href="https://developer.riotgames.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-0.5"
+          >
+            Riot Games API
+            <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+          </a>
+          . The result is a single workspace to review plays, tag decisions, and visualize patterns across matches.
+          <br /><br />
+          • <strong>Video review:</strong> upload VODs, scrub the timeline, and create timestamped notes with tags, color labels, and quick keybinds.<br />
+          • <strong>Data overlays:</strong> pull match metadata, player stats, and round outcomes from Riot; show per-round summaries alongside the note timeline.<br />
+          • <strong>Analysis views:</strong> head-to-head panels, economy/ult tracking, streaks, and simple charts to spot repeatable mistakes or strengths.<br />
+          • <strong>Backend & auth:</strong> secure uploads, JWT sessions, rate-limited API routes, and MongoDB schemas for users, videos, notes, and match links.
+          <br /><br />
+        </>
+      ),
+      tech: ["React", "Node.js", "Riot API", "MongoDB", "Express"],
+      categories: ["software"],
+      github: "https://github.com/KainoaNishida/Valnotes",
+      status: "Live",
+      featured: false,
+      year: "2023",
+      hasPhotos: true,
+      photoFolder: "valnotes",
+      photos: [
+        `${import.meta.env.BASE_URL}project_photos/valnotes/photo1.png`,
+        `${import.meta.env.BASE_URL}project_photos/valnotes/photo2.png`,
+        `${import.meta.env.BASE_URL}project_photos/valnotes/photo3.png`,
+        `${import.meta.env.BASE_URL}project_photos/valnotes/photo4.png`,
+        `${import.meta.env.BASE_URL}project_photos/valnotes/photo5.png`,
+        `${import.meta.env.BASE_URL}project_photos/valnotes/photo6.png`,
+        `${import.meta.env.BASE_URL}project_photos/valnotes/photo7.png`
       ],
       captions: [
-        'Survey Dashboard',
-        'Data Entry Form',
-        'Statistics Overview',
-        'Survey Results',
-        'Data Export'
+        "Video Upload Interface",
+        "Annotation Tools",
+        "Game Data Display",
+        "Player Statistics",
+        "Match Analysis",
+        "Note Management",
+        "Settings Panel"
       ]
-    },
+    }
+    ,
+    {
+      id: 7,
+      title: "Pokéscape",
+      description: "Java adventure puzzler with custom art, original sound design, and a handcrafted forest to explore.",
+      longDescription: (
+        <>
+          Pokéscape is a 2D adventure puzzle game built in pure <strong>Java</strong> where players traverse a hand-drawn forest,
+          talk to NPCs, and solve environmental puzzles to rescue an endangered forest spirit. I designed the core loop,
+          implemented the engine, and collaborated with a professional artist for sprites, tiles, and UI, plus original SFX/music.
+          <br /><br />
+          • <strong>Gameplay:</strong> exploration, dialogue choices, inventory gating, and puzzle rooms that unlock new forest areas.<br />
+          • <strong>Engine:</strong> custom state manager (title ↔ gameplay ↔ dialogue ↔ pause), fixed-timestep game loop, and scene transitions.<br />
+          • <strong>Dialogue system:</strong> scriptable conversations with portrait frames, typing effects, and branching responses.<br />
+          • <strong>Audio:</strong> lightweight mixer for music/SFX, with spatial cues and per-scene playlists for atmosphere.<br />
+          <br /><br />
+        </>
+      ),
+      tech: ["Java"],
+      categories: ["software", "games"],
+      github: "https://github.com/KainoaNishida/pokescape",
+      status: "Completed",
+      featured: false,
+      year: "2023",
+      demo: "https://youtu.be/VISm_A_FCxw",
+      hasPhotos: true,
+      photoFolder: "pokescape",
+      photos: [
+        `${import.meta.env.BASE_URL}project_photos/pokescape/start.png`,
+        `${import.meta.env.BASE_URL}project_photos/pokescape/2.png`,
+        `${import.meta.env.BASE_URL}project_photos/pokescape/3.png`,
+        `${import.meta.env.BASE_URL}project_photos/pokescape/4.png`,
+        `${import.meta.env.BASE_URL}project_photos/pokescape/5.png`,
+        `${import.meta.env.BASE_URL}project_photos/pokescape/6.png`,
+        `${import.meta.env.BASE_URL}project_photos/pokescape/7.png`
+      ],
+      captions: [
+        "Start Screen",
+        "Dialogue 1",
+        "Dialogue 2",
+        "Dialogue 3",
+        "World Exploration 1",
+        "World Exploration 2",
+        "Puzzle"
+      ]
+    }
+    ,
+    {
+      id: 8,
+      title: "Get Inspired",
+      description: "Survey & analytics portal for Pismo clam restoration with fast data entry, queryable records, and auto-computed stats.",
+      longDescription: (
+        <>
+          Built for{" "}
+          <a
+            href="https://getinspiredinc.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-0.5"
+          >
+            Get Inspired
+            <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+          , this app turns beach surveys into clean, searchable data and instant insights:
+          <br /><br />
+          • <strong>Survey dashboard:</strong> at-a-glance KPIs (counts by color/status, CPUE, size distributions) with filters for date range, site, tide, and team.<br />
+          • <strong>Data entry:</strong> guided form for species/size/color, GPS/location, date/time, photos, and notes with validation and autosave to reduce errors in the field.<br />
+          • <strong>Results table:</strong> searchable/paginated records with advanced filters and quick detail panels for verifying submissions.<br />
+          • <strong>Data export:</strong> CSV downloads for sharing with researchers and agencies; exports respect current filters for reproducible reports.<br />
+          <br /><br />
+        </>
+      ),
+      tech: ["React", "Node.js", "PostgreSQL", "Express"],
+      categories: ["software"],
+      github: "https://github.com/ctc-uci/get-inspired-frontend",
+      status: "Completed",
+      featured: false,
+      year: "2024",
+      hasPhotos: true,
+      photoFolder: "gsp",
+      photos: [
+        `${import.meta.env.BASE_URL}project_photos/gsp/1.png`,
+        `${import.meta.env.BASE_URL}project_photos/gsp/2.png`,
+        `${import.meta.env.BASE_URL}project_photos/gsp/3.png`,
+        `${import.meta.env.BASE_URL}project_photos/gsp/4.png`,
+        `${import.meta.env.BASE_URL}project_photos/gsp/5.png`
+      ],
+      captions: [
+        "Survey Dashboard",
+        "Data Entry Form",
+        "Statistics Overview",
+        "Survey Results",
+        "Data Export"
+      ]
+    }
+    ,
     {
       id: 9,
-      title: 'Agape',
-      description: 'Web application for community building and social connection.',
-      longDescription: 'A platform designed to foster meaningful connections and community engagement through innovative social features and intuitive user experience.',
-      tech: ['React', 'Node.js', 'MongoDB', 'Express'],
-      github: 'https://github.com/KainoaNishida/agape',
-      demo: 'https://youtu.be/lDC4x5Eh4fE',
-      image: 'https://placehold.co/800x600/DC2626/FFFFFF?text=Agape&font=inter',
-      status: 'Live',
+      title: "Agape",
+      description: "Mental health AI chatbot with real-time mood analysis via a Chrome extension and OpenAI-powered responses.",
+      longDescription: (
+        <>
+          Agape is a mental-health–focused assistant that analyzes live chats in the browser and returns supportive, context-aware guidance:
+          <br /><br />
+          • <strong>Chrome extension:</strong> captures on-page chat text in real time and sends minimal snippets to the backend for analysis.<br />
+          • <strong>AI inference:</strong> Express.js service integrates the OpenAI API for mood classification, sentiment trends, and tailored response suggestions.<br />
+          • <strong>Data pipeline:</strong> web-scraped text is cleaned and templated, then stored in SQL (AWS RDS) with user/session metadata for analytics and history.<br />
+          • <strong>Frontend:</strong> React UI (HTML/CSS) surfaces live mood predictions, suggested replies, and longitudinal visualizations pulled from the database.<br />
+          <br /><br />
+        </>
+      ),
+      tech: ["React", "Express.js", "OpenAI API", "Chrome Extension", "AWS", "SQL"],
+      categories: ["software", "artificial intelligence"],
+      github: "https://github.com/KainoaNishida/agape",
+      demo: "https://youtu.be/lDC4x5Eh4fE",
+      status: "Live",
       featured: false,
-      year: '2024'
-    },
+      year: "2024"
+    }
+    
+    ,
     {
       id: 10,
-      title: 'Maze Runner',
-      description: 'Interactive maze generation and solving algorithm visualization.',
-      longDescription: 'An educational tool that demonstrates various maze generation algorithms and pathfinding solutions, providing visual insights into computational problem-solving approaches.',
-      tech: ['Python', 'Pygame', 'NumPy'],
-      github: 'https://github.com/KainoaNishida/maze-solver',
-      demo: 'https://youtu.be/mmP9CtKYGtM',
-      image: 'https://placehold.co/800x600/059669/FFFFFF?text=Maze+Runner&font=inter',
-      status: 'Completed',
+      title: "Maze Runner",
+      description: "Interactive Python visualizer for maze generation and pathfinding algorithms.",
+      longDescription: (
+        <>
+          Maze Runner is an educational visualization tool built with <strong>Python</strong> and <strong>Pygame</strong> that brings maze algorithms to life. 
+          It shows how different generation and solving strategies behave in real time—helping learners see computational thinking unfold step by step.
+          <br /><br />
+          • <strong>Maze generation:</strong> supports recursive backtracking, randomized Prim’s, and Kruskal’s algorithms with color-coded growth to show frontier expansion.<br />
+          • <strong>Pathfinding:</strong> visualizes breadth-first search (BFS), depth-first search (DFS), and A* with clear traversal and backtrack animations.<br />
+          • <strong>Visualization controls:</strong> adjustable speed sliders, maze size, start/goal placement, and instant reset for quick experimentation.<br />
+          • <strong>Performance insights:</strong> overlays generation/solving time, step count, and algorithm efficiency metrics using <strong>NumPy</strong> for computation.<br />
+          • <strong>Learning experience:</strong> designed for students exploring algorithmic design, offering a tangible way to connect theory to runtime behavior.
+          <br /><br />
+        </>
+      ),
+      tech: ["Python", "Pygame", "NumPy"],
+      categories: ["algorithms", "software"],
+      github: "https://github.com/KainoaNishida/maze-solver",
+      demo: "https://youtu.be/mmP9CtKYGtM",
+      status: "Completed",
       featured: false,
-      year: '2023'
-    },
+      year: "2023"
+    }
+    ,
     {
       id: 11,
-      title: 'Minecraft RI Agent',
-      description: 'Custom reinforcement learning agent for automated diamond mining in Minecraft.',
-      longDescription: 'A project implementing a deep Q-learning algorithm to train an agent in a custom Minecraft environment, with a focus on efficient resource gathering and navigation.',
-      tech: ['Python', 'PyTorch', 'Malmo', 'NumPy'],
-      image: 'https://placehold.co/800x600/059669/FFFFFF?text=Minecraft+RL&font=inter',
-      demo: 'https://youtu.be/kgeDFwxfVCM',
-      status: 'Completed',
+      title: "Minecraft RL Agent",
+      description: "Deep Q-learning agent in Malmo that learns to navigate caves and mine diamonds efficiently.",
+      longDescription: (
+        <>
+          A reinforcement learning project using <strong>Microsoft Malmo</strong> to train an agent for diamond mining.
+          The agent learns navigation, tool use, and resource gathering through reward shaping and curriculum tasks that
+          progress from coal/iron to diamond.  
+          <br /><br />
+          • <strong>Environment:</strong> custom Malmo missions with procedurally varied cave layouts, sparse lighting, lava hazards, and diamond targets.<br />
+          • <strong>State & actions:</strong> frame-stacked observations + inventory/status features; discrete action set for movement, mining, and item use.<br />
+          • <strong>Algorithm:</strong> DQN with target network, epsilon-greedy exploration, and prioritized experience replay; conv encoder + small MLP head in <strong>PyTorch</strong>.<br />
+          • <strong>Reward shaping:</strong> positive rewards for ore discovery/extraction and goal completion; penalties for damage/timeouts; bonuses for efficient pathing.<br />
+          • <strong>Training:</strong> mini-batch updates on GPU with gradient clipping; curriculum schedules reduce exploration over time for stable convergence.<br />
+          • <strong>Evaluation:</strong> success rate to first diamond, steps-to-diamond, survival rate, and average episodic return across randomized seeds.
+          <br /><br />
+          <a
+            href="https://youtu.be/kgeDFwxfVCM"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-0.5"
+          >
+            YouTube
+            <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+          .
+        </>
+      ),
+      tech: ["Python", "PyTorch", "Malmo", "NumPy"],
+      categories: ["machine learning", "artificial intelligence"],
+      demo: "https://youtu.be/kgeDFwxfVCM",
+      status: "Completed",
       featured: false,
-      year: '2023'
-    },
+      year: "2023"
+    }
+    ,
     {
       id: 12,
       title: "Rubik's Cube Solver",
-      description: "Python script that visually mixes and solves the Rubik's Cube using group theory and permutation puzzles.",
-      longDescription: "A Rubik's Cube solver based on MIT's 'The Mathematics of the Rubik's Cube' paper, utilizing group theory and permutation algorithms. The program provides a visual representation of cube manipulation and solution steps, demonstrating the mathematical principles behind puzzle solving.",
-      tech: ['Python', 'NumPy', 'Matplotlib'],
-      image: 'https://placehold.co/800x600/7C3AED/FFFFFF?text=Rubiks+Solver&font=inter',
-      status: 'Completed',
+      description: "Python visualizer that scrambles and solves a 3×3 using group-theoretic move notation and permutation math.",
+      longDescription: (
+        <>
+          A 3×3 solver inspired by MIT’s “The Mathematics of the Rubik’s Cube.” The cube is modeled as permutations of faces/edges/corners,
+          with generators (U, D, L, R, F, B) and their inverses. The program visualizes scrambles and step-by-step solutions, showing how
+          group operations compose, invert, and reduce sequences.
+          <br /><br />
+          • <strong>Representation:</strong> sticker-level permutations with orientation tracking for corners/edges; moves are group elements you can compose/invert.<br />
+          • <strong>Solving pipeline:</strong> structured phases (reduce cross → place corners/edges → final layer orientation/permutation) guided by admissible heuristics.<br />
+          • <strong>Notation & proofs-of-correctness:</strong> human-readable sequences with sanity checks for parity and orientation invariants.<br />
+          • <strong>Visualization:</strong> Matplotlib renders scrambles and each solution step; playback controls make the group actions tangible.<br />
+          • <strong>Extensibility:</strong> clean move tables and helper utilities to add algorithms, pattern sets, or alternative metrics.
+          <br /><br />
+        </>
+      ),
+      tech: ["Python", "NumPy", "Matplotlib"],
+      categories: ["algorithms", "software"],
+      status: "Completed",
       featured: false,
-      year: '2023'
+      year: "2023"
+    },
+    {
+      id: 13,
+      title: "Minesweeper AI Solver",
+      description: "Python AI agent that solves Minesweeper boards using constraint satisfaction and heuristic search.",
+      longDescription: (
+        <>
+          The Minesweeper AI Solver is a fully automated agent that can solve boards of arbitrary size and difficulty using classical AI and combinatorial reasoning:
+          <br /><br />
+          • <strong>Constraint satisfaction:</strong> models each revealed tile as a local constraint and propagates implications across the board.<br />
+          • <strong>Frontier splitting:</strong> divides independent regions to reduce branching complexity and improve runtime.<br />
+          • <strong>Recursive backtracking:</strong> systematically explores possible mine placements with pruning via early contradiction detection.<br />
+          • <strong>Heuristics:</strong> employs the Minimum Remaining Value (MRV) heuristic and equivalence-class compression for optimal move selection.<br />
+        </>
+      ),
+      tech: ["Python", "NumPy"],
+      categories: ["algorithms", "artificial intelligence", "software"],
+      github: "https://github.com/KainoaNishida/minesweeper-solver",
+      status: "Completed",
+      featured: false,
+      year: "2024"
+    },
+    {
+      id: 14,
+      title: "Personal Portfolio",
+      description: "Minimalist React portfolio with expandable sections, real-time stats, and multi-page navigation.",
+      longDescription: (
+        <>
+          A minimalist, performance-focused portfolio built to showcase research, projects, and experience with clean design and smooth interactions:
+          <br />
+          <br />
+          • <strong>Multi-page navigation:</strong> React Router powers separate pages for home, experience, projects, research, background, skills, blog, and contact with instant route transitions.<br />
+          • <strong>Expandable content:</strong> projects and research items collapse to short descriptions and expand to reveal full details, technologies, and media galleries with photo navigation.<br />
+          • <strong>Real-time widgets:</strong> world clock with multiple timezones, LeetCode stats via GraphQL API, lines of code estimates, Fermi questions, and test scores in a fixed sidebar.<br />
+          • <strong>Performance optimizations:</strong> lazy-loaded pages, GPU-accelerated animations, native image lazy loading, reduced backdrop blur, and CSS containment for smoother scrolling.<br />
+          • <strong>Design system:</strong> Tailwind CSS with custom dark mode (slate-1000), orange accent colors, monospace typography, and consistent minimalist styling across all sections.<br />
+          • <strong>Interactive features:</strong> category-based project filtering with counts, expandable blog posts, PDF resume viewer with zoom controls, and smooth Framer Motion animations.<br />
+          <br />
+          <br />
+        </>
+      ),
+      tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "React Router", "Vercel"],
+      categories: ["software"],
+      github: "https://github.com/KainoaNishida/portfolio",
+      demo: "https://kainoanishida.github.io/portfolio",
+      status: "Live",
+      featured: true,
+      year: "2025"
     }
+    
+    
+    
   ], []);
 
   const containerVariants = {
@@ -263,341 +532,324 @@ const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.05,
+        duration: 0.2
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.2,
         ease: "easeOut"
       }
     }
   };
 
   const nextPhoto = useCallback((projectId) => {
-    const project = projects.find(p => p.id === projectId);
-    const maxSteps = Math.max(0, project.photos.length - 1);
-    setPhotoIndices(prev => ({
-      ...prev,
-      [projectId]: Math.min((prev[projectId] || 0) + 1, maxSteps)
-    }));
+    setPhotoIndices(prev => {
+      const currentIndex = prev[projectId] || 0;
+      const project = projects.find(p => p.id === projectId);
+      const maxIndex = project && project.photos ? project.photos.length - 1 : 0;
+      return {
+        ...prev,
+        [projectId]: Math.min(currentIndex + 1, maxIndex)
+      };
+    });
   }, [projects]);
 
   const prevPhoto = useCallback((projectId) => {
-    setPhotoIndices(prev => ({
-      ...prev,
-      [projectId]: Math.max((prev[projectId] || 0) - 1, 0)
-    }));
+    setPhotoIndices(prev => {
+      const currentIndex = prev[projectId] || 0;
+      return {
+        ...prev,
+        [projectId]: Math.max(currentIndex - 1, 0)
+      };
+    });
   }, []);
 
   const getCurrentPhotoIndex = useCallback((projectId) => {
     return photoIndices[projectId] || 0;
   }, [photoIndices]);
 
-  const featuredProjects = useMemo(() => projects.filter(p => p.featured), [projects]);
-  const otherProjects = useMemo(() => {
-    const nonFeatured = projects.filter(p => !p.featured);
-    // Sort so projects with photos appear first
-    return nonFeatured.sort((a, b) => {
-      const aHasPhotos = a.hasPhotos && a.photos && a.photos.length > 0;
-      const bHasPhotos = b.hasPhotos && b.photos && b.photos.length > 0;
-      
-      if (aHasPhotos && !bHasPhotos) return -1;
-      if (!aHasPhotos && bHasPhotos) return 1;
-      return 0;
+  // Get all unique categories
+  const categories = useMemo(() => {
+    const allCategories = new Set();
+    projects.forEach(project => {
+      if (project.categories) {
+        project.categories.forEach(cat => allCategories.add(cat));
+      }
     });
+    return ['all', ...Array.from(allCategories).sort()];
   }, [projects]);
+
+  const categoryCounts = useMemo(() => {
+    const counts = { all: projects.length };
+    categories.forEach(cat => {
+      if (cat === 'all') return;
+      counts[cat] = projects.filter(p => Array.isArray(p.categories) && p.categories.includes(cat)).length;
+    });
+    return counts;
+  }, [projects, categories]);
+
+  // Sort and filter projects
+  const filteredProjects = useMemo(() => {
+    let filtered = [...projects];
+    
+    // Filter by category
+    if (selectedCategory && selectedCategory !== 'all') {
+      filtered = filtered.filter(project => {
+        if (!project.categories || !Array.isArray(project.categories)) {
+          return false;
+        }
+        return project.categories.includes(selectedCategory);
+      });
+    }
+    
+    // Sort by ID (original order)
+    return filtered.sort((a, b) => {
+      return a.id - b.id;
+    });
+  }, [projects, selectedCategory]);
 
   return (
     <section
       id="projects"
-      className="py-20"
+      className="py-12"
       aria-labelledby="projects-heading"
     >
-      <div className="container-content">
+      <div>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
+                 initial={{ opacity: 0 }}
+                 whileInView={{ opacity: 1 }}
+                 transition={{ duration: 0.2, ease: "easeOut" }}
+                 viewport={{ once: true, margin: "-100px" }}
+                 className="mb-12"
         >
           <h2
             id="projects-heading"
-            className="section-heading text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50"
+            className="text-xl font-bold mb-2 text-slate-900 dark:text-slate-50 font-mono lowercase"
           >
-            Projects
+            selected projects
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 mx-auto">
-            A showcase of my recent work in web development, data visualization, and full-stack applications
+          <p className="font-mono text-xs text-slate-500 dark:text-slate-500 mb-4">
+            a showcase of my recent work in web development, data visualization, and full-stack applications
           </p>
+          <div className="font-mono text-xs text-slate-600 dark:text-slate-300 leading-relaxed space-y-3">
+            <p>
+              these projects come from various contexts — volunteer work with commit the change, professional roles, school assignments, hackathons, and personal exploration. each one represents a different challenge and an opportunity to learn something new, whether it's building for real users, experimenting with new technologies, or solving problems that matter.
+            </p>
+          </div>
         </motion.div>
 
-        {/* Featured Projects */}
+        {/* Category Filters */}
         <motion.div
-          className="space-y-20 mb-20"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
+          className="mb-8"
         >
-          {featuredProjects.map((project, index) => (
+          <div className="flex flex-wrap gap-2">
+            {categories.map(category => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-3 py-1.5 rounded text-xs font-mono transition-all duration-200 ${
+                  selectedCategory === category
+                    ? 'bg-orange-500 text-white'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+                }`}
+              >
+                {`${category} (${category === 'all' ? categoryCounts.all : (categoryCounts[category] ?? 0)})`}
+              </button>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* All Projects */}
+        <motion.div
+                 key={selectedCategory}
+                 className=""
+                 variants={containerVariants}
+                 initial="hidden"
+                 animate="visible"
+        >
+          {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
-              className="relative"
+              className={index > 0 ? "pt-8 mt-8 border-t border-dashed border-slate-300 dark:border-slate-700" : ""}
               variants={itemVariants}
             >
-              <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center`}>
-                {/* Project Image/Video */}
-                <div
-                  className="lg:w-1/2"
-                >
-                  <div className="relative group">
-                    <div className="relative overflow-hidden rounded-md shadow-strong bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-700/90">
-                      {project.video ? (
-                        <iframe
-                          src={project.video}
-                          className="w-full aspect-[16/10] transition-transform duration-300 group-hover:scale-105"
-                          frameBorder="0"
-                          allowFullScreen
-                          aria-hidden="true"
-                        />
-                      ) : (
-                        <img
-                          src={project.image}
-                          alt={`${project.title} preview`}
-                          className="w-full aspect-[16/10] object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Project Details */}
-                <div className="lg:w-1/2 space-y-6">
-                  <div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-sm font-medium text-orange-600 dark:text-orange-400">{project.year}</span>
-                      <div className="h-1 w-8 bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-500 rounded"></div>
-                    </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-50 mb-4">
-                      {project.title}
-                    </h3>
-                    <p className="text-md text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                      {project.longDescription}
-                    </p>
-                  </div>
-
-                  {/* Tech Stack */}
-                  <div>
-                    <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3 uppercase tracking-wide">
-                      Technologies Used
-                    </h4>
-                     <div className="flex flex-wrap gap-3">
-                        {project.tech
-                          .filter(tech => techToIcon[tech]) // Only show technologies with icons
-                          .map(tech => (
-                            <div
-                              key={tech}
-                              className="flex flex-col items-center gap-1"
-                              title={tech}
-                            >
-                              <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition-shadow duration-200">
-                                <i className={`${techToIcon[tech]} text-xl`}></i>
-                              </div>
-                            </div>
-                          ))}
-                      </div>
-                  </div>
-
-                  {/* Links */}
-                  <div className="flex gap-4 pt-4">
+              {/* Title and Links */}
+              <div className="mb-4">
+                <div className="flex items-start justify-between gap-4 mb-2 pr-2">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white font-mono lowercase">
+                    {project.title}
+                  </h3>
+                  <div className="flex items-center gap-3 flex-shrink-0 pr-1">
                     {project.github && (
                       <a
                         href={project.github}
-                        className="btn btn-outline border-orange-200 dark:border-orange-800 hover:border-orange-500 hover:bg-orange-50 dark:hover:bg-orange-900/20"
+                        className="text-xs font-mono text-orange-500 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        github
+                        <svg className="inline-block w-2 h-2 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
-                        View Code
                       </a>
                     )}
                     {project.demo && (
                       <a
                         href={project.demo}
-                        className="btn bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-500 text-white hover:from-orange-600 hover:via-orange-500 hover:to-yellow-600"
+                        className="text-xs font-mono text-orange-500 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        demo
+                        <svg className="inline-block w-2 h-2 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
-                        Live Demo
                       </a>
                     )}
+                    <button
+                      onClick={() => toggleExpanded(project.id)}
+                      aria-expanded={isExpanded(project.id)}
+                      aria-label="Toggle details"
+                      className="p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    >
+                      <motion.svg
+                        className="w-4 h-4 text-slate-500 dark:text-slate-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        animate={{ rotate: isExpanded(project.id) ? 180 : 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </motion.svg>
+                    </button>
                   </div>
                 </div>
+                <span className="text-xs font-mono text-slate-500 dark:text-slate-500">{project.year}</span>
               </div>
+
+              {/* Description */}
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-mono mb-4">
+                {isExpanded(project.id) ? project.longDescription : project.description}
+              </p>
+
+              {/* Skills as simple tags (expanded) */}
+              {isExpanded(project.id) && (
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 text-xs font-mono text-orange-500 rounded"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {/* Media (expanded) */}
+              {isExpanded(project.id) && (project.video || (project.image && !project.image.includes('placehold.co')) || (project.hasPhotos && project.photos && project.photos.length > 0)) && (
+                <div className="mt-6">
+                  {project.hasPhotos && project.photos && project.photos.length > 0 ? (
+                    <div className="w-full max-w-2xl mx-auto">
+                      <div className="flex items-center gap-3">
+                        {/* Left arrow - always reserve space */}
+                        <div className="flex-shrink-0" style={{ width: '2rem', visibility: project.photos.length > 1 && getCurrentPhotoIndex(project.id) > 0 ? 'visible' : 'hidden' }}>
+                          <button
+                            onClick={() => prevPhoto(project.id)}
+                            className="transition-opacity hover:opacity-70"
+                            aria-label="Previous photo"
+                          >
+                            <svg className="w-6 h-6 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
+                              <polygon points="15,19 7,12 15,5" />
+                            </svg>
+                          </button>
+                        </div>
+                        
+                        {/* Image container - fixed width that accounts for arrows */}
+                        <div className="flex-1 relative min-w-0" style={{ maxWidth: 'calc(100% - 4rem)' }}>
+                          <div className="overflow-hidden rounded">
+                            <div 
+                              className="flex transition-transform duration-300 ease-in-out" 
+                              style={{ 
+                                transform: `translateX(-${getCurrentPhotoIndex(project.id) * 100}%)`
+                              }}
+                            >
+                              {project.photos.map((photo, photoIndex) => (
+                                <div 
+                                  key={photoIndex} 
+                                  className="flex-shrink-0 w-full"
+                                >
+                                         <img
+                                           src={photo}
+                                           alt={`${project.title} screenshot ${photoIndex + 1}`}
+                                           className="w-full object-cover"
+                                           style={{ aspectRatio: '16/10' }}
+                                           loading="lazy"
+                                         />
+                                  {project.captions && project.captions[photoIndex] && (
+                                    <div className="mt-2 text-center">
+                                      <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+                                        {project.captions[photoIndex]}
+                                      </span>
+                                    </div>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Right arrow - always reserve space */}
+                        <div className="flex-shrink-0" style={{ width: '2rem', visibility: project.photos.length > 1 && getCurrentPhotoIndex(project.id) < project.photos.length - 1 ? 'visible' : 'hidden' }}>
+                          <button
+                            onClick={() => nextPhoto(project.id)}
+                            className="transition-opacity hover:opacity-70"
+                            aria-label="Next photo"
+                          >
+                            <svg className="w-6 h-6 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
+                              <polygon points="9,5 17,12 9,19" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ) : project.video ? (
+                    <div className="w-full max-w-md mx-auto">
+                      <iframe
+                        src={project.video}
+                        className="w-full aspect-video rounded"
+                        frameBorder="0"
+                        allowFullScreen
+                        aria-hidden="true"
+                      />
+                    </div>
+                  ) : (project.image && !project.image.includes('placehold.co')) ? (
+                    <div className="w-full max-w-md mx-auto">
+                             <img
+                               src={project.image}
+                               alt={`${project.title} preview`}
+                               className="w-full rounded"
+                               loading="lazy"
+                             />
+                    </div>
+                  ) : null}
+                </div>
+              )}
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Other Projects Grid */}
-        {otherProjects.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-50 mb-8 text-center">
-              More Projects...
-            </h3>
-
-            <div className="max-w-4xl mx-auto">
-              <ul className="space-y-12 text-slate-600 dark:text-slate-400">
-                {otherProjects.map((project, index) => (
-                  <li key={project.id}>
-                    <div className="mb-2">
-                      <h4 className="text-lg font-bold text-slate-900 dark:text-white inline">
-                        {project.title}
-                      </h4>
-                      {project.github && (
-                        <>
-                          <span className="mx-2">•</span>
-                          <a
-                            href={project.github}
-                            className="text-orange-600 dark:text-orange-400 hover:underline"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            GitHub
-                          </a>
-                        </>
-                      )}
-                      {project.demo && (
-                        <>
-                          <span className="mx-2">•</span>
-                          <a
-                            href={project.demo}
-                            className="text-orange-600 dark:text-orange-400 hover:underline"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Live Demo
-                          </a>
-                        </>
-                      )}
-                    </div>
-                    <p className="mb-2">{project.longDescription}</p>
-                                                                                   <div className="flex flex-wrap gap-3 mb-4">
-                        {project.tech
-                          .filter(tech => techToIcon[tech]) // Only show technologies with icons
-                          .map((tech, techIndex) => (
-                            <div
-                              key={techIndex}
-                              className="flex flex-col items-center gap-1"
-                              title={tech}
-                            >
-                              <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition-shadow duration-200">
-                                <i className={`${techToIcon[tech]} text-lg`}></i>
-                              </div>
-                            </div>
-                          ))}
-                      </div>
-
-                    {/* Photo Gallery for specific projects */}
-                    {project.hasPhotos && project.photos && (
-                      <div className="mt-6">
-                        <div className="relative w-full">
-                          {/* Container that shows exactly 1 photo with proper spacing for arrows */}
-                          <div className="w-full overflow-hidden">
-                            {/* Fixed width container that accounts for arrow space */}
-                            <div className="mx-auto overflow-hidden" style={{ width: '600px' }}>
-                              <div 
-                                className="flex gap-4 transition-transform duration-300 ease-in-out" 
-                                style={{ 
-                                  transform: `translateX(-${getCurrentPhotoIndex(project.id) * 616}px)`,
-                                  minHeight: '330px'
-                                }}
-                              >
-                                {project.photos.map((photo, photoIndex) => (
-                                  <div 
-                                    key={photoIndex} 
-                                    className="flex-shrink-0 h-full"
-                                    style={{ 
-                                      width: '600px', 
-                                      height: '380px',
-                                      margin: '0'
-                                    }}
-                                  >
-                                    <div className="flex flex-col h-full">
-                                      <img
-                                        src={photo}
-                                        alt={`${project.title} screenshot ${photoIndex + 1}`}
-                                        className="w-full h-full object-cover rounded-lg shadow-md"
-                                        style={{ 
-                                          width: '100%', 
-                                          height: 'calc(100% - 40px)',
-                                          borderRadius: '8px',
-                                          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-                                        }}
-                                      />
-                                      <div className="mt-2 text-center">
-                                        <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">
-                                          {project.captions ? project.captions[photoIndex] : `Screenshot ${photoIndex + 1}`}
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Left Arrow - positioned outside the photo container */}
-                          {getCurrentPhotoIndex(project.id) > 0 && (
-                            <button
-                              onClick={() => prevPhoto(project.id)}
-                              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 dark:bg-slate-800/90 rounded-full p-2 shadow-lg hover:bg-white dark:hover:bg-slate-800 transition-colors"
-                              aria-label="Previous photo"
-                            >
-                              <svg className="w-5 h-5 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                              </svg>
-                            </button>
-                          )}
-
-                          {/* Right Arrow - positioned outside the photo container */}
-                          {getCurrentPhotoIndex(project.id) < project.photos.length - 1 && (
-                            <button
-                              onClick={() => nextPhoto(project.id)}
-                              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 dark:bg-slate-800/90 rounded-full p-2 shadow-lg hover:bg-white dark:hover:bg-slate-800 transition-colors"
-                              aria-label="Next photo"
-                            >
-                              <svg className="w-5 h-5 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
-                            </button>
-                          )}
-                        </div>
-                      </div>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
-        )}
       </div>
     </section>
   );

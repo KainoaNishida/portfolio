@@ -1,63 +1,61 @@
 import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Navbar = () => {
-  const [activeSection, setActiveSection] = useState('intro');
+  const navigate = useNavigate();
+  const location = useLocation();
   const [hoveredItem, setHoveredItem] = useState(null);
   
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-      setActiveSection(sectionId);
-    }
-  };
-
   const navItems = [
-    { id: 'intro', label: 'Home' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'education', label: 'Background' },
-    { id: 'contact', label: 'Contact' }
+    { path: '/', label: 'home' },
+    { path: '/timeline', label: 'experience' },
+    { path: '/projects', label: 'projects' },
+    { path: '/research', label: 'research' },
+    { path: '/background', label: 'background' },
+    { path: '/skills', label: 'skills' },
+    { path: '/resume', label: 'resume' },
+    { path: '/blog', label: 'blog' },
+    { path: '/contact', label: 'contact' }
   ];
 
+  const isActive = (path) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(path);
+  };
+
   return (
-    <nav className="flex flex-col gap-10">
-      {navItems.map(({ id, label }) => (
-        <motion.button
-          key={id}
-          onClick={() => scrollToSection(id)}
-          onMouseEnter={() => setHoveredItem(id)}
-          onMouseLeave={() => setHoveredItem(null)}
-          className={`relative text-base font-medium transition-colors duration-200 outline-none focus:outline-none
-            ${activeSection === id 
-              ? 'text-orange-500' 
-              : 'text-slate-600 dark:text-slate-400'
-            }`}
-          style={{ 
-            writingMode: 'vertical-rl',
-            textOrientation: 'mixed',
-            transform: 'rotate(180deg)'
-          }}
-        >
-          <span className="relative">
-            {label}
-            {(activeSection === id || hoveredItem === id) && (
-              <motion.div
-                className="absolute inset-0 flex items-center justify-center pointer-events-none"
-                initial={{ opacity: 0, height: '0%' }}
-                animate={{ opacity: 1, height: '100%' }}
-                exit={{ opacity: 0, height: '0%' }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="w-[3px] h-full bg-orange-500" />
-              </motion.div>
-            )}
-          </span>
-        </motion.button>
-      ))}
+    <nav className="flex flex-row gap-2 sm:gap-4 font-mono text-xs sm:text-sm overflow-x-auto scrollbar-hide">
+      {navItems.map(({ path, label }) => {
+        const active = isActive(path);
+        return (
+          <motion.button
+            key={path}
+            onClick={() => navigate(path)}
+            onMouseEnter={() => setHoveredItem(path)}
+            onMouseLeave={() => setHoveredItem(null)}
+            className={`relative transition-colors duration-200 outline-none focus:outline-none px-1.5 sm:px-2 py-1 flex-shrink-0
+              ${active 
+                ? 'text-orange-500' 
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+              }`}
+          >
+            <span className="relative block">
+              {label}
+              {active && (
+                <motion.div
+                  className="absolute -inset-1 border border-dashed border-orange-500 rounded"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                />
+              )}
+            </span>
+          </motion.button>
+        );
+      })}
     </nav>
   );
 };

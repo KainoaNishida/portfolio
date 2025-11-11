@@ -1,112 +1,119 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import TypewriterText from '../TypewriterText';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
-  const typewriterWords = [
-    "Adventurer",
-    "Researcher",
-    "Soccer Player",
-    "Snowboarder",
-    "Barista",
-    "Gamer"
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = [
+    `${import.meta.env.BASE_URL}pfp.jpg`,
+    `${import.meta.env.BASE_URL}avatar.png`
   ];
 
+  const toggleImage = () => {
+    setCurrentImage((prev) => (prev + 1) % images.length);
+  };
+
   return (
-    <section id="intro" className="min-h-screen flex items-center justify-center py-20">
-      <div className="container-header">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-          {/* Text Content */}
+    <section id="intro" className="py-12">
+      <div>
           <motion.div
-            className="flex-1"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-900 dark:text-white">
-              Hi, I'm <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-500">Kainoa Nishida</span>
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="mb-12"
+        >
+          <h1 className="text-xl font-bold mb-2 text-slate-900 dark:text-slate-50 font-mono lowercase">
+            kainoa nishida
             </h1>
-            <div className="text-2xl md:text-3xl mb-6">
-              <span className="text-slate-600 dark:text-slate-300">Developer & </span>
-              <span className="inline-block min-w-[200px] text-left relative text-orange-600 dark:text-orange-400">
-                <TypewriterText words={typewriterWords} />
-                <span className="animate-pulse text-yellow-500">|</span>
-              </span>
+          <p className="font-mono text-xs text-slate-500 dark:text-slate-500 mb-4">
+            software engineer, researcher, and builder
+          </p>
+          
+          {/* Profile Image - Centered on mobile, floating on desktop */}
+          <div className="flex justify-center mb-6 md:hidden">
+            <div className="relative group">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentImage}
+                  src={images[currentImage]}
+                  alt="Kainoa Nishida"
+                  className="w-32 rounded-full border-2 border-slate-300 dark:border-slate-600"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  loading="lazy"
+                />
+              </AnimatePresence>
+              <button
+                onClick={toggleImage}
+                className="absolute bottom-2 right-2 bg-slate-900/70 dark:bg-slate-100/70 text-white dark:text-slate-900 rounded-full p-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity touch-manipulation"
+                aria-label="Switch profile photo"
+              >
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+              </button>
             </div>
+          </div>
 
-            {/* Subtle intro line */}
-            <p className="text-sm md:text-base text-slate-600 dark:text-slate-400 mb-6 max-w-xl">
-            Hello! I'm a developer who loves building thoughtful software, learning new technologies, and connecting with people. 
-            
-            When I'm not coding, you'll find me gaming with friends, bouldering, playing sports, or spending time outdoors.
+          {/* Introduction Text with Floating Image */}
+          <div className="font-mono text-xs text-slate-600 dark:text-slate-300 leading-relaxed space-y-3 relative">
+            {/* Floating Profile Image - Desktop only */}
+            <div className="hidden md:block float-right ml-4 mb-2 relative group mt-10">
+              <div className="relative">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                  key={currentImage}
+                  src={images[currentImage]}
+                  alt="Kainoa Nishida"
+                  className="w-32 sm:w-40 rounded-full border-2 border-slate-300 dark:border-slate-600"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  loading="lazy"
+                />
+                </AnimatePresence>
+                <button
+                  onClick={toggleImage}
+                  className="absolute bottom-2 right-2 bg-slate-900/70 dark:bg-slate-100/70 text-white dark:text-slate-900 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity touch-manipulation"
+                  aria-label="Switch profile photo"
+                >
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <p>
+              aloha! welcome to my corner of the internet! i'm kai, and i love building things.
             </p>
-
-            {/* Info Badges */}
-            <div className="flex flex-col space-y-3 mb-8">
-            {/* Second Row - Professional Info */}
-            <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd"/>
-                    <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"/>
-                  </svg>
-                  <span className="text-sm">SDE Intern at Amazon</span>
-                </div>
-                <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"/>
-                  </svg>
-                  <span className="text-sm">ML Researcher at Zhang Lab</span>
-                </div>
-              </div>
-
-              {/* First Row - Personal Info */}
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
-                  </svg>
-                  <span className="text-sm">UC Irvine '26</span>
-                </div>
-                
-              </div>
-              
-              
-            </div>
-
-            <div className="flex gap-4">
-              <a
-                href="#projects"
-                className="btn bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-500 text-white hover:from-orange-600 hover:via-orange-500 hover:to-yellow-600"
-              >
-                View My Work
-              </a>
-              <a
-                href="#contact"
-                className="btn btn-outline border-orange-200 dark:border-orange-800 hover:border-orange-500 hover:bg-orange-50 dark:hover:bg-orange-900/20"
-              >
-                Get in Touch
-              </a>
+            
+            <p>
+              i'm a student at the <a href="https://www.uci.edu/" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors inline-flex items-center gap-0.5">university of california, irvine<svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a>. i've worked as a software development engineer intern at <a href="https://amazon.com" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors inline-flex items-center gap-0.5">amazon<svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a>, a software engineer with <a href="https://ctc-uci.com" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors inline-flex items-center gap-0.5">commit the change<svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a> partnering with local nonprofits, and a researcher in the <a href="https://www.ics.uci.edu/~jingz31/" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors inline-flex items-center gap-0.5">zhang lab<svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a> applying machine learning and deep learning to biology.
+            </p>
+            
+            <p>
+              and, i also love math. for example, i like doing random fermi questions, which you can find on the left. the general outline is to start with a reasonable fixed point, then reason through the details to land on an estimate. i used the same approach for those "lines of code" estimates, so take them with a grain of salt :)
+            </p>
+            
+            <p>
+              i'm excited about thoughtful software, learning new tools, and connecting with people. when i'm not coding, i'm gaming with friends, bouldering, outside somewhere, or getting a little too competitive on the soccer field.
+            </p>
+            
+            <p>
+              this site started as a portfolio, but i'd like it to grow into a running journal of what i'm building and learning. feel free to poke around - <Link to="/projects" className="text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors inline-flex items-center gap-0.5">projects<svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></Link>, <Link to="/research" className="text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors inline-flex items-center gap-0.5">research<svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></Link>, <Link to="/skills" className="text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors inline-flex items-center gap-0.5">skills<svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></Link>, <Link to="/background" className="text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors inline-flex items-center gap-0.5">background<svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></Link> - it's all here.
+            </p>
+            
+            <p className="mt-6">
+              —kainoa
+            </p>
+            {/* Clearfix for floating image */}
+            <div className="clear-both"></div>
             </div>
           </motion.div>
-
-          {/* Profile Image */}
-          <motion.div
-            className="w-64 h-64 md:w-80 md:h-80 relative"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <div className="w-full h-full rounded-full overflow-hidden border-4 border-orange-500 shadow-xl bg-white dark:bg-slate-800">
-              <img
-                src="/portfolio/pfp.jpg"
-                alt="Kai Nishida"
-                className="w-full h-full object-cover object-center scale-110 translate-y-2"
-              />
-            </div>
-            {/* <div className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-500/20 to-yellow-500/20 animate-pulse" /> */}
-          </motion.div>
-        </div>
       </div>
     </section>
   );

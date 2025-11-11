@@ -13,10 +13,10 @@ const ThemeToggle = () => {
   
   return (
     <motion.button
-      className={`w-10 h-10 flex items-center justify-center transition-all duration-300 outline-none focus:outline-none
+      className={`w-10 h-10 sm:w-10 sm:h-10 flex items-center justify-center transition-all duration-300 outline-none focus:outline-none touch-manipulation
         ${theme === 'light' 
-          ? 'text-slate-600 hover:text-orange-500' 
-          : 'text-yellow-400 hover:text-orange-500'
+          ? 'text-slate-600 hover:text-orange-500 active:text-orange-500' 
+          : 'text-yellow-400 hover:text-orange-500 active:text-orange-500'
         }`}
       onClick={toggleTheme}
       whileTap={{ scale: 0.95 }}

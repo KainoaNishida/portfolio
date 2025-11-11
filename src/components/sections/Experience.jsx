@@ -4,13 +4,19 @@ import { motion } from 'framer-motion';
 const Experience = () => {
   const experiences = [
     {
-      title: "SDE Intern",
+      title: "Software development engineer Intern",
       company: "Amazon",
       location: "Bellevue, WA",
-      period: "July 2025 - Present",
+      period: "July 2025 - September 2025",
       companyLink: "https://amazon.com",
-      logo: "/portfolio/amazon-logo.png",
-      description: "At Amazon, I'm building a serverless automation system that streamlines a complex change-management workflow using Lambda, Bedrock agents, and S3. I work with stakeholders to define requirements, write design docs, and deliver iteratively while following Amazon's SDLC practices. Through this, I'm learning how to design resilient cloud workflows with retries, logging, and monitoring, and how to balance trade-offs, present progress, and apply leadership principles to ship reliable, production-grade systems.",
+      logo: `${import.meta.env.BASE_URL}amazon-logo.png`,
+      bullets: [
+  "I’m building a serverless automation that streamlines a complex change-management flow using AWS Lambda, Bedrock agents, and S3—so requests move from days to minutes without manual handoffs.",
+  "I collaborate with stakeholders to shape requirements, write approachable design docs, and ship in small, reviewable slices that align with Amazon’s SDLC rhythm.",
+  "Behind the scenes, I focus on resilience—idempotent steps, smart retries and backoff, and clear observability with structured logs, metrics, and alerts.",
+  "For knowledge ingestion, I wrote a regex-based preprocessor and a domain-aware chunking strategy, then embedded and indexed everything into an Amazon OpenSearch vector knowledge base.",
+  "On top of that KB, I’m wiring an agentic system that does retrieval-augmented reasoning and executes tools with guardrails, turning scattered docs into actionable workflows."
+],
       technologies: ["AWS", "Cloud Infrastructure", "Distributed Systems"]
     },
     {
@@ -19,8 +25,14 @@ const Experience = () => {
       location: "Irvine, CA",
       period: "November 2022 - June 2025",
       companyLink: "https://ctc-uci.com",
-      logo: "/portfolio/commit-the-change-logo.svg",
-      description: "At Commit the Change, I collaborated with nonprofits to understand their needs and developed software that made their work more efficient. I contributed to projects by designing databases, building user-facing features, and testing for reliability, all of which gave me the chance to work closely with organizations making a difference and to see firsthand how technology can directly support their missions.",
+      logo: `${import.meta.env.BASE_URL}commit-the-change-logo.svg`,
+      bullets: [
+  "Partnered with nonprofit stakeholders to map real workflows into tickets and shipped features end-to-end—from design reviews to production rollouts.",
+  "Built a multi-step, paginated, multimedia onboarding flow in React with Firebase Auth/Storage and form validation, saving progress between steps to reduce drop-off.",
+  "Designed the data model and wrote SQL triggers/stored procedures that automatically compute and update KPIs (e.g., fulfillment rates, monthly routing totals), maintain rollups, and keep audit trails in sync.",
+  "Implemented user-facing features like searchable tables, role-based dashboards, and CSV exports, and connected them to backend APIs for reliable, fast operations.",
+  "Hardened reliability with input validation, graceful error states, and basic end-to-end checks; set up logs/metrics to surface problems early in staging and production."
+],
       technologies: ["TypeScript", "React", "Node.js", "MongoDB", "AWS", "Firebase"]
     },
     {
@@ -29,7 +41,13 @@ const Experience = () => {
       location: "Irvine, CA",
       period: "January 2025 - Present",
       companyLink: "https://www.ics.uci.edu/~jingz31/",
-      description: "At the Zhang Lab, I'm conducting deep learning research in genomics across two projects. One focuses on designing generative models to improve RNA velocity prediction, and the other applies knowledge distillation to compress large DNA foundation models while maintaining high performance. I'm also collaborating with PhD students on research papers for submission to top machine learning conferences. I pursue this work because I love exploring where the future of computer science is headed and being at the frontier of new discoveries.",
+      bullets: [
+  "I’m driving three active research projects—RNA velocity with Neural ODEs, long-context sequence-to-Hi-C prediction, and knowledge distillation for DNA foundation models—with manuscripts targeted for late 2025.",
+  "I turn prototypes into usable tools by packaging reusable PyTorch modules, CLI utilities, and clean configs so others in the lab can run experiments without code changes.",
+  "I maintain reproducible benchmarks (datasets, metrics, and scripts) to compare baselines and ablations across GPUs and seeds.",
+  "I collaborate closely with PhD mentors on study design, writing, and figures, aligning experiments to conference-ready standards.",
+  "I also run deep literature dives—tracking leading genomics/ML papers and distilling takeaways to guide architectures and evaluation choices."
+],
       technologies: ["PyTorch", "TensorFlow", "CUDA", "NumPy", "Scikit-learn", "HuggingFace"]
     },
     {
@@ -37,7 +55,10 @@ const Experience = () => {
       company: "Irvine Neuroscience Laboratory",
       location: "Irvine, CA",
       period: "June 2024 - June 2025",
-      description: "At the Irvine Neuroscience Laboratory, I contributed to a custom scheduling system that helped over 50 researchers coordinate experiments and resources.",
+      companyLink: "https://faculty.sites.uci.edu/spatialneuro/",
+      bullets: [
+        "Contributed to a custom scheduling system that helped over 50 researchers coordinate experiments and resources."
+      ],
       technologies: ["React", "Node.js", "PostgreSQL", "ChakraUI", "JWT", "Docker"]
     }
   ];
@@ -48,37 +69,50 @@ const Experience = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.1,
+        duration: 0.3
       }
     }
   };
 
   const itemVariants = {
-    hidden: (isEven) => ({ 
-      x: isEven ? 20 : -20, 
+    hidden: { 
       opacity: 0 
-    }),
+    },
     visible: {
-      x: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.3,
         ease: "easeOut"
       }
     }
   };
 
   return (
-    <section id="experience" className="py-20">
-      <div className="container-content">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
-            Experience
+    <section id="experience" className="py-12">
+      <div>
+        <motion.div
+                 initial={{ opacity: 0 }}
+                 whileInView={{ opacity: 1 }}
+                 transition={{ duration: 0.2, ease: "easeOut" }}
+                 viewport={{ once: true, margin: "-100px" }}
+                 className="mb-12"
+        >
+          <h2 className="text-xl font-bold mb-2 text-slate-900 dark:text-slate-50 font-mono lowercase">
+            experience
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            My professional journey in software development, machine learning research, and technical leadership.
+          <p className="font-mono text-xs text-slate-500 dark:text-slate-500 mb-4">
+            my journey in software development, machine learning research, and technical leadership.
           </p>
-        </div>
+          <div className="font-mono text-xs text-slate-600 dark:text-slate-300 leading-relaxed space-y-3">
+            <p>
+              over the past few years, i've had the opportunity to work across different domains — from building production systems at scale to conducting cutting-edge research in computational biology. each role has taught me something unique about problem-solving, collaboration, and the craft of software development.
+            </p>
+            <p>
+              whether it's designing resilient cloud infrastructure, collaborating with nonprofits to solve real-world problems, or pushing the boundaries of what's possible with deep learning, i'm driven by the challenge of building things that matter and learning something new every day.
+            </p>
+          </div>
+        </motion.div>
 
         <motion.div
           className="relative"
@@ -87,76 +121,108 @@ const Experience = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Center timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-orange-500 via-orange-400 to-yellow-500"></div>
+          {/* Left timeline line - positioned at 150px from left */}
+          <div className="absolute top-0 bottom-0 w-px bg-slate-300 dark:bg-slate-700" style={{ left: '150px' }}></div>
           
           <div className="relative">
             {experiences.map((experience, index) => {
-              const isEven = index % 2 === 0;
+              // Calculate the top position of this experience card
+              const cardTop = index * 200; // Approximate, will be adjusted by actual card heights
+              
               return (
-                <motion.div
-                  key={index}
-                  className="relative flex items-center mb-8 md:mb-16"
-                  custom={isEven}
-                  variants={itemVariants}
-                >
-                  {/* Timeline dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4">
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-orange-500 rounded-full border-2 border-white dark:border-slate-900"></div>
+                <div key={index} className="relative mb-8">
+                  {/* Date on left side - extends to just before the timeline line */}
+                  <div className="absolute left-0 top-0 text-right pr-3 flex flex-col items-end" style={{ width: '150px' }}>
+                    {(() => {
+                      const parts = experience.period.split(' - ');
+                      const startDate = parts[0] || experience.period;
+                      const endDate = parts[1] || 'present';
+                      return (
+                        <>
+                          <div className="text-xs font-mono text-slate-500 dark:text-slate-400 leading-tight whitespace-nowrap">
+                            <span className="text-slate-400 dark:text-slate-500">start:</span> {startDate}
+                          </div>
+                          <div className="text-xs font-mono text-slate-500 dark:text-slate-400 leading-tight mt-1 whitespace-nowrap">
+                            <span className="text-slate-400 dark:text-slate-500">end:</span> {endDate}
+                          </div>
+                          {experience.location && (
+                            <div className="text-xs font-mono text-orange-500 dark:text-orange-400 leading-tight mt-1 whitespace-nowrap">
+                              {experience.location}
+                            </div>
+                          )}
+                        </>
+                      );
+                    })()}
                   </div>
 
-                  {/* Date on opposite side */}
-                  <div className={`absolute left-1/2 transform ${isEven ? '-translate-x-[calc(100%+2rem)]' : 'translate-x-8'} top-1/2 -translate-y-1/2`}>
-                    <span className="text-sm font-medium text-slate-500 dark:text-slate-400 whitespace-nowrap">
-                      {experience.period}
-                    </span>
+                  {/* Timeline dot - positioned on the timeline line, outside the card */}
+                  <div 
+                    className="absolute z-10 flex items-center" 
+                    style={{ 
+                      left: '144px',  // 150px - 6px (half of 12px circle width) to center it
+                      top: '6px',  // Center vertically between the two date lines
+                      height: '12px'
+                    }}
+                  >
+                    <div className="w-3 h-3 bg-orange-500 rounded-full border-2 border-white dark:border-slate-900"></div>
                   </div>
 
-                  {/* Content wrapper */}
-                  <div className={`w-full flex ${isEven ? 'justify-end' : 'justify-start'}`}>
-                    {/* Card */}
-                    <div className={`w-[45%] ${isEven ? 'ml-24' : 'mr-24'}`}>
-                      <div className="bg-white dark:bg-slate-800 rounded-md p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-                        <div className="flex flex-col mb-4">
-                          <div className="flex items-center gap-6">
-                            {experience.logo && (
-                              <div className="w-20 h-20 flex-shrink-0 overflow-hidden rounded-sm flex items-center justify-center dark:bg-white p-2">
-                                <img 
-                                  src={experience.logo} 
-                                  alt={`${experience.company} logo`}
-                                  className="w-full h-full object-contain"
-                                />
-                              </div>
-                            )}
-                            <div className="flex flex-col">
-                            <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                  {/* Content card */}
+                  <motion.div
+                    className="relative flex items-start"
+                    custom={false}
+                    variants={itemVariants}
+                  >
+                    <div className="w-full" style={{ marginLeft: '166px' }}>
+                    <div className="bg-white dark:bg-slate-800 rounded p-6 border border-slate-200 dark:border-slate-700">
+                      <div className="flex flex-col mb-3">
+                        <div className="flex items-start gap-4">
+                          {experience.logo && (
+                            <div className="w-12 h-12 flex-shrink-0 overflow-hidden rounded flex items-center justify-center dark:bg-white p-1">
+                              <img 
+                                src={experience.logo} 
+                                alt={`${experience.company} logo`}
+                                className="w-full h-full object-contain"
+                                loading="lazy"
+                              />
+                            </div>
+                          )}
+                          <div className="flex flex-col flex-1">
+                            <a 
+                              href={experience.companyLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-orange-500 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors text-base font-bold font-mono mb-1 inline-flex items-center gap-1"
+                            >
+                              {experience.company}
+                              <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                              </svg>
+                            </a>
+                            <h3 className="text-sm text-slate-900 dark:text-white font-mono lowercase">
                               {experience.title}
                             </h3>
-                              <a 
-                                href={experience.companyLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition-colors"
-                              >
-                                {experience.company}
-                              </a>
-                              <div className="flex items-center gap-2 mt-1">
-                            {experience.location && (
-                                  <>
-                                    <span className="text-sm text-slate-500 dark:text-slate-400">{experience.location}</span>
-                                  </>
-                            )}
-                              </div>
-                            </div>
                           </div>
                         </div>
-                        <p className="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
-                          {experience.description}
-                        </p>
                       </div>
+                      {experience.bullets && experience.bullets.length > 0 && (
+                        <ul className="text-xs text-slate-600 dark:text-slate-300 mb-3 leading-relaxed font-mono space-y-2">
+                          {experience.bullets.map((bullet, bulletIndex) => (
+                            <li key={bulletIndex} className="flex items-start gap-2">
+                              <span className="text-orange-500 flex-shrink-0" style={{ marginTop: '0.35rem' }}>
+                                <svg className="w-2 h-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                  <polygon points="2,2 22,12 2,22" strokeLinejoin="round" />
+                                </svg>
+                              </span>
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
-                  </div>
-                </motion.div>
+                    </div>
+                  </motion.div>
+                </div>
               );
             })}
           </div>
@@ -167,3 +233,4 @@ const Experience = () => {
 };
 
 export default Experience;
+

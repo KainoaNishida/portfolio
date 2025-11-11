@@ -13,4 +13,92 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Enable GPU acceleration for smoother scrolling */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Performance optimizations */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Optimize images */
+img {
+  content-visibility: auto;
+  /* Enable GPU acceleration for images */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  /* Native lazy loading */
+  loading: lazy;
+}
+
+/* Optimize animations - only when needed */
+[data-framer-component] {
+  will-change: transform, opacity;
+  /* GPU acceleration */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Optimize scroll performance */
+html {
+  /* Smooth scrolling with better performance */
+  scroll-behavior: smooth;
+  /* Enable hardware acceleration */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Reduce repaints during scroll */
+section {
+  contain: layout style paint;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Optimize fixed elements */
+.fixed {
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Mobile optimizations */
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure minimum touch target size for navigation and important buttons */
+@media (max-width: 640px) {
+  nav button,
+  nav a,
+  button[aria-label],
+  a[aria-label] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Better text rendering on mobile */
+@media (max-width: 640px) {
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  /* Prevent horizontal scroll on mobile */
+  * {
+    max-width: 100%;
+  }
 }
