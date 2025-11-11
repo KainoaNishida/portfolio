@@ -61,6 +61,10 @@ const Header = () => {
             </p>
             
             <p>
+              another thing i love to do is teach others. it's an experience like no other, being able to work together with others to solve complex problems. i've done this as an education director for <a href="https://ctc-uci.com" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors inline-flex items-center gap-0.5">commit the change<svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a> where i led workshops and lectures to teach basic programming things such as typescript, git, relational databases, and the sdlc. i've also done this as a learning assistant for cs 161, our pivotal design and analysis of algorithms course at uci where we go over complex topics such as flow, dynamic programming, and divide and conquer.
+            </p>
+            
+            <p>
               i'm excited about thoughtful software, learning new tools, and connecting with people. when i'm not coding, i'm gaming with friends, bouldering, outside somewhere, or getting a little too competitive on the soccer field.
             </p>
             
