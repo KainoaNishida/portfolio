@@ -1,17 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Header = () => {
-  const [currentImage, setCurrentImage] = useState(0);
-  const images = [
-    `${import.meta.env.BASE_URL}pfp.jpg`,
-    `${import.meta.env.BASE_URL}avatar.png`
-  ];
-
-  const toggleImage = () => {
-    setCurrentImage((prev) => (prev + 1) % images.length);
-  };
 
   return (
     <section id="intro" className="py-12">
@@ -24,7 +15,7 @@ const Header = () => {
           className="mb-12"
         >
           <h1 className="text-xl font-bold mb-2 text-slate-900 dark:text-slate-50 font-mono lowercase">
-            kainoa nishida
+            kainoa (kai) nishida
             </h1>
           <p className="font-mono text-xs text-slate-500 dark:text-slate-500 mb-4">
             software engineer, researcher, and builder
@@ -32,60 +23,30 @@ const Header = () => {
           
           {/* Profile Image - Centered on mobile, floating on desktop */}
           <div className="flex justify-center mb-6 md:hidden">
-            <div className="relative group">
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={currentImage}
-                  src={images[currentImage]}
-                  alt="Kainoa Nishida"
-                  className="w-32 rounded-full border-2 border-slate-300 dark:border-slate-600"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  loading="lazy"
-                />
-              </AnimatePresence>
-              <button
-                onClick={toggleImage}
-                className="absolute bottom-2 right-2 bg-slate-900/70 dark:bg-slate-100/70 text-white dark:text-slate-900 rounded-full p-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity touch-manipulation"
-                aria-label="Switch profile photo"
-              >
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-              </button>
-            </div>
+            <motion.img
+              src={`${import.meta.env.BASE_URL}pfp.jpg`}
+              alt="Kainoa Nishida"
+              className="w-32 rounded-full border-2 border-slate-300 dark:border-slate-600"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              loading="lazy"
+            />
           </div>
 
           {/* Introduction Text with Floating Image */}
           <div className="font-mono text-xs text-slate-600 dark:text-slate-300 leading-relaxed space-y-3 relative">
             {/* Floating Profile Image - Desktop only */}
-            <div className="hidden md:block float-right ml-4 mb-2 relative group mt-10">
-              <div className="relative">
-                <AnimatePresence mode="wait">
-                  <motion.img
-                  key={currentImage}
-                  src={images[currentImage]}
-                  alt="Kainoa Nishida"
-                  className="w-32 sm:w-40 rounded-full border-2 border-slate-300 dark:border-slate-600"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  loading="lazy"
-                />
-                </AnimatePresence>
-                <button
-                  onClick={toggleImage}
-                  className="absolute bottom-2 right-2 bg-slate-900/70 dark:bg-slate-100/70 text-white dark:text-slate-900 rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity touch-manipulation"
-                  aria-label="Switch profile photo"
-                >
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                  </svg>
-                </button>
-              </div>
+            <div className="hidden md:block float-right ml-4 mb-2 relative mt-10">
+              <motion.img
+                src={`${import.meta.env.BASE_URL}pfp.jpg`}
+                alt="Kainoa Nishida"
+                className="w-32 sm:w-40 rounded-full border-2 border-slate-300 dark:border-slate-600"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                loading="lazy"
+              />
             </div>
             <p>
               aloha! welcome to my corner of the internet! i'm kai, and i love building things.

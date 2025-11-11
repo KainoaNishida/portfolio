@@ -31,7 +31,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex flex-row gap-2 sm:gap-4 font-mono text-xs sm:text-sm overflow-x-auto scrollbar-hide">
+    <nav className="flex flex-row gap-2 sm:gap-4 font-mono text-xs sm:text-sm overflow-x-auto scrollbar-hide px-1">
       {navItems.map(({ path, label }) => {
         const active = isActive(path);
         return (
@@ -40,7 +40,7 @@ const Navbar = () => {
             onClick={() => navigate(path)}
             onMouseEnter={() => setHoveredItem(path)}
             onMouseLeave={() => setHoveredItem(null)}
-            className={`relative transition-colors duration-200 outline-none focus:outline-none px-1.5 sm:px-2 py-1 flex-shrink-0
+            className={`relative transition-colors duration-200 outline-none focus:outline-none px-2 sm:px-2 py-1 flex-shrink-0
               ${active 
                 ? 'text-orange-500' 
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
@@ -50,10 +50,16 @@ const Navbar = () => {
               {label}
               {active && (
                 <motion.div
-                  className="absolute -inset-1 border border-dashed border-orange-500 rounded"
+                  className="absolute border border-dashed border-orange-500 rounded"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.2 }}
+                  style={{ 
+                    left: '-2px',
+                    right: '-2px',
+                    top: '-2px',
+                    bottom: '-2px'
+                  }}
                 />
               )}
             </span>

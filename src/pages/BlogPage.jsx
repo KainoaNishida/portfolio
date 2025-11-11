@@ -125,10 +125,7 @@ const BlogPage = () => {
           >
             <div className="font-mono text-xs text-slate-600 dark:text-slate-300 leading-relaxed space-y-4">
               <p>
-                this is where i will start journaling. i'd like to document my learnings and insights both for reference as well as help for others.
-              </p>
-              <p>
-                through writing, i hope to solidify my understanding of complex topics, track my growth, and share knowledge that might be useful to others on similar journeys. whether it's breaking down a challenging problem, exploring a new concept, or reflecting on experiences, this space serves as both a personal archive and a resource for the community.
+                this is where i'll start journaling—a place to jot down what I'm learning, what's working, and what isn't. writing helps me make sense of tricky ideas, track my progress, and hopefully share something useful with anyone on a similar path. whether I'm breaking down a tough problem, exploring a new concept, or reflecting on an experience, think of this as both my personal notebook and a resource you're welcome to borrow from.
               </p>
             </div>
           </motion.div>
