@@ -45,6 +45,7 @@ export default function Intro() {
               <Route path="resume" element={<ResumePage />} />
               <Route path="blog" element={<BlogPage />} />
               <Route path="contact" element={<ContactPage />} />
+              <Route path="*" element={<HomePage />} />
             </Route>
           </Routes>
         </Suspense>

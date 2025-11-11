@@ -20,10 +20,14 @@ const Navbar = () => {
   ];
 
   const isActive = (path) => {
-    if (path === '/') {
-      return location.pathname === '/';
+    // Remove trailing slash from pathname for comparison
+    const currentPath = location.pathname.replace(/\/$/, '') || '/';
+    const checkPath = path.replace(/\/$/, '') || '/';
+    
+    if (checkPath === '/') {
+      return currentPath === '/' || currentPath === '';
     }
-    return location.pathname.startsWith(path);
+    return currentPath.startsWith(checkPath);
   };
 
   return (
