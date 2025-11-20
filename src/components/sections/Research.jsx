@@ -115,7 +115,8 @@ const Research = () => {
           </p>
           <div className="font-mono text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
   <p>
-    my research applies deep learning to genomics—using generative models and foundation architectures to study cellular dynamics, genome architecture, and model efficiency. i focus on building tractable models that still capture biological complexity, and on evaluating them with both rigorous metrics and biological readouts. each project is a step toward expanding what’s possible at the intersection of ai and biology.
+  i’m really fortunate to work on some very cool research projects in the zhang lab, where we use machine learning and deep learning to tackle questions in genomics. we uncover patterns that are hard to see otherwise, build intuitive visualizations, and speed up biological experiments by relying on fast model inference instead of slow, labor-intensive measurements.
+
   </p>
 </div>
 

@@ -26,7 +26,7 @@ export function preloadHomepageImages() {
   
   // Critical images that appear above the fold on homepage
   const criticalImages = [
-    `${baseUrl}pfp.jpg`, // Profile picture (appears in Header)
+    `${baseUrl}profile.png`, // Profile picture (appears in Header)
   ];
   
   return preloadImages(criticalImages);
@@ -39,7 +39,7 @@ export function preloadAllHomepageImages() {
   const baseUrl = import.meta.env.BASE_URL || '/';
   
   const allImages = [
-    `${baseUrl}pfp.jpg`,
+    `${baseUrl}profile.png`,
     // Add other frequently accessed images here if needed
   ];
   

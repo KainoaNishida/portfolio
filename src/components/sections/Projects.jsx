@@ -13,7 +13,7 @@ const Projects = () => {
   const projects = useMemo(() => [
     {
       id: 1,
-      title: "Collete's Children Home Dashboard",
+      title: "Collete's Children Home",
       description: "Internal dashboard for client–manager matching, treatment tracking, and operations at a nonprofit serving disadvantaged mothers.",
       longDescription: (
         <>
@@ -167,6 +167,33 @@ const Projects = () => {
     ,
     {
       id: 5,
+      title: "Personal Portfolio",
+      description: "Minimalist React portfolio with expandable sections, real-time stats, and multi-page navigation.",
+      longDescription: (
+        <>
+          A minimalist, performance-focused portfolio built to showcase research, projects, and experience with clean design and smooth interactions:
+          <br />
+          <br />
+          • <strong>Multi-page navigation:</strong> React Router powers separate pages for home, experience, projects, research, background, skills, blog, and contact with instant route transitions.<br />
+          • <strong>Expandable content:</strong> projects and research items collapse to short descriptions and expand to reveal full details, technologies, and media galleries with photo navigation.<br />
+          • <strong>Real-time widgets:</strong> world clock with multiple timezones, LeetCode stats via GraphQL API, lines of code estimates, Fermi questions, and test scores in a fixed sidebar.<br />
+          • <strong>Performance optimizations:</strong> lazy-loaded pages, GPU-accelerated animations, native image lazy loading, reduced backdrop blur, and CSS containment for smoother scrolling.<br />
+          • <strong>Design system:</strong> Tailwind CSS with custom dark mode (slate-1000), orange accent colors, monospace typography, and consistent minimalist styling across all sections.<br />
+          • <strong>Interactive features:</strong> category-based project filtering with counts, expandable blog posts, PDF resume viewer with zoom controls, and smooth Framer Motion animations.<br />
+          <br />
+          <br />
+        </>
+      ),
+      tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "React Router", "Vercel"],
+      categories: ["software"],
+      github: "https://github.com/KainoaNishida/portfolio",
+      status: "Live",
+      featured: true,
+      year: "2025"
+    }
+    ,
+    {
+      id: 6,
       title: "Feeding Pets of the Homeless",
       description: "Partner-site portal that streamlines onboarding and donation reporting for a nonprofit supporting homeless pet guardians.",
       longDescription: (
@@ -209,7 +236,7 @@ const Projects = () => {
     }
     ,
     {
-      id: 6,
+      id: 7,
       title: "Valnotes",
       description: "Video note-taking for gameplay analysis with timestamped annotations and Riot Games data overlays.",
       longDescription: (
@@ -264,7 +291,7 @@ const Projects = () => {
     }
     ,
     {
-      id: 7,
+      id: 8,
       title: "Pokéscape",
       description: "Java adventure puzzler with custom art, original sound design, and a handcrafted forest to explore.",
       longDescription: (
@@ -310,7 +337,7 @@ const Projects = () => {
     }
     ,
     {
-      id: 8,
+      id: 9,
       title: "Get Inspired",
       description: "Survey & analytics portal for Pismo clam restoration with fast data entry, queryable records, and auto-computed stats.",
       longDescription: (
@@ -361,7 +388,7 @@ const Projects = () => {
     }
     ,
     {
-      id: 9,
+      id: 10,
       title: "Agape",
       description: "Mental health AI chatbot with real-time mood analysis via a Chrome extension and OpenAI-powered responses.",
       longDescription: (
@@ -386,7 +413,7 @@ const Projects = () => {
     
     ,
     {
-      id: 10,
+      id: 11,
       title: "Maze Runner",
       description: "Interactive Python visualizer for maze generation and pathfinding algorithms.",
       longDescription: (
@@ -412,7 +439,7 @@ const Projects = () => {
     }
     ,
     {
-      id: 11,
+      id: 12,
       title: "Minecraft RL Agent",
       description: "Deep Q-learning agent in Malmo that learns to navigate caves and mine diamonds efficiently.",
       longDescription: (
@@ -451,7 +478,7 @@ const Projects = () => {
     }
     ,
     {
-      id: 12,
+      id: 13,
       title: "Rubik's Cube Solver",
       description: "Python visualizer that scrambles and solves a 3×3 using group-theoretic move notation and permutation math.",
       longDescription: (
@@ -475,7 +502,7 @@ const Projects = () => {
       year: "2023"
     },
     {
-      id: 13,
+      id: 14,
       title: "Minesweeper AI Solver",
       description: "Python AI agent that solves Minesweeper boards using constraint satisfaction and heuristic search.",
       longDescription: (
@@ -495,33 +522,6 @@ const Projects = () => {
       featured: false,
       year: "2024"
     },
-    {
-      id: 14,
-      title: "Personal Portfolio",
-      description: "Minimalist React portfolio with expandable sections, real-time stats, and multi-page navigation.",
-      longDescription: (
-        <>
-          A minimalist, performance-focused portfolio built to showcase research, projects, and experience with clean design and smooth interactions:
-          <br />
-          <br />
-          • <strong>Multi-page navigation:</strong> React Router powers separate pages for home, experience, projects, research, background, skills, blog, and contact with instant route transitions.<br />
-          • <strong>Expandable content:</strong> projects and research items collapse to short descriptions and expand to reveal full details, technologies, and media galleries with photo navigation.<br />
-          • <strong>Real-time widgets:</strong> world clock with multiple timezones, LeetCode stats via GraphQL API, lines of code estimates, Fermi questions, and test scores in a fixed sidebar.<br />
-          • <strong>Performance optimizations:</strong> lazy-loaded pages, GPU-accelerated animations, native image lazy loading, reduced backdrop blur, and CSS containment for smoother scrolling.<br />
-          • <strong>Design system:</strong> Tailwind CSS with custom dark mode (slate-1000), orange accent colors, monospace typography, and consistent minimalist styling across all sections.<br />
-          • <strong>Interactive features:</strong> category-based project filtering with counts, expandable blog posts, PDF resume viewer with zoom controls, and smooth Framer Motion animations.<br />
-          <br />
-          <br />
-        </>
-      ),
-      tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "React Router", "Vercel"],
-      categories: ["software"],
-      github: "https://github.com/KainoaNishida/portfolio",
-      demo: "https://kainoanishida.github.io/portfolio",
-      status: "Live",
-      featured: true,
-      year: "2025"
-    }
     
     
     
@@ -640,7 +640,7 @@ const Projects = () => {
           </p>
           <div className="font-mono text-xs text-slate-600 dark:text-slate-300 leading-relaxed space-y-3">
             <p>
-              these projects come from various contexts — volunteer work with commit the change, professional roles, school assignments, hackathons, and personal exploration. each one represents a different challenge and an opportunity to learn something new, whether it's building for real users, experimenting with new technologies, or solving problems that matter.
+              welcome to my projects page! here you'll find a wide range of the different projects I have created in my engineering journey, from  personal to professional projects, as well as everything in between. feel free to filter to find the most relevant ones :) 
             </p>
           </div>
         </motion.div>

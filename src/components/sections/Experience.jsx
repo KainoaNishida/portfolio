@@ -11,11 +11,11 @@ const Experience = () => {
       companyLink: "https://amazon.com",
       logo: `${import.meta.env.BASE_URL}amazon-logo.png`,
       bullets: [
-  "I’m building a serverless automation that streamlines a complex change-management flow using AWS Lambda, Bedrock agents, and S3—so requests move from days to minutes without manual handoffs.",
-  "I collaborate with stakeholders to shape requirements, write approachable design docs, and ship in small, reviewable slices that align with Amazon’s SDLC rhythm.",
-  "Behind the scenes, I focus on resilience—idempotent steps, smart retries and backoff, and clear observability with structured logs, metrics, and alerts.",
+  "I built a serverless automation that streamlined a complex change-management flow using AWS Lambda, Bedrock agents, and S3—so requests moved from days to minutes without manual handoffs.",
+  "I collaborated with stakeholders to shape requirements, wrote approachable design docs, and shipped in small, reviewable slices that aligned with Amazon's SDLC rhythm.",
+  "Behind the scenes, I focused on resilience—idempotent steps, smart retries and backoff, and clear observability with structured logs, metrics, and alerts.",
   "For knowledge ingestion, I wrote a regex-based preprocessor and a domain-aware chunking strategy, then embedded and indexed everything into an Amazon OpenSearch vector knowledge base.",
-  "On top of that KB, I’m wiring an agentic system that does retrieval-augmented reasoning and executes tools with guardrails, turning scattered docs into actionable workflows."
+  "On top of that KB, I wired an agentic system that did retrieval-augmented reasoning and executed tools with guardrails, turning scattered docs into actionable workflows."
 ],
       technologies: ["AWS", "Cloud Infrastructure", "Distributed Systems"]
     },
