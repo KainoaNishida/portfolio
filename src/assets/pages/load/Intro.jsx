@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from "react";
+import React, { useState, lazy, Suspense, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Routes, Route } from "react-router-dom";
 import Loader from "./Loader";
@@ -17,6 +17,14 @@ const ContactPage = lazy(() => import("../../../pages/ContactPage"));
 
 export default function Intro() {
   const [phase, setPhase] = useState("load");
+
+  // Preload HomePage component in the background during loader phase
+  useEffect(() => {
+    if (phase === "load") {
+      // Start loading HomePage immediately so it's ready when loader completes
+      import("../../../pages/HomePage");
+    }
+  }, [phase]);
 
   return (
     <div 

@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { preloadHomepageImages } from "../../../utils/imagePreloader";
+import { preloadLeetCodeStats } from "../../../utils/leetcodeStats";
 
 export default function Loader({ onComplete }) {
   const [count, setCount] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
+    // Start preloading images and LeetCode stats immediately
+    const imagePreloadPromise = preloadHomepageImages();
+    preloadLeetCodeStats(); // Start fetching LeetCode stats in the background
+    
     let start = Date.now();
     const duration = 2000; // Slightly faster loading
     const frame = () => {
@@ -16,8 +22,14 @@ export default function Loader({ onComplete }) {
       if (progress < 1) {
         requestAnimationFrame(frame);
       } else {
-        setTimeout(() => setIsFading(true), 200);
-        setTimeout(() => onComplete && onComplete(), 600);
+        // Wait for images to finish loading (or timeout after 500ms)
+        Promise.race([
+          imagePreloadPromise,
+          new Promise(resolve => setTimeout(resolve, 500))
+        ]).then(() => {
+          setTimeout(() => setIsFading(true), 200);
+          setTimeout(() => onComplete && onComplete(), 600);
+        });
       }
     };
     frame();

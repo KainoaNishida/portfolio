@@ -1,4 +1,4 @@
-// Example serverless function for Vercel/Netlify
+// Vercel serverless function for Spotify API
 // This handles Spotify API calls securely on the backend
 
 export default async function handler(req, res) {

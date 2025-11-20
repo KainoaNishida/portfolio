@@ -1,75 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import { fetchLeetCodeStats, getCachedStats } from '../utils/leetcodeStats';
 
 const LeetCodeStats = ({ username = 'kainoa' }) => {
-  const [stats, setStats] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [stats, setStats] = useState(() => getCachedStats()); // Initialize with cached stats if available
+  const [loading, setLoading] = useState(!stats); // Only show loading if we don't have cached stats
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchLeetCodeStats = async () => {
+    // If we already have cached stats, use them
+    const cached = getCachedStats();
+    if (cached) {
+      setStats(cached);
+      setLoading(false);
+      return;
+    }
+
+    // Otherwise, fetch the stats
+    const loadStats = async () => {
       try {
         setLoading(true);
         setError(null);
-
-        // LeetCode GraphQL API endpoint
-        const query = `
-          query getUserProfile($username: String!) {
-            matchedUser(username: $username) {
-              username
-              profile {
-                ranking
-              }
-              submitStats {
-                acSubmissionNum {
-                  difficulty
-                  count
-                  submissions
-                }
-                totalSubmissionNum {
-                  difficulty
-                  count
-                  submissions
-                }
-              }
-            }
-          }
-        `;
-
-        const variables = {
-          username: username
-        };
-
-        // Use CORS proxy to bypass CORS restrictions
-        // Try using corsproxy.io which handles POST requests better
-        const proxyUrl = 'https://corsproxy.io/?';
-        const leetcodeUrl = encodeURIComponent('https://leetcode.com/graphql/');
-        
-        const response = await fetch(`${proxyUrl}${leetcodeUrl}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            query,
-            variables
-          })
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch LeetCode stats');
-        }
-
-        const data = await response.json();
-
-        if (data.errors) {
-          throw new Error(data.errors[0].message || 'Failed to fetch stats');
-        }
-
-        if (data.data?.matchedUser) {
-          setStats(data.data.matchedUser);
-        } else {
-          throw new Error('User not found');
-        }
+        const data = await fetchLeetCodeStats(username);
+        setStats(data);
       } catch (err) {
         console.error('Error fetching LeetCode stats:', err);
         setError(err.message);
@@ -78,7 +30,7 @@ const LeetCodeStats = ({ username = 'kainoa' }) => {
       }
     };
 
-    fetchLeetCodeStats();
+    loadStats();
   }, [username]);
 
   if (loading) {

@@ -30,7 +30,8 @@ const Header = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
-              loading="lazy"
+              loading="eager"
+              fetchPriority="high"
             />
           </div>
 
@@ -45,7 +46,8 @@ const Header = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
               />
             </div>
             <p>
