@@ -18,7 +18,7 @@ const Header = () => {
             kainoa (kai) nishida
             </h1>
           <p className="font-mono text-xs text-slate-500 dark:text-slate-500 mb-4">
-            software engineer, researcher, and builder
+            software engineer, ml researcher, and student
           </p>
           
           {/* Profile Image - Centered on mobile, floating on desktop */}

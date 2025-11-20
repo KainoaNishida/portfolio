@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const AboutMe = () => {
-  // Update this date whenever you update the facts below
   const lastUpdated = 'nov 10, 2025';
   
   const facts = [
@@ -23,7 +22,7 @@ const AboutMe = () => {
     { type: 'divider' },
     { label: 'other hobbies', value: 'soccer, bouldering, reading, painting, snowboarding, fashion, poker' },
     { type: 'divider' },
-    { label: 'interests', value: 'mathematics, genomics, machine learning, game theory, software' }
+    { label: 'interests', value: 'mathematics, cloud computing, education, genomics, machine learning, game theory, software' }
   ];
 
   const formatDate = (date) => {
