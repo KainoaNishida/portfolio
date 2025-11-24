@@ -7,7 +7,7 @@ export const blogContent = {
       id: 3,
       title: 'shut the box: solving jane street\'s november 2025 puzzle',
       date: 'november 2025',
-      tags: ['game theory', 'dynamic programming', 'optimization'],
+      tags: ['puzzle', 'constraint satisfaction'],
       excerpt: 'using constraint satisfaction, pattern observation, and a bit of luck with pen and paper, see how i solved jane street\'s november 2025 puzzle.',
       content: null,
       customMessage: 'work in progress. though i did solve it (see my name on the solvers), i cannot share the solutions until the month is over to protect integrity'
