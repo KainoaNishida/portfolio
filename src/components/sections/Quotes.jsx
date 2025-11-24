@@ -1,34 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { quotesContent } from '../../content/quotes';
 
 const Quotes = () => {
-  const quotes = [
-    {
-      id: 1,
-      text: "The best way to predict the future is to invent it.",
-      author: "Alan Kay"
-    },
-    {
-      id: 2,
-      text: "Simplicity is the ultimate sophistication.",
-      author: "Leonardo da Vinci"
-    },
-    {
-      id: 3,
-      text: "Make it work, make it right, make it fast.",
-      author: "Kent Beck"
-    },
-    {
-      id: 4,
-      text: "The only way to do great work is to love what you do.",
-      author: "Steve Jobs"
-    },
-    {
-      id: 5,
-      text: "Code is like humor. When you have to explain it, it's bad.",
-      author: "Cory House"
-    }
-  ];
+  const quotes = quotesContent.quotes;
 
   const [activeQuote, setActiveQuote] = useState(0);
 
@@ -63,7 +38,7 @@ const Quotes = () => {
             id="quotes-heading"
             className="text-4xl font-bold mb-2 text-gray-800 dark:text-gray-100"
           >
-            Quotes I Live By
+            {quotesContent.title}
           </h2>
           <div className="w-20 h-1 bg-sky-400 mb-16"></div>
         </motion.div>

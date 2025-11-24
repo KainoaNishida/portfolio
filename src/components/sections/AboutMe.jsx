@@ -1,29 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { aboutMeContent } from '../../content/aboutMe';
 
 const AboutMe = () => {
-  const lastUpdated = 'nov 10, 2025';
-  
-  const facts = [
-    { label: 'favorite color', value: 'orange' },
-    { label: 'favorite movie', value: 'interstellar' },
-    { label: 'favorite song', value: 'ode to the mets by the strokes' },
-    { label: 'favorite food', value: 'udon' },
-    { label: 'favorite programming language', value: 'c++ or python' },
-    { label: 'currently reading', value: 'the girl with the dragon tattoo by stieg larsson' },
-    { label: 'currently playing', value: 'project zomboid' },
-    { label: 'favorite hobby', value: 'running' },
-    { label: 'favorite soccer team', value: 'arsenal' },
-    { label: 'favorite baseball team', value: 'dodgers' },
-    { label: 'favorite basketball team', value: 'lakers' },
-    { label: 'goat', value: 'lionel messi' },
-    { type: 'divider' },
-    { label: 'other games that i play', value: 'league of legends, apex legends, animal crossing, valorant, wukong' },
-    { type: 'divider' },
-    { label: 'other hobbies', value: 'soccer, bouldering, reading, painting, snowboarding, fashion, poker' },
-    { type: 'divider' },
-    { label: 'interests', value: 'mathematics, cloud computing, education, genomics, machine learning, game theory, software' }
-  ];
+  const facts = aboutMeContent.facts;
 
   const formatDate = (date) => {
     return date.toLocaleDateString('en-US', { 
@@ -64,10 +44,10 @@ const AboutMe = () => {
         className="mb-12"
       >
         <h2 className="text-xl font-bold mb-2 text-slate-900 dark:text-slate-50 font-mono lowercase">
-          about me
+          {aboutMeContent.title}
         </h2>
         <p className="font-mono text-xs text-slate-500 dark:text-slate-500">
-          quick facts · last updated {lastUpdated}
+          {aboutMeContent.subtitle.replace('{date}', aboutMeContent.lastUpdated)}
         </p>
       </motion.div>
 
