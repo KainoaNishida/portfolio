@@ -79,39 +79,28 @@ const Education = () => {
       organization: 'Commit the Change',
       role: 'Software Engineer, Treasurer, Education Director',
       period: '2022 - 2025',
-      bullets: [
-        'I built an onboarding program for new members.',
-        'I equipped members with necessary technical skills and language familiarity.',
-        'I implemented professional software development practices like AGILE.'
-      ]
+      
     },
     {
       id: 2,
       organization: 'Association for Computing Machinery (ACM)',
       role: 'Member',
       period: '2022 - Present',
-      bullets: [
-        'I am an active member participating in club activities.'
-      ]
+      
     },
     {
       id: 3,
       organization: 'Zhang Lab',
       role: 'Student Researcher',
       period: '2024 - Present',
-      bullets: [
-        'I am working on deep learning and genomics research projects.',
-        'I am focusing on RNA velocity prediction and knowledge distillation.'
-      ]
+      
     },
     {
       id: 4,
       organization: 'CS 161 - Design and Analysis of Algorithms',
       role: 'Learning Assistant',
       period: '2025 - Present',
-      bullets: [
-        'I assist students in understanding algorithmic concepts and problem-solving techniques.'
-      ]
+      
     }
   ];
 

@@ -32,7 +32,7 @@ export const experienceContent = {
       companyLink: "https://ctc-uci.com",
       logo: `${import.meta.env.BASE_URL}commit-the-change-logo.svg`,
       bullets: [
-        "Partnered with nonprofit stakeholders to map real workflows into tickets and shipped features end-to-end—from design reviews to production rollouts.",
+        "I partnered with nonprofit stakeholders to map real workflows into tickets and shipped features end-to-end—from design reviews to production rollouts.",
         "Built a multi-step, paginated, multimedia onboarding flow in React with Firebase Auth/Storage and form validation, saving progress between steps to reduce drop-off.",
         "Designed the data model and wrote SQL triggers/stored procedures that automatically compute and update KPIs (e.g., fulfillment rates, monthly routing totals), maintain rollups, and keep audit trails in sync.",
         "Implemented user-facing features like searchable tables, role-based dashboards, and CSV exports, and connected them to backend APIs for reliable, fast operations.",
@@ -44,7 +44,7 @@ export const experienceContent = {
       title: "Machine Learning Research Assistant",
       company: "Irvine Zhang Lab",
       location: "Irvine, CA",
-      period: "January 2025 - Present",
+      period: "December 2024 - Present",
       companyLink: "https://www.ics.uci.edu/~jingz31/",
       bullets: [
         "I'm driving three active research projects—RNA velocity with Neural ODEs, long-context sequence-to-Hi-C prediction, and knowledge distillation for DNA foundation models—with manuscripts targeted for late 2025.",

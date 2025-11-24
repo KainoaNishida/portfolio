@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { projectsContent } from '../../content/projects';
+import { projectsContent } from '../../content/projects.jsx';
 
 const Projects = () => {
   const [photoIndices, setPhotoIndices] = useState({});
@@ -11,7 +11,7 @@ const Projects = () => {
     setExpandedProjects(prev => ({ ...prev, [id]: !prev[id] }));
   }, []);
 
-  const projects = useMemo(() => projectsContent.projects, []);
+  const projects = projectsContent.projects;
 
   const containerVariants = {
     hidden: { opacity: 0 },

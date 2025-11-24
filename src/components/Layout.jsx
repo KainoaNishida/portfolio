@@ -40,7 +40,7 @@ const Layout = () => {
       
       {/* Main Content - Centered in full screen */}
       <div className="pb-16 w-full pt-16 sm:pt-20">
-        <div className="max-w-2xl w-full px-4 sm:px-6 lg:px-8 mx-auto">
+        <div className="max-w-3xl w-full px-4 sm:px-6 lg:px-8 mx-auto">
           <Outlet />
         </div>
       </div>

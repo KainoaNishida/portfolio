@@ -15,32 +15,32 @@ export const projectsContent = {
       title: "Collete's Children Home",
       description: "Internal dashboard for client–manager matching, treatment tracking, and operations at a nonprofit serving disadvantaged mothers.",
       longDescription: (
-        <>
-          Built a production dashboard for{" "}
-          <a
-            href="https://www.coletteschildrenshome.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-0.5"
-          >
-            Colette&apos;s Children&apos;s Home
-            <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-          {" "}that turns scattered spreadsheets into a single, reliable system:
-          <br />
-          <br />
-          • <strong>Client–manager matching:</strong> searchable client table with filters, assignment workflow, and role-based views.<br />
-          • <strong>Treatment tracking:</strong> progress notes, milestones, and status history with audit-friendly timestamps.<br />
-          • <strong>Donations & operations:</strong> a unified ledger for donation intake and disbursement, with quick reports and CSV export.<br />
-          • <strong>Forms & onboarding:</strong> multi-step, paginated forms with autosave, validation, file uploads (Firebase Storage), and admin review.<br />
-          • <strong>Reliability & DX:</strong> input validation, optimistic UI, empty/error states, and basic metrics/logging for easier support.
-          <br />
-          <br />
-          Under the hood it uses React + TypeScript, Node/Express APIs, MongoDB for data modeling, Firebase Auth/Storage for identity and secure uploads, Chakra UI for accessible components, and the AWS SDK for durable document storage integrations.
-        </>
-      ),
+  <>
+    I built a <strong>production dashboard</strong> for{" "}
+    <a
+      href="https://www.coletteschildrenshome.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-0.5"
+    >
+      Colette&apos;s Children&apos;s Home
+      <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+        />
+      </svg>
+    </a>{" "}
+    that turns scattered spreadsheets into a <strong>single, reliable system for client care and operations</strong>. The platform
+    centralizes client–manager matching, treatment progress, and donation tracking into one searchable, audit-friendly interface,
+    while streamlining onboarding with multi-step forms, autosave, validation, and secure file uploads. Built with React, TypeScript,
+    Node/Express, MongoDB, Firebase Auth/Storage, Chakra UI, and AWS integrations, it is designed to be <strong>easy for staff to use</strong> while
+    maintaining <strong>data integrity, clear workflows, and fast reporting</strong>.
+  </>
+),
+
       tech: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Express', 'Chakra UI', 'Firebase', 'AWS SDK'],
       categories: ['software'],
       github: 'https://github.com/ctc-uci/cch',
@@ -64,31 +64,33 @@ export const projectsContent = {
       title: "UCLA Ranked",
       description: "ELO-driven ladder for UCLA with verified match reporting, live leaderboards, alumni profiles, and rich player stats.",
       longDescription: (
-        <>
-          Co-built with{" "}
-          <a
-            href="https://github.com/maxfukuh4ra/uclaranked"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-0.5"
-          >
-            Max Fukuhara
-            <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-          , UCLA Ranked turns pickup results into a transparent, competitive ladder:
-          <br />
-          <br />
-          • <strong>Match reporting & verification:</strong> players submit results; opponents confirm; admins can resolve disputes with an audit trail.<br />
-          • <strong>Live ELO & leaderboards:</strong> instant rating updates, season filters, and historical snapshots to track progress over time.<br />
-          • <strong>Player analytics:</strong> win/loss, streaks, head-to-head, surface/opponent breakdowns, and per-season summaries with exportable tables.<br />
-          • <strong>Alumni network:</strong> profiles that carry forward after graduation, with graduation-year tagging and opt-in contact links for mentorship and events.<br />
-          • <strong>Reliability & ops:</strong> pagination and rate-limits on API routes, input validation, error/empty states, and scheduled jobs for backups and recomputes.
-          <br />
-          <br />
-        </>
-      ),
+  <>
+    Co-built with{" "}
+    <a
+      href="https://github.com/maxfukuh4ra/uclaranked"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-0.5"
+    >
+      Max Fukuhara
+      <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+        />
+      </svg>
+    </a>
+    , UCLA Ranked turns casual pickup results into a <strong>transparent, competitive ladder</strong> for the UCLA tennis community. Players
+    can report and verify match results with an audit trail, while a live ELO system powers dynamic leaderboards and season-based
+    rankings that make progress visible over time. Rich player analytics (win/loss trends, streaks, head-to-head records, and
+    season summaries) help students track their growth, and persistent alumni profiles with graduation-year tags and optional contact
+    info support a <strong>lasting mentorship and alumni network</strong>. Under the hood, careful attention to reliability—pagination, rate limits,
+    validation, and scheduled backups—keeps the system stable as the ladder grows.
+  </>
+),
+
       tech: ["Next.js", "TypeScript", "PostgreSQL", "Chakra UI", "AWS"],
       categories: ["software"],
       github: "https://github.com/maxfukuh4ra/uclaranked",
@@ -101,29 +103,24 @@ export const projectsContent = {
       title: "Sustainably",
       description: "Product search that ranks brands by an ML-based sustainability score, built at a Caltech hackathon.",
       longDescription: (
-        <>
-          Sustainably helps shoppers discover clothing from companies with stronger sustainability signals. We built a small
-          ML pipeline that aggregates company attributes (disclosures, impact reports, news signals, and product metadata)
-          and produces a continuous "eco score," then validated it against publicly traded companies' ESG benchmarks.
-          <br />
-          <br />
-          • <strong>Search & results:</strong> a React UI for product search with brand badges, score tooltips, and quick filters.<br />
-          • <strong>Company spotlight:</strong> profile pages with an at-a-glance scorecard, rationale snippets, and links to sources.<br />
-          • <strong>Weekly spotlight:</strong> a rotating highlight that surfaces new or improving brands and explains the lift.<br />
-          • <strong>Data & storage:</strong> product/brand metadata and model outputs persisted in PostgreSQL; APIs paginate and cache responses.<br />
-          • <strong>Transparency:</strong> every score shows contributing factors and caveats—this is an assistive signal,
-          not investment advice.
-          <br />
-          <br />
-        </>
-      ),
+  <>
+    Sustainably helps shoppers discover clothing from companies with <strong>stronger sustainability signals</strong> by turning scattered
+    disclosures, impact reports, news, and product metadata into a single, continuous <strong>&quot;eco score&quot;</strong> for each brand. We built and
+    validated this scoring pipeline against ESG benchmarks for publicly traded companies, then surfaced it through a React search
+    experience with brand badges, explanatory tooltips, and company spotlight pages that summarize the rationale behind each score
+    and link directly to sources. Backed by PostgreSQL and paginated APIs for storing products, brands, and model outputs, the
+    product is designed to be <strong>transparent and assistive</strong>: every score highlights its contributing factors and caveats so users can
+    make more informed, sustainable choices—not receive investment advice.
+  </>
+),
+
       tech: ["TypeScript", "Python", "PyTorch", "FastAPI", "React", "PostgreSQL", "AWS"],
       categories: ["machine learning", "artificial intelligence", "software"],
       github: "https://github.com/KainoaNishida/calhacks",
       demo: "https://www.youtube.com/watch?v=eRWfTVFnekc",
       status: "Completed",
       featured: true,
-      year: "2024",
+      year: "2025",
       hasPhotos: true,
       photoFolder: "sustainably",
       photos: [
@@ -140,45 +137,37 @@ export const projectsContent = {
       title: "Fabflix",
       description: "Full-stack movie e-commerce site built from scratch with secure login, full-text search, and high-performance AWS deployment.",
       longDescription: (
-        <>
-          Fabflix is a production-grade Netflix-style web app where users can browse, search, and purchase from a catalog of thousands of movies.  
-          Built entirely from scratch, it demonstrates the complete software stack—from backend architecture and database engineering to frontend interaction and performance scaling.
-          <br /><br />
-          • <strong>Architecture:</strong> designed and deployed a full-stack system using Java, Tomcat, MySQL, and Apache on AWS EC2 with HTTPS and RESTful APIs.<br />
-          • <strong>Frontend:</strong> built a rich interface with JavaScript, jQuery, and AJAX for live search, pagination, and responsive UX across the catalog and checkout flows.<br />
-          • <strong>Database:</strong> implemented an ETL pipeline that parses large XML datasets to expand the MySQL movie database with metadata, cast, and genre relationships.<br />
-          • <strong>Security:</strong> added SHA-256 password hashing, reCAPTCHA bot detection, session-based login, and parameterized queries to prevent SQL injection.<br />
-          • <strong>Performance:</strong> optimized throughput via MySQL connection pooling, read replication, query caching, and Apache load balancing, measured with JMeter benchmarking.<br />
-          • <strong>Deployment:</strong> containerized the application and orchestrated it on a Kubernetes cluster spanning multiple AWS instances for scalability and fault tolerance.<br />
-          <br /><br />
-        </>
-      ),
+  <>
+    Fabflix is a <strong>Netflix-style movie platform</strong> where users can browse, search, and purchase from a catalog of thousands of films, built
+    end-to-end from scratch to demonstrate the full web stack. It combines a secure Java/Tomcat backend and MySQL database—populated via
+    custom XML ETL pipelines for rich movie, cast, and genre metadata—with a responsive JavaScript/jQuery frontend that supports live search,
+    pagination, and smooth checkout flows. Deployed on AWS with Apache, HTTPS, and RESTful APIs, the system emphasizes <strong>security and
+    scalability</strong> through hashed authentication, bot protection, parameterized queries, connection pooling, replication, and Kubernetes-based
+    orchestration, turning the app into a realistic, production-grade environment rather than a toy demo.
+  </>
+),
+
       tech: ["Java", "MySQL", "Tomcat", "AWS", "jQuery", "Android SDK", "JDBC", "Apache", "Kubernetes", "HTTPS", "RESTful APIs", "reCAPTCHA", "Git", "JMeter"],
       categories: ["software"],
       demo: "https://youtu.be/vBxpvysVO_Y",
       status: "Completed",
       featured: false,
-      year: "2023"
+      year: "2024"
     },
     {
       id: 5,
       title: "Personal Portfolio",
       description: "Minimalist React portfolio with expandable sections, real-time stats, and multi-page navigation.",
       longDescription: (
-        <>
-          A minimalist, performance-focused portfolio built to showcase research, projects, and experience with clean design and smooth interactions:
-          <br />
-          <br />
-          • <strong>Multi-page navigation:</strong> React Router powers separate pages for home, experience, projects, research, background, skills, blog, and contact with instant route transitions.<br />
-          • <strong>Expandable content:</strong> projects and research items collapse to short descriptions and expand to reveal full details, technologies, and media galleries with photo navigation.<br />
-          • <strong>Real-time widgets:</strong> world clock with multiple timezones, LeetCode stats via GraphQL API, lines of code estimates, Fermi questions, and test scores in a fixed sidebar.<br />
-          • <strong>Performance optimizations:</strong> lazy-loaded pages, GPU-accelerated animations, native image lazy loading, reduced backdrop blur, and CSS containment for smoother scrolling.<br />
-          • <strong>Design system:</strong> Tailwind CSS with custom dark mode (slate-1000), orange accent colors, monospace typography, and consistent minimalist styling across all sections.<br />
-          • <strong>Interactive features:</strong> category-based project filtering with counts, expandable blog posts, PDF resume viewer with zoom controls, and smooth Framer Motion animations.<br />
-          <br />
-          <br />
-        </>
-      ),
+  <>
+    A minimalist, performance-focused portfolio built to <strong>showcase my research, projects, and experience</strong> in a clean, distraction-free way.
+    Content is organized into focused pages with fast navigation, while projects and research items expand from short summaries into richer detail
+    when needed. Powered by React and Tailwind with lazy loading and lightweight animations, the site stays <strong>fast, readable, and pleasantly interactive</strong>
+    without feeling heavy.
+  </>
+),
+
+
       tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "React Router", "Vercel"],
       categories: ["software"],
       github: "https://github.com/KainoaNishida/portfolio",
@@ -191,28 +180,26 @@ export const projectsContent = {
       title: "Feeding Pets of the Homeless",
       description: "Partner-site portal that streamlines onboarding and donation reporting for a nonprofit supporting homeless pet guardians.",
       longDescription: (
-        <>
-          Built a centralized portal for{" "}
-          <a
-            href="https://petsofthehomeless.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-0.5"
-          >
-            Feeding Pets of the Homeless
-            <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-          {" "}that turns email- and spreadsheet-heavy workflows into a simple, trackable system:
-          <br /><br />
-          • <strong>Admin dashboard:</strong> role-based views for sites vs. HQ, with searchable tables, status filters, and CSV exports for audits and reports.<br />
-          • <strong>Donation reporting:</strong> guided form with validation, autosave, and file uploads (receipts/photos via Firebase Storage); submissions flow into review queues with clear states.<br />
-          • <strong>Partner onboarding:</strong> multi-step, paginated intake that saves progress between steps and captures key documents, contacts, and service capacity.<br />
-          • <strong>Communication:</strong> automatic email confirmations and in-app alerts on approvals, rejections, or missing info to keep partners in sync.<br />
-          <br /><br />
-        </>
-      ),
+  <>
+    Built a centralized portal for{" "}
+    <a
+      href="https://petsofthehomeless.org/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-0.5"
+    >
+      Feeding Pets of the Homeless
+      <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+      </svg>
+    </a>{" "}
+    that turns email- and spreadsheet-heavy workflows into a <strong>simple, trackable system for donation reporting and partner management</strong>.
+    The portal gives HQ and partner sites clear role-based dashboards, streamlines donation submissions and onboarding through guided multi-step
+    forms with autosave and file uploads, and keeps everyone aligned with automatic confirmations and in-app alerts, making it much easier to
+    <strong> monitor impact, stay audit-ready, and support partners at scale</strong>.
+  </>
+),
+
       tech: ["React", "Firebase", "Node.js", "Express"],
       categories: ["software"],
       github: "https://github.com/ctc-uci/fph-frontend",
@@ -233,28 +220,15 @@ export const projectsContent = {
       title: "Valnotes",
       description: "Video note-taking for gameplay analysis with timestamped annotations and Riot Games data overlays.",
       longDescription: (
-        <>
-          Valnotes lets players and coaches upload scrims/VODs, drop timestamped notes, and layer in match data pulled from the{" "}
-          <a
-            href="https://developer.riotgames.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-0.5"
-          >
-            Riot Games API
-            <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-          </a>
-          . The result is a single workspace to review plays, tag decisions, and visualize patterns across matches.
-          <br /><br />
-          • <strong>Video review:</strong> upload VODs, scrub the timeline, and create timestamped notes with tags, color labels, and quick keybinds.<br />
-          • <strong>Data overlays:</strong> pull match metadata, player stats, and round outcomes from Riot; show per-round summaries alongside the note timeline.<br />
-          • <strong>Analysis views:</strong> head-to-head panels, economy/ult tracking, streaks, and simple charts to spot repeatable mistakes or strengths.<br />
-          • <strong>Backend & auth:</strong> secure uploads, JWT sessions, rate-limited API routes, and MongoDB schemas for users, videos, notes, and match links.
-          <br /><br />
-        </>
-      ),
+  <>
+    Valnotes is a workspace for Valorant players and coaches to <strong>turn raw scrims and VODs into structured, searchable insight</strong>. Users can
+    upload match recordings, scrub the timeline, and drop timestamped notes with tags and color labels, while match metadata, player stats, and
+    round outcomes from the Riot Games API are overlaid alongside the video to ground every comment in context. Dedicated analysis views—like
+    economy and ultimate tracking, streaks, and simple head-to-head charts—help reveal repeatable mistakes and strengths across matches, all
+    backed by a secure MongoDB-powered backend with JWT sessions, rate-limited APIs, and schemas for users, videos, notes, and match links.
+  </>
+),
+
       tech: ["React", "Node.js", "Riot API", "MongoDB", "Express"],
       categories: ["software"],
       github: "https://github.com/KainoaNishida/Valnotes",
@@ -287,18 +261,15 @@ export const projectsContent = {
       title: "Pokéscape",
       description: "Java adventure puzzler with custom art, original sound design, and a handcrafted forest to explore.",
       longDescription: (
-        <>
-          Pokéscape is a 2D adventure puzzle game built in pure <strong>Java</strong> where players traverse a hand-drawn forest,
-          talk to NPCs, and solve environmental puzzles to rescue an endangered forest spirit. I designed the core loop,
-          implemented the engine, and collaborated with a professional artist for sprites, tiles, and UI, plus original SFX/music.
-          <br /><br />
-          • <strong>Gameplay:</strong> exploration, dialogue choices, inventory gating, and puzzle rooms that unlock new forest areas.<br />
-          • <strong>Engine:</strong> custom state manager (title ↔ gameplay ↔ dialogue ↔ pause), fixed-timestep game loop, and scene transitions.<br />
-          • <strong>Dialogue system:</strong> scriptable conversations with portrait frames, typing effects, and branching responses.<br />
-          • <strong>Audio:</strong> lightweight mixer for music/SFX, with spatial cues and per-scene playlists for atmosphere.<br />
-          <br /><br />
-        </>
-      ),
+  <>
+    Pokéscape is a 2D adventure puzzle game built in pure <strong>Java</strong> where players explore a hand-drawn forest, talk to NPCs, and solve
+    environmental puzzles to rescue an endangered forest spirit. I designed the core gameplay loop and implemented a custom engine with a
+    state manager, fixed-timestep game loop, and smooth scene transitions, then layered on a scriptable dialogue system with branching choices
+    and a lightweight audio mixer for music and SFX. The result is a small but complete game that <strong>ties custom engine work, narrative, and art
+    direction into one cohesive experience</strong>.
+  </>
+),
+
       tech: ["Java"],
       categories: ["software", "games"],
       github: "https://github.com/KainoaNishida/pokescape",
@@ -332,28 +303,26 @@ export const projectsContent = {
       title: "Get Inspired",
       description: "Survey & analytics portal for Pismo clam restoration with fast data entry, queryable records, and auto-computed stats.",
       longDescription: (
-        <>
-          Built for{" "}
-          <a
-            href="https://getinspiredinc.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-0.5"
-          >
-            Get Inspired
-            <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-          , this app turns beach surveys into clean, searchable data and instant insights:
-          <br /><br />
-          • <strong>Survey dashboard:</strong> at-a-glance KPIs (counts by color/status, CPUE, size distributions) with filters for date range, site, tide, and team.<br />
-          • <strong>Data entry:</strong> guided form for species/size/color, GPS/location, date/time, photos, and notes with validation and autosave to reduce errors in the field.<br />
-          • <strong>Results table:</strong> searchable/paginated records with advanced filters and quick detail panels for verifying submissions.<br />
-          • <strong>Data export:</strong> CSV downloads for sharing with researchers and agencies; exports respect current filters for reproducible reports.<br />
-          <br /><br />
-        </>
-      ),
+  <>
+    Built for{" "}
+    <a
+      href="https://getinspiredinc.org/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-0.5"
+    >
+      Get Inspired
+      <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+      </svg>
+    </a>
+    , this app turns raw beach survey submissions into <strong>clean, searchable data and instant insights</strong> for educators and researchers.
+    A guided entry flow helps teams capture species, size, color, GPS, photos, and notes with fewer errors, while a central dashboard and
+    results table make it easy to filter by site, date, or tide and quickly verify records. CSV exports respect active filters so that
+    partners can generate <strong>reproducible reports for agencies and long-term monitoring</strong> without extra spreadsheet work.
+  </>
+),
+
       tech: ["React", "Node.js", "PostgreSQL", "Express"],
       categories: ["software"],
       github: "https://github.com/ctc-uci/get-inspired-frontend",
@@ -382,16 +351,15 @@ export const projectsContent = {
       title: "Agape",
       description: "Mental health AI chatbot with real-time mood analysis via a Chrome extension and OpenAI-powered responses.",
       longDescription: (
-        <>
-          Agape is a mental-health–focused assistant that analyzes live chats in the browser and returns supportive, context-aware guidance:
-          <br /><br />
-          • <strong>Chrome extension:</strong> captures on-page chat text in real time and sends minimal snippets to the backend for analysis.<br />
-          • <strong>AI inference:</strong> Express.js service integrates the OpenAI API for mood classification, sentiment trends, and tailored response suggestions.<br />
-          • <strong>Data pipeline:</strong> web-scraped text is cleaned and templated, then stored in SQL (AWS RDS) with user/session metadata for analytics and history.<br />
-          • <strong>Frontend:</strong> React UI (HTML/CSS) surfaces live mood predictions, suggested replies, and longitudinal visualizations pulled from the database.<br />
-          <br /><br />
-        </>
-      ),
+  <>
+    Agape is a mental-health–focused assistant that <strong>analyzes live chats in the browser and offers supportive, context-aware guidance</strong>.
+    A Chrome extension streams minimal snippets of on-page conversation to an Express.js backend that uses the OpenAI API to infer mood,
+    track sentiment trends, and suggest compassionate replies. Cleaned and templated chat data is stored in an AWS RDS SQL database with
+    user and session metadata, and a React frontend surfaces live mood predictions, suggested responses, and simple longitudinal
+    visualizations so users can better understand and support the people they’re talking to.
+  </>
+),
+
       tech: ["React", "Express.js", "OpenAI API", "Chrome Extension", "AWS", "SQL"],
       categories: ["software", "artificial intelligence"],
       github: "https://github.com/KainoaNishida/agape",
@@ -405,18 +373,15 @@ export const projectsContent = {
       title: "Maze Runner",
       description: "Interactive Python visualizer for maze generation and pathfinding algorithms.",
       longDescription: (
-        <>
-          Maze Runner is an educational visualization tool built with <strong>Python</strong> and <strong>Pygame</strong> that brings maze algorithms to life. 
-          It shows how different generation and solving strategies behave in real time—helping learners see computational thinking unfold step by step.
-          <br /><br />
-          • <strong>Maze generation:</strong> supports recursive backtracking, randomized Prim's, and Kruskal's algorithms with color-coded growth to show frontier expansion.<br />
-          • <strong>Pathfinding:</strong> visualizes breadth-first search (BFS), depth-first search (DFS), and A* with clear traversal and backtrack animations.<br />
-          • <strong>Visualization controls:</strong> adjustable speed sliders, maze size, start/goal placement, and instant reset for quick experimentation.<br />
-          • <strong>Performance insights:</strong> overlays generation/solving time, step count, and algorithm efficiency metrics using <strong>NumPy</strong> for computation.<br />
-          • <strong>Learning experience:</strong> designed for students exploring algorithmic design, offering a tangible way to connect theory to runtime behavior.
-          <br /><br />
-        </>
-      ),
+  <>
+    Maze Runner is an educational visualization tool built with <strong>Python</strong> and <strong>Pygame</strong> that helps learners <strong>see maze algorithms and
+    pathfinding strategies unfold in real time</strong>. It animates popular generation methods like recursive backtracking and randomized Prim’s,
+    alongside solvers like BFS and DFS, with controls for speed, maze size, and start/goal placement to encourage experimentation.
+    Simple overlays report timing and step counts (via <strong>NumPy</strong>), turning abstract ideas about algorithm design and efficiency into a concrete,
+    interactive learning experience.
+  </>
+),
+
       tech: ["Python", "Pygame", "NumPy"],
       categories: ["algorithms", "software"],
       github: "https://github.com/KainoaNishida/maze-solver",
@@ -430,32 +395,15 @@ export const projectsContent = {
       title: "Minecraft RL Agent",
       description: "Deep Q-learning agent in Malmo that learns to navigate caves and mine diamonds efficiently.",
       longDescription: (
-        <>
-          A reinforcement learning project using <strong>Microsoft Malmo</strong> to train an agent for diamond mining.
-          The agent learns navigation, tool use, and resource gathering through reward shaping and curriculum tasks that
-          progress from coal/iron to diamond.  
-          <br /><br />
-          • <strong>Environment:</strong> custom Malmo missions with procedurally varied cave layouts, sparse lighting, lava hazards, and diamond targets.<br />
-          • <strong>State & actions:</strong> frame-stacked observations + inventory/status features; discrete action set for movement, mining, and item use.<br />
-          • <strong>Algorithm:</strong> DQN with target network, epsilon-greedy exploration, and prioritized experience replay; conv encoder + small MLP head in <strong>PyTorch</strong>.<br />
-          • <strong>Reward shaping:</strong> positive rewards for ore discovery/extraction and goal completion; penalties for damage/timeouts; bonuses for efficient pathing.<br />
-          • <strong>Training:</strong> mini-batch updates on GPU with gradient clipping; curriculum schedules reduce exploration over time for stable convergence.<br />
-          • <strong>Evaluation:</strong> success rate to first diamond, steps-to-diamond, survival rate, and average episodic return across randomized seeds.
-          <br /><br />
-          <a
-            href="https://youtu.be/kgeDFwxfVCM"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-0.5"
-          >
-            YouTube
-            <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-          .
-        </>
-      ),
+  <>
+    A reinforcement learning project using <strong>Microsoft Malmo</strong> to train an agent that can <strong>navigate caves and mine diamonds autonomously</strong>.
+    I designed custom Minecraft-like environments with varied cave layouts, hazards, and ore distributions, then used a DQN-based policy
+    (with a convolutional encoder in <strong>PyTorch</strong>) over frame-stacked observations and inventory features to learn movement, mining, and tool use.
+    Through careful reward shaping and a simple curriculum that progresses from coal and iron to diamonds, the agent learns to reach its
+    first diamond efficiently and reliably across randomized seeds.
+  </>
+),
+
       tech: ["Python", "PyTorch", "Malmo", "NumPy"],
       categories: ["machine learning", "artificial intelligence"],
       demo: "https://youtu.be/kgeDFwxfVCM",
@@ -468,39 +416,36 @@ export const projectsContent = {
       title: "Rubik's Cube Solver",
       description: "Python visualizer that scrambles and solves a 3×3 using group-theoretic move notation and permutation math.",
       longDescription: (
-        <>
-          A 3×3 solver inspired by MIT's "The Mathematics of the Rubik's Cube." The cube is modeled as permutations of faces/edges/corners,
-          with generators (U, D, L, R, F, B) and their inverses. The program visualizes scrambles and step-by-step solutions, showing how
-          group operations compose, invert, and reduce sequences.
-          <br /><br />
-          • <strong>Representation:</strong> sticker-level permutations with orientation tracking for corners/edges; moves are group elements you can compose/invert.<br />
-          • <strong>Solving pipeline:</strong> structured phases (reduce cross → place corners/edges → final layer orientation/permutation) guided by admissible heuristics.<br />
-          • <strong>Notation & proofs-of-correctness:</strong> human-readable sequences with sanity checks for parity and orientation invariants.<br />
-          • <strong>Visualization:</strong> Matplotlib renders scrambles and each solution step; playback controls make the group actions tangible.<br />
-          • <strong>Extensibility:</strong> clean move tables and helper utilities to add algorithms, pattern sets, or alternative metrics.
-          <br /><br />
-        </>
-      ),
+  <>
+    A 3×3 Rubik&apos;s Cube solver inspired by MIT&apos;s &quot;The Mathematics of the Rubik&apos;s Cube,&quot; modeling the cube as
+    permutations of faces, edges, and corners with standard move generators (U, D, L, R, F, B) and their inverses. The tool focuses on
+    <strong>making group theory tangible</strong> by visualizing scrambles and step-by-step solutions, showing how moves compose, invert, and reduce
+    into structured solving phases—from building the cross to orienting and permuting the final layer—while enforcing parity and orientation
+    invariants. A Matplotlib-based viewer lets users play back each move, making the underlying algebra feel concrete and extensible for new
+    algorithms or pattern sets.
+  </>
+),
+
       tech: ["Python", "NumPy", "Matplotlib"],
       categories: ["algorithms", "software"],
       status: "Completed",
       featured: false,
-      year: "2023"
+      year: "2024"
     },
     {
       id: 14,
       title: "Minesweeper AI Solver",
       description: "Python AI agent that solves Minesweeper boards using constraint satisfaction and heuristic search.",
       longDescription: (
-        <>
-          The Minesweeper AI Solver is a fully automated agent that can solve boards of arbitrary size and difficulty using classical AI and combinatorial reasoning:
-          <br /><br />
-          • <strong>Constraint satisfaction:</strong> models each revealed tile as a local constraint and propagates implications across the board.<br />
-          • <strong>Frontier splitting:</strong> divides independent regions to reduce branching complexity and improve runtime.<br />
-          • <strong>Recursive backtracking:</strong> systematically explores possible mine placements with pruning via early contradiction detection.<br />
-          • <strong>Heuristics:</strong> employs the Minimum Remaining Value (MRV) heuristic and equivalence-class compression for optimal move selection.<br />
-        </>
-      ),
+  <>
+    The Minesweeper AI Solver is a fully automated agent that uses <strong>classical AI and combinatorial reasoning</strong> to tackle boards of
+    arbitrary size and difficulty. It treats each revealed tile as a constraint, propagates implications across the board, splits the
+    frontier into independent regions to keep the search manageable, and uses recursive backtracking with strong pruning to rule out
+    impossible mine configurations. Guided by MRV-style heuristics and equivalence-class compression, the solver focuses on the most
+    informative moves first, turning a simple game into a concrete showcase of <strong>constraint satisfaction in action</strong>.
+  </>
+),
+
       tech: ["Python", "NumPy"],
       categories: ["algorithms", "artificial intelligence", "software"],
       github: "https://github.com/KainoaNishida/minesweeper-solver",

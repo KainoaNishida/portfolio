@@ -5,7 +5,7 @@ const BlogPost = ({ post }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="border-b border-dashed border-slate-300 dark:border-slate-700 pb-8 mb-8 last:border-b-0 last:mb-0">
+    <div className="border-b border-dashed border-slate-300 dark:border-slate-700 pb-8 pt-8 first:pt-0 last:border-b-0">
       {/* Card Header - Always Visible */}
       <div 
         className="cursor-pointer"
@@ -86,7 +86,7 @@ const BlogPost = ({ post }) => {
                   ))
                 ) : (
                   <p className="text-slate-500 dark:text-slate-400 italic">
-                    work in progress{post.solved && ' (i did actually solve it, you can see my name Kai Nishida in the solvers!)'}
+                    {post.customMessage || `work in progress${post.solved ? ' (i did actually solve it, you can see my name Kai Nishida in the solvers!)' : ''}`}
                   </p>
                 )}
               </div>

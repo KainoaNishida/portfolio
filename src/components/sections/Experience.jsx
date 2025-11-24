@@ -60,8 +60,8 @@ const Experience = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Left timeline line - positioned at 150px from left */}
-          <div className="absolute top-0 bottom-0 w-px bg-slate-300 dark:bg-slate-700" style={{ left: '150px' }}></div>
+          {/* Left timeline line - positioned at 180px from left */}
+          <div className="absolute top-0 bottom-0 w-px bg-slate-300 dark:bg-slate-700" style={{ left: '180px' }}></div>
           
           <div className="relative">
             {experiences.map((experience, index) => {
@@ -71,7 +71,7 @@ const Experience = () => {
               return (
                 <div key={index} className="relative mb-8">
                   {/* Date on left side - extends to just before the timeline line */}
-                  <div className="absolute left-0 top-0 text-right pr-3 flex flex-col items-end" style={{ width: '150px' }}>
+                  <div className="absolute left-0 top-0 text-right pr-3 flex flex-col items-end" style={{ width: '180px' }}>
                     {(() => {
                       const parts = experience.period.split(' - ');
                       const startDate = parts[0] || experience.period;
@@ -98,7 +98,7 @@ const Experience = () => {
                   <div 
                     className="absolute z-10 flex items-center" 
                     style={{ 
-                      left: '144px',  // 150px - 6px (half of 12px circle width) to center it
+                      left: '174px',  // 180px - 6px (half of 12px circle width) to center it
                       top: '6px',  // Center vertically between the two date lines
                       height: '12px'
                     }}
@@ -112,7 +112,7 @@ const Experience = () => {
                     custom={false}
                     variants={itemVariants}
                   >
-                    <div className="w-full" style={{ marginLeft: '166px' }}>
+                    <div className="w-full" style={{ marginLeft: '196px' }}>
                     <div className="bg-slate-50 dark:bg-slate-800 rounded p-6 border border-slate-200 dark:border-slate-700">
                       <div className="flex flex-col mb-3">
                         <div className="flex items-start gap-4">
