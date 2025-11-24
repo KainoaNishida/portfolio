@@ -59,7 +59,7 @@ const Hobbies = () => {
             {hobbies.map((hobby, index) => (
               <motion.div
                 key={hobby.id}
-                className="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
+                className="bg-slate-50 dark:bg-slate-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}

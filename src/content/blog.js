@@ -5,10 +5,10 @@ export const blogContent = {
   posts: [
     {
       id: 1,
-      title: 'robot baseball: solving jane street\'s november 2025 problem',
-      date: 'november 2025',
+      title: 'robot baseball: solving jane street\'s october 2025 problem',
+      date: 'october 2025',
       tags: ['game theory', 'dynamic programming'],
-      excerpt: 'finding the optimal strike zone that maximizes the probability of reaching a full count in robot baseball, where perfect rationality meets probabilistic modeling.',
+      excerpt: 'see how i solved jane street\'s october 2025 problem using a blend of dynamic programming and game theory.',
       solved: true,
       content: null
     },
@@ -17,7 +17,7 @@ export const blogContent = {
       title: 'shut the box: solving jane street\'s november 2025 puzzle',
       date: 'november 2025',
       tags: ['game theory', 'dynamic programming', 'optimization'],
-      excerpt: 'exploring the optimal strategy for the classic dice game "shut the box" and finding the best approach to minimize expected score in jane street\'s variant.',
+      excerpt: 'using constraint satisfaction, pattern observation, and a bit of luck with pen and paper, see how i solved jane street\'s november 2025 puzzle.',
       content: null
     },
     {

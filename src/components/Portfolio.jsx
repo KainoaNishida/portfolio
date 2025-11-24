@@ -18,7 +18,7 @@ const SectionDivider = () => (
 
 const Portfolio = () => {
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white">
+    <div className="min-h-screen bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-white">
       <div className="fixed left-10 inset-y-5 z-50 flex flex-col items-center">
         <div className="mt-4">
           <ThemeToggle />

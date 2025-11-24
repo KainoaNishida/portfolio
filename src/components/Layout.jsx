@@ -15,7 +15,7 @@ const Layout = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-1000 text-slate-900 dark:text-white">
+    <div className="min-h-screen bg-slate-100 dark:bg-slate-1000 text-slate-900 dark:text-white">
       {/* World Clock */}
       <WorldClock />
       
@@ -27,7 +27,7 @@ const Layout = () => {
       </div>
       
       {/* Top Navigation */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-slate-50/95 dark:bg-slate-1000/95" style={{ backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }}>
+      <div className="fixed top-0 left-0 right-0 z-50 bg-slate-100/95 dark:bg-slate-1000/95" style={{ backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }}>
         <div className="flex items-center justify-center px-2 sm:px-4 md:px-6 py-3 sm:py-4 relative min-h-[3.5rem] sm:min-h-[4rem]">
           <div className="flex-1 flex items-center justify-center min-w-0 px-6 sm:px-8 md:px-12 lg:px-16">
             <Navbar />

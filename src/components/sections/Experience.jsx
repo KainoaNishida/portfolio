@@ -103,7 +103,7 @@ const Experience = () => {
                       height: '12px'
                     }}
                   >
-                    <div className="w-3 h-3 bg-orange-500 rounded-full border-2 border-white dark:border-slate-900"></div>
+                    <div className="w-3 h-3 bg-orange-500 rounded-full border-2 border-slate-100 dark:border-slate-900"></div>
                   </div>
 
                   {/* Content card */}
@@ -113,11 +113,11 @@ const Experience = () => {
                     variants={itemVariants}
                   >
                     <div className="w-full" style={{ marginLeft: '166px' }}>
-                    <div className="bg-white dark:bg-slate-800 rounded p-6 border border-slate-200 dark:border-slate-700">
+                    <div className="bg-slate-50 dark:bg-slate-800 rounded p-6 border border-slate-200 dark:border-slate-700">
                       <div className="flex flex-col mb-3">
                         <div className="flex items-start gap-4">
                           {experience.logo && (
-                            <div className="w-12 h-12 flex-shrink-0 overflow-hidden rounded flex items-center justify-center dark:bg-white p-1">
+                            <div className="w-12 h-12 flex-shrink-0 overflow-hidden rounded flex items-center justify-center bg-slate-50 dark:bg-white p-1">
                               <img 
                                 src={experience.logo} 
                                 alt={`${experience.company} logo`}

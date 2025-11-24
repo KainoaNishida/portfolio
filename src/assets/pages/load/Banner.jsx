@@ -78,7 +78,7 @@ export default function Banner({ onComplete }) {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: 'white',
+      backgroundColor: '#e8ebef',
       zIndex: 30,
       overflow: 'hidden'
     }}>
@@ -90,7 +90,7 @@ export default function Banner({ onComplete }) {
           position: 'absolute',
           width: '100%',
           textAlign: 'center',
-          backgroundColor: 'white',
+          backgroundColor: '#e8ebef',
           zIndex: 40,
           top: bannerPosition === 'center' ? '50%' : 0,
           transform: bannerPosition === 'center' ? 'translateY(-50%)' : 'none',
@@ -200,7 +200,7 @@ export default function Banner({ onComplete }) {
                 width: '100%',
                 height: '100px',
                 marginBottom: '200px', // Much larger spacing between items
-                backgroundColor: i % 2 === 0 ? '#ffffff' : '#f8f8f8', // Alternating background
+                backgroundColor: i % 2 === 0 ? '#e8ebef' : '#f0f2f5', // Alternating background
                 borderTop: '1px solid #ddd',
                 borderBottom: '1px solid #ddd'
               }}

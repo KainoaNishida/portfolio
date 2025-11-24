@@ -14,7 +14,7 @@ function AppContent() {
   
   return (
     <div className={`min-h-screen ${theme === 'dark' ? 'dark' : ''}`}>
-      <div className="min-h-screen bg-white dark:bg-slate-1000 transition-colors duration-300">
+      <div className="min-h-screen bg-slate-100 dark:bg-slate-1000 transition-colors duration-300">
         <main>
           <Intro />
         </main>

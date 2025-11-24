@@ -11,7 +11,7 @@ const Resume = () => {
   return (
     <div className="py-20 container-content">
       <h2 className="text-4xl font-bold mb-8 text-slate-900 dark:text-white text-center mb-12">Resume</h2>
-      <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8">
+      <div className="bg-slate-50 dark:bg-slate-800 rounded-lg shadow-lg p-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Preview Card */}
           <div className="w-full md:w-2/3 aspect-[8.5/11] bg-slate-100 dark:bg-slate-700 rounded-lg shadow-inner overflow-hidden">

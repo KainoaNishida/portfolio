@@ -17,15 +17,15 @@
   --color-accent: #06b6d4; /* Cyan accent */
   --color-accent-light: #22d3ee;
   
-  --color-text-primary: #0F172A; /* Slate 900 */
-  --color-text-secondary: #334155; /* Slate 700 */
-  --color-text-tertiary: #64748B; /* Slate 500 */
-  --color-text-muted: #94A3B8; /* Slate 400 */
+  --color-text-primary: #020617; /* Slate 950 - darker than 900 */
+  --color-text-secondary: #1E293B; /* Slate 800 - darker than 700 */
+  --color-text-tertiary: #475569; /* Slate 600 - darker than 500 */
+  --color-text-muted: #64748B; /* Slate 500 - darker than 400 */
   
-  --color-background-primary: #FFFFFF;
-  --color-background-secondary: #F8FAFC; /* Slate 50 */
-  --color-background-tertiary: #F1F5F9; /* Slate 100 */
-  --color-background-elevated: #FFFFFF;
+  --color-background-primary: #F0F2F5; /* Off-white, softer than pure white */
+  --color-background-secondary: #E8EBEF; /* Slightly darker for better contrast */
+  --color-background-tertiary: #E0E4E8; /* Even darker variant */
+  --color-background-elevated: #F0F2F5; /* Off-white for cards */
   
   --color-border: #E2E8F0; /* Slate 200 */
   --color-border-light: #F1F5F9; /* Slate 100 */
@@ -78,7 +78,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
-  font-size: 16px;
+  font-size: 17px;
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary) var(--color-background-secondary);
 }

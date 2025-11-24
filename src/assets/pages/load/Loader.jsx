@@ -40,7 +40,7 @@ export default function Loader({ onComplete }) {
       initial={{ opacity: 1 }}
       animate={{ opacity: isFading ? 0 : 1 }}
       transition={{ duration: 0.4 }}
-      className="fixed inset-0 flex items-center justify-center bg-slate-50 dark:bg-slate-1000 z-50"
+      className="fixed inset-0 flex items-center justify-center bg-slate-100 dark:bg-slate-1000 z-50"
     >
       <div className="text-center">
         <div className="relative">
